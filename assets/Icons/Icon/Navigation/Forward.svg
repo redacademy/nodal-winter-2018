@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon/Navigation/Forward</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon/Navigation/Forward" fill="#F79975" fill-rule="nonzero" stroke="#F79975">
+            <path d="M23.0477159,0.00421149373 C22.8600583,0.0235479081 22.6847445,0.102693381 22.5501679,0.228829708 L10.2598584,11.4098253 C10.0939112,11.5605658 10,11.7695153 10,11.9880025 C10,12.2064897 10.0939112,12.4154393 10.2598584,12.5661798 L22.5501679,23.7471754 C22.7628392,23.9636436 23.0838418,24.0499962 23.3838836,23.9714524 C23.6839254,23.8929087 23.9136097,23.6623995 23.9804253,23.3727683 C24.0472409,23.0831371 23.9401878,22.7820667 23.7023844,22.5908208 L12.0492856,11.9921688 L23.7023844,1.38519755 C23.9672102,1.15182745 24.0456642,0.783146212 23.8971596,0.469884115 C23.7486549,0.156622017 23.4065055,-0.0309473451 23.0477159,0.00421149373 Z" id="Shape" transform="translate(17.000000, 12.000000) scale(-1, 1) translate(-17.000000, -12.000000) "></path>
+        </g>
+    </g>
+</svg>

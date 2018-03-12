@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="55px" height="55px" viewBox="0 0 55 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Element/Check Mark</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Element/Check-Mark">
+            <circle id="Oval" stroke="#000000" stroke-width="2" cx="27.5" cy="27.5" r="27.5"></circle>
+            <path d="M21.8555826,39.3913947 L21.89232,39.3546573 L43.3802699,17.8667074 L43.5868466,17.6601307 L44,18.0732841 L43.7934233,18.2798608 L22.3054734,39.7678107 L22.0988967,39.9743874 L22.0547779,39.9302687 L21.7138048,40.2712418 L21.4583986,40.0158355 L10.2554062,28.8128432 L10,28.557437 L10.5108125,28.0466245 L10.7662187,28.3020307 L21.8555826,39.3913947 Z" id="Combined-Shape" stroke="#4ABB8B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+    </g>
+</svg>

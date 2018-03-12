@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon/Competitions/Business</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="9" y="3" width="12" height="10" rx="3"></rect>
+        <rect id="path-2" x="0" y="7" width="30" height="20" rx="5"></rect>
+        <path d="M4.5,15.5 L8,15.5 C9.38071187,15.5 10.5,16.6192881 10.5,18 C10.5,19.3807119 9.38071187,20.5 8,20.5 L4.5,20.5 L4.5,15.5 Z" id="path-3"></path>
+        <path d="M19.5,15.5 L23,15.5 C24.3807119,15.5 25.5,16.6192881 25.5,18 C25.5,19.3807119 24.3807119,20.5 23,20.5 L19.5,20.5 L19.5,15.5 Z" id="path-4"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon/Competitions/Business">
+            <g id="Rectangle-4">
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <rect stroke="#000000" stroke-width="1.5" x="9.75" y="3.75" width="10.5" height="8.5" rx="3"></rect>
+            </g>
+            <g id="Rectangle-3">
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-2"></use>
+                <rect stroke="#000000" stroke-width="1.5" x="0.75" y="7.75" width="28.5" height="18.5" rx="5"></rect>
+            </g>
+            <path d="M1,18 L29,18" id="Line-2" stroke="#000000" stroke-width="1.5" stroke-linecap="square"></path>
+            <g id="Combined-Shape" transform="translate(7.500000, 18.000000) rotate(-270.000000) translate(-7.500000, -18.000000) ">
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-3"></use>
+                <path stroke="#000000" stroke-width="1" d="M5,16 L5,20 L8,20 C9.1045695,20 10,19.1045695 10,18 C10,16.8954305 9.1045695,16 8,16 L5,16 Z"></path>
+            </g>
+            <g id="Combined-Shape" transform="translate(22.500000, 18.000000) rotate(-270.000000) translate(-22.500000, -18.000000) ">
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-4"></use>
+                <path stroke="#000000" stroke-width="1" d="M20,16 L20,20 L23,20 C24.1045695,20 25,19.1045695 25,18 C25,16.8954305 24.1045695,16 23,16 L20,16 Z"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon/Navigation/Active</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon/Navigation/Active" fill="#000000" fill-rule="nonzero" stroke="#000000">
+            <path d="M12.5501679,0.228829708 L0.259858429,11.4098253 C0.0939111682,11.5605658 0,11.7695153 0,11.9880025 C0,12.2064897 0.0939111682,12.4154393 0.259858429,12.5661798 L12.5501679,23.7471754 C12.7628392,23.9636436 13.0838418,24.0499962 13.3838836,23.9714524 C13.6839254,23.8929087 13.9136097,23.6623995 13.9804253,23.3727683 C14.0472409,23.0831371 13.9401878,22.7820667 13.7023844,22.5908208 L2.04928559,11.9921688 L13.7023844,1.38519755 C13.9672102,1.15182745 14.0456642,0.783146212 13.8971596,0.469884115 C13.7486549,0.156622017 13.4065055,-0.0309473451 13.0477159,0.00421149373 C12.8600583,0.0235479081 12.6847445,0.102693381 12.5501679,0.228829708 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>

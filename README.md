@@ -2,17 +2,9 @@
 
 React Native App etc.
 
-## Examples of App running on IOS.
-
-<img alt="text" src="" width="376">
-
-## Examples of App running on Android
-
-![alt text]()
-
 ## Setup
 
-Make sure you have xcode, Android SDK, and npm or yarn.
+To view, make sure you are using Xcode, Android SDK, and npm or yarn.
 
 **Download repo then,**
 
@@ -25,7 +17,7 @@ In root run:
 or
 
 ```
-  yarn install
+  yarn
 ```
 
 Then for demonstration with iOS run:
@@ -61,8 +53,20 @@ In Android Studio, start device simulation first in AVD manager, then:
   Redux
   Expo/ex-navigation and stacknavigation
   Tab navigation(iOS)
-  Drawer navigation(android)
+  Drawer navigation(Android)
   Realm database
 ```
 
+## Authors
+
+** Development Team: **
+
+Ian Hitchcock
+Qingxin Yuan
+Nathan Moseley
+
 ## References
+
+Starter for this project provided by Red Academy.
+
+All designs supplied by Shirley Zhou, Jenifer Wong, Lochlan Graham.
