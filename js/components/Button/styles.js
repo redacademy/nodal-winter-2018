@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
-
+import { StyleSheet } from "react-native";
+import { colors, typography } from "../../config/styles";
 export const styles = StyleSheet.create({
   background: {
     width: 275,
@@ -7,10 +7,12 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 25,
-    marginVertical: 10,
+    marginVertical: 10
   },
   text: {
-    color: "white",
-    fontSize: 20
+    color: colors.white,
+    fontSize: 22,
+    fontFamily: typography.fontBold,
+    letterSpacing: 1
   }
 });

@@ -21,5 +21,5 @@ export default Button;
 Button.propTypes = {
   color: PropTypes.string,
   text: PropTypes.string,
-  func: PropTypes.func,
+  func: PropTypes.func
 };

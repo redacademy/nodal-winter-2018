@@ -2,6 +2,7 @@ export const colors = {
   black: "#000000",
   white: "#ffffff",
   grey: "#999999",
+  darkGrey: "#333333",
   coralOrange: "#F79975",
   dandelionYellow: "#FDE966",
   cornflowerBlue: "#6067EC",
@@ -11,16 +12,16 @@ export const colors = {
 };
 
 export const typography = {
-  fontMainLight: "mission-gothic-light",
-  fontMain: "mission-gothic-regular",
-  fontBold: "mission-gothic-bold",
-  fontBlack: "mission-gothic-black",
-  fontThin: "mission-gothic-thin",
-  fontMainLightItalic: "mission-gothic-light-italic",
-  fontMainItalic: "mission-gothic-regular-italic",
-  fontBoldItalic: "mission-gothic-bold-italic",
-  fontBlackItalic: "mission-gothic-black-italic",
-  fontThinitalic: "mission-gothic-thin-italic"
+  fontMainLight: "MissionGothic-Light",
+  fontMain: "MissionGothic-Regular",
+  fontBold: "MissionGothic-Bold",
+  fontBlack: "MissionGothic-Black",
+  fontThin: "MissionGothic-Thin",
+  fontMainLightItalic: "MissionGothic-LightItalic",
+  fontMainItalic: "MissionGothic-RegularItalic",
+  fontBoldItalic: "MissionGothic-BoldItalic",
+  fontBlackItalic: "MissionGothic-BlackItalic",
+  fontThinitalic: "MissionGothic-ThinItalic"
 };
 
 export const containerMargin = {
