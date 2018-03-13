@@ -39,9 +39,8 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>NSAppTransportSecurity</key>
-	<!--See http://ste.vn/2015/06/10/configuring-app-transport-security-ios-9-osx-10-11/ -->
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
@@ -52,5 +51,18 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>mission-gothic-black-italic.otf</string>
+		<string>mission-gothic-black.otf</string>
+		<string>mission-gothic-bold-italic.otf</string>
+		<string>mission-gothic-bold.otf</string>
+		<string>mission-gothic-light-italic.otf</string>
+		<string>mission-gothic-light.otf</string>
+		<string>mission-gothic-regular-italic.otf</string>
+		<string>mission-gothic-regular.otf</string>
+		<string>mission-gothic-thin-italic.otf</string>
+		<string>mission-gothic-thin.otf</string>
+	</array>
 </dict>
 </plist>

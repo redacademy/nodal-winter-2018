@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -37,6 +36,16 @@
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		F45A8B9065284E8887D21139 /* mission-gothic-black-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 49F3C03152804746ADBC2B33 /* mission-gothic-black-italic.otf */; };
+		E92CF174CE624FDA84E211D6 /* mission-gothic-black.otf in Resources */ = {isa = PBXBuildFile; fileRef = D735FDB1AF654D3F85771993 /* mission-gothic-black.otf */; };
+		14DFBD895D6E486EBB4ED58A /* mission-gothic-bold-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 12815901F5324AABBA9F6A93 /* mission-gothic-bold-italic.otf */; };
+		3AB3EAA9073544F4905DC804 /* mission-gothic-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F7B86E013BEF4C239884EB28 /* mission-gothic-bold.otf */; };
+		546C820AF7174E2D8FDA83EF /* mission-gothic-light-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 234DE476D56043F091A6439E /* mission-gothic-light-italic.otf */; };
+		9399E1EEF6414CA5BA4F62C9 /* mission-gothic-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A712C884A3C45FF9A65CE5F /* mission-gothic-light.otf */; };
+		633A9DD821AD4E9DA6B17DDA /* mission-gothic-regular-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = A768C66126FE4B0DBA2ABBFF /* mission-gothic-regular-italic.otf */; };
+		CE89A45B0C754133BA3084F6 /* mission-gothic-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FBF1F92A5CAF4914BACF3788 /* mission-gothic-regular.otf */; };
+		43E560AB7C6040D080D50E79 /* mission-gothic-thin-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 52A529202B8342E29715A6EB /* mission-gothic-thin-italic.otf */; };
+		1325D6402B284938BECD87B7 /* mission-gothic-thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA960EBE1FAF47098064B332 /* mission-gothic-thin.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -286,6 +295,16 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
+		49F3C03152804746ADBC2B33 /* mission-gothic-black-italic.otf */ = {isa = PBXFileReference; name = "mission-gothic-black-italic.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-black-italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D735FDB1AF654D3F85771993 /* mission-gothic-black.otf */ = {isa = PBXFileReference; name = "mission-gothic-black.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-black.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		12815901F5324AABBA9F6A93 /* mission-gothic-bold-italic.otf */ = {isa = PBXFileReference; name = "mission-gothic-bold-italic.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-bold-italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F7B86E013BEF4C239884EB28 /* mission-gothic-bold.otf */ = {isa = PBXFileReference; name = "mission-gothic-bold.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		234DE476D56043F091A6439E /* mission-gothic-light-italic.otf */ = {isa = PBXFileReference; name = "mission-gothic-light-italic.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-light-italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4A712C884A3C45FF9A65CE5F /* mission-gothic-light.otf */ = {isa = PBXFileReference; name = "mission-gothic-light.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A768C66126FE4B0DBA2ABBFF /* mission-gothic-regular-italic.otf */ = {isa = PBXFileReference; name = "mission-gothic-regular-italic.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-regular-italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FBF1F92A5CAF4914BACF3788 /* mission-gothic-regular.otf */ = {isa = PBXFileReference; name = "mission-gothic-regular.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		52A529202B8342E29715A6EB /* mission-gothic-thin-italic.otf */ = {isa = PBXFileReference; name = "mission-gothic-thin-italic.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-thin-italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		EA960EBE1FAF47098064B332 /* mission-gothic-thin.otf */ = {isa = PBXFileReference; name = "mission-gothic-thin.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-thin.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -512,6 +531,7 @@
 				00E356EF1AD99517003FC87E /* nodalTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				8542EA4AD57A4D50AD85F46F /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -537,6 +557,24 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		8542EA4AD57A4D50AD85F46F /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				49F3C03152804746ADBC2B33 /* mission-gothic-black-italic.otf */,
+				D735FDB1AF654D3F85771993 /* mission-gothic-black.otf */,
+				12815901F5324AABBA9F6A93 /* mission-gothic-bold-italic.otf */,
+				F7B86E013BEF4C239884EB28 /* mission-gothic-bold.otf */,
+				234DE476D56043F091A6439E /* mission-gothic-light-italic.otf */,
+				4A712C884A3C45FF9A65CE5F /* mission-gothic-light.otf */,
+				A768C66126FE4B0DBA2ABBFF /* mission-gothic-regular-italic.otf */,
+				FBF1F92A5CAF4914BACF3788 /* mission-gothic-regular.otf */,
+				52A529202B8342E29715A6EB /* mission-gothic-thin-italic.otf */,
+				EA960EBE1FAF47098064B332 /* mission-gothic-thin.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -619,7 +657,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 610;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -928,6 +966,16 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				F45A8B9065284E8887D21139 /* mission-gothic-black-italic.otf in Resources */,
+				E92CF174CE624FDA84E211D6 /* mission-gothic-black.otf in Resources */,
+				14DFBD895D6E486EBB4ED58A /* mission-gothic-bold-italic.otf in Resources */,
+				3AB3EAA9073544F4905DC804 /* mission-gothic-bold.otf in Resources */,
+				546C820AF7174E2D8FDA83EF /* mission-gothic-light-italic.otf in Resources */,
+				9399E1EEF6414CA5BA4F62C9 /* mission-gothic-light.otf in Resources */,
+				633A9DD821AD4E9DA6B17DDA /* mission-gothic-regular-italic.otf in Resources */,
+				CE89A45B0C754133BA3084F6 /* mission-gothic-regular.otf in Resources */,
+				43E560AB7C6040D080D50E79 /* mission-gothic-thin-italic.otf in Resources */,
+				1325D6402B284938BECD87B7 /* mission-gothic-thin.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
