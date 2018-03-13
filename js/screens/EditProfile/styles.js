@@ -8,11 +8,18 @@ export const styles = StyleSheet.create({
     // alignItems: "center",
     // justifyContent: "center"
   },
-  profilePhoto: {
-    width: 200,
+  profilePhotoButton: {
+    marginTop: 30,
     height: 200,
+    width: 200,
     borderRadius: 100,
-    margin: 20
+    backgroundColor: colors.lightBlue,
+    marginRight: 12,
+    borderColor: colors.black,
+    borderWidth: 1,
+    alignSelf: "center",
+    alignItems: "center",
+    justifyContent: "center"
   },
   profileIcon: {
     height: 100,
@@ -40,14 +47,9 @@ export const styles = StyleSheet.create({
   },
   titleText: {
     fontSize: 18,
-    marginBottom: 10,
-    marginTop: 20,
-    fontFamily: typography.fontMain,
-    alignSelf: "center"
-  },
-  paragraphText: {
-    fontSize: 16,
-    fontFamily: typography.fontLight
+    marginRight: 20,
+    fontFamily: typography.fontMain
+    // alignSelf: "flex-start"
   },
   heading: {
     margin: 15

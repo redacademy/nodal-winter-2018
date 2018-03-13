@@ -23,5 +23,6 @@ const firebaseApp = firebase.initializeApp(config);
 const firebaseAuth = firebase.auth();
 // Initialize Cloud Firestore through Firebase
 const firebaseDB = firebase.firestore();
+const firebaseRef = firebase.storage().ref();
 
-export { firebaseApp, firebaseAuth, firebaseDB };
+export { firebaseApp, firebaseAuth, firebaseDB, firebaseRef };

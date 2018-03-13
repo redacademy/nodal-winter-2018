@@ -8,13 +8,14 @@ export const colors = {
   cornflowerBlue: "#6067EC",
   borealisGreen: "#4ABB8B",
   transluscentGrey: "rgba(0,0,0,0.4)",
-  transluscentWhite: "rgba(255,255,255,0.8)"
+  transluscentWhite: "rgba(255,255,255,0.8)",
+  lightBlue: "#AFAAF9"
 };
 
 export const typography = {
   fontMainLight: "MissionGothic-Light",
-  fontMain: "MissionGothic-Regular",
-  fontBold: "MissionGothic-Bold",
+  // fontMain: "MissionGothic-Regular",
+  // fontBold: "MissionGothic-Bold",
   fontBlack: "MissionGothic-Black",
   fontThin: "MissionGothic-Thin",
   fontMainLightItalic: "MissionGothic-LightItalic",

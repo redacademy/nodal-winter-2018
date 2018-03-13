@@ -2,24 +2,24 @@
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import Profile from "./Profile";
+import EditProfile from "./EditProfile";
 import { Image, View } from "react-native";
 import { styles } from "./styles";
 
-class ProfileContainer extends Component {
+class EditProfileContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       user: ""
     };
   }
-  // static route = {
-  //   navigationBar: {
-  //     title: "Profile",
-  //     tintColor: "white",
-  //     titleStyle: { fontFamily: "mission-gothic-bold" }
-  //   }
-  // };
+  static route = {
+    navigationBar: {
+      title: "Profile",
+      tintColor: "white",
+      titleStyle: { fontFamily: "mission-gothic-bold" }
+    }
+  };
 
   render() {
     const { loading } = this.props;
@@ -30,13 +30,13 @@ class ProfileContainer extends Component {
         {/* Placeholder Image */}
       </View>
     ) : (
-      <Profile />
+      <EditProfile user={this.state.user} />
     );
   }
 }
 
-ProfileContainer.propTypes = {
+EditProfileContainer.propTypes = {
   // loading: PropTypes.bool.isRequired
 };
 
-export default ProfileContainer;
+export default EditProfileContainer;

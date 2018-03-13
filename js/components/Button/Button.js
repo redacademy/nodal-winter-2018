@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 import PropTypes from "prop-types";
 
 import { styles } from "./styles";
@@ -7,7 +7,10 @@ import { styles } from "./styles";
 const Button = ({ color, text, func }) => {
   return (
     <TouchableOpacity
-      style={[styles.background, { backgroundColor: color }]}
+      style={[
+        styles.background,
+        { backgroundColor: color, alignSelf: "center" }
+      ]}
       onPress={func}
     >
       <Text style={styles.text}>{text}</Text>
@@ -18,7 +21,7 @@ const Button = ({ color, text, func }) => {
 export default Button;
 
 Button.propTypes = {
-  color: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  func: PropTypes.func.isRequired
+  color: PropTypes.string,
+  text: PropTypes.string,
+  func: PropTypes.func
 };
