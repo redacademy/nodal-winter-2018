@@ -17,8 +17,8 @@ class ProfileContainer extends Component {
   static route = {
     navigationBar: {
       title: "Profile",
-      tintColor: "white"
-      // titleStyle: { fontFamily: "Montserrat-Regular" },
+      tintColor: "white",
+      titleStyle: { fontFamily: "mission-gothic-bold" }
     }
   };
 
