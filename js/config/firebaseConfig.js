@@ -1,15 +1,22 @@
-import firebase from 'firebase';
+import firebase from "firebase";
 import "firebase/firestore";
-
+import {
+  API_KEY,
+  AUTH_DOMAIN,
+  DATABASE_URL,
+  PROJECT_ID,
+  STORAGE_BUCKET,
+  MESSAGING_SENDER_ID
+} from "react-native-dotenv";
 
 // Initialize Firebase
 const config = {
-  apiKey: "AIzaSyBiRnYQX_1upYOMLzkT4yBmpobc0RjSHJw",
-  authDomain: "nodal-e60d0.firebaseapp.com",
-  databaseURL: "https://nodal-e60d0.firebaseio.com",
-  projectId: "nodal-e60d0",
-  storageBucket: "nodal-e60d0.appspot.com",
-  messagingSenderId: "148407972647"
+  apiKey: API_KEY,
+  authDomain: AUTH_DOMAIN,
+  databaseURL: DATABASE_URL,
+  projectId: PROJECT_ID,
+  storageBucket: STORAGE_BUCKET,
+  messagingSenderId: MESSAGING_SENDER_ID
 };
 
 const firebaseApp = firebase.initializeApp(config);
@@ -17,6 +24,4 @@ const firebaseAuth = firebase.auth();
 // Initialize Cloud Firestore through Firebase
 const firebaseDB = firebase.firestore();
 
-
 export { firebaseApp, firebaseAuth, firebaseDB };
-
