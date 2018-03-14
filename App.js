@@ -11,22 +11,13 @@ import {
   signIn,
   signOut
 } from "./js/helpers/firebaseAuth";
-
+import CompetitionCategory from './js/screens/CompetitionCategory';
 export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button
-          color={"coral"}
-          text={"Sign Up"}
-          func={() => createUserInAuthAndDB("jon", "jon@nodal.com", "password")}
-        />
-        <Button
-          color={"coral"}
-          text={"Sign In"}
-          func={() => signIn("jon@nodal.com", "password")}
-        />
-        <Button color={"coral"} text={"Sign Out"} func={() => signOut()} />
+ 
+        <CompetitionCategory />
       </View>
     );
   }
@@ -37,6 +28,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F5FCFF"
+    // backgroundColor: "#F5FCFF"
   }
 });
