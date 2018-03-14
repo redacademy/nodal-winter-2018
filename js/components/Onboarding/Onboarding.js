@@ -7,6 +7,7 @@ import {
   ScrollView,
   Dimensions
 } from "react-native";
+import PropTypes from "prop-types";
 
 import styles from "./styles";
 import DotPagination from "../../components/DotPagination";
@@ -15,6 +16,10 @@ import thoughtImage from "../../assets/images/onboarding/thought-illustrations.p
 import circlesImage from "../../assets/images/onboarding/circle-illustrations.png";
 import chatImage from "../../assets/images/onboarding/chat-illustrations.png";
 export default class Onboarding extends Component {
+  static propTypes = {
+    navigateToSignIn: PropTypes.func.isRequired,
+    navigateToSignUp: PropTypes.func.isRequired
+  };
   constructor() {
     super();
     this.state = {
@@ -70,7 +75,10 @@ export default class Onboarding extends Component {
               <Text style={styles.text}>{this.texts[i]}</Text>
             </TouchableOpacity>
           ))}
-          <LandingComponent />
+          <LandingComponent
+            navigateToSignIn={this.props.navigateToSignIn}
+            navigateToSignUp={this.props.navigateToSignUp}
+          />
         </ScrollView>
         <View
           style={{

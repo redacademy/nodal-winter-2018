@@ -1,6 +1,10 @@
+import React from "react";
+import HeaderBarBack from "../components/HeaderBarBack";
+
 export const colors = {
   black: "#000000",
   white: "#ffffff",
+  lightGrey: "#eeeeee",
   grey: "#999999",
   darkGrey: "#333333",
   coralOrange: "#F79975",
@@ -31,3 +35,22 @@ export const containerMargin = {
   marginTop: 15,
   marginBottom: 15
 };
+
+export const headerBarStyle = navigation => ({
+  headerTitleStyle: {
+    fontSize: 26,
+    fontFamily: typography.fontBold,
+    letterSpacing: 1,
+    paddingBottom: 2
+  },
+  headerStyle: {
+    backgroundColor: colors.white,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.lightGrey,
+    height: 60,
+    paddingLeft: 25,
+    paddingRight: 25
+  },
+  headerBackImage: null,
+  headerLeft: <HeaderBarBack navigation={navigation} />
+});

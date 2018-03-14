@@ -1,11 +1,12 @@
 import React from "react";
 import { View, Text, Image, TouchableHighlight } from "react-native";
+import PropTypes from "prop-types";
 
 import styles from "./styles";
 import { colors } from "../../config/styles";
 import Button from "../Button";
 import celebrateImage from "../../assets/images/onboarding/celebration-girl.png";
-const LandingComponent = () => (
+const LandingComponent = ({ navigateToSignIn, navigateToSignUp }) => (
   <View style={styles.landingContainer}>
     <Image style={styles.image} source={celebrateImage} />
     <Text style={styles.heading}>GET READY TO COMPETE!</Text>
@@ -14,14 +15,14 @@ const LandingComponent = () => (
         color={colors.coralOrange}
         text="SIGN UP"
         func={() => {
-          //todo
+          navigateToSignUp();
         }}
       />
       <TouchableHighlight
         underlayColor={colors.borealisGreen}
         style={styles.landingSignInWrapper}
         onPress={() => {
-          //todo
+          navigateToSignIn();
         }}
       >
         <View style={styles.landingSignInBorder}>
@@ -31,5 +32,8 @@ const LandingComponent = () => (
     </View>
   </View>
 );
-
+LandingComponent.propTypes = {
+  navigateToSignIn: PropTypes.func.isRequired,
+  navigateToSignUp: PropTypes.func.isRequired
+};
 export default LandingComponent;
