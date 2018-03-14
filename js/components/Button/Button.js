@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 
 import { styles } from "./styles";
 
-// TODO: Add config styles once it's pushed up.
 const Button = ({ color, text, func }) => {
   return (
     <TouchableOpacity
@@ -19,7 +18,7 @@ const Button = ({ color, text, func }) => {
 export default Button;
 
 Button.propTypes = {
-  color: PropTypes.string,
-  text: PropTypes.string,
-  func: PropTypes.func
+  color: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  func: PropTypes.func.isRequired
 };

@@ -1,3 +1,3 @@
-import LandingScreen from "./LandingScreen";
+import LandingContainer from "./LandingContainer";
 
-export default LandingScreen;
+export default LandingContainer;
