@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
+import PropTypes from "prop-types";
 
 import { firebaseDB } from "../../config/firebaseConfig";
 import CompetitionList from "./CompetitionList";
-import { competitionValidation } from "../../helpers/timestampHelper";
+import { competitionValidation } from "../../helpers/timestampHelpers";
 
 class CompetitionListContainer extends Component {
   constructor() {
@@ -45,3 +46,7 @@ class CompetitionListContainer extends Component {
 }
 
 export default CompetitionListContainer;
+
+CompetitionList.propTypes = {
+  list: PropTypes.array.isRequired,
+};

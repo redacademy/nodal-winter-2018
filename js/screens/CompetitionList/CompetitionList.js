@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Image, View, Text } from "react-native";
+import PropTypes from "prop-types";
 
-import {timestampConvertion} from '../../helpers/timestampHelper';
+import {timestampConvertion} from '../../helpers/timestampHelpers';
 
 import { styles } from "./styles";
 
@@ -29,3 +30,11 @@ const CompetitionList = ({ list }) => {
 };
 
 export default CompetitionList;
+
+CompetitionList.propTypes = {
+  list: PropTypes.array.isRequired,
+};
+
+CompetitionList.defaultProps = {
+  list: [],
+}
