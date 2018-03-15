@@ -1,3 +1,4 @@
+/* global require */
 import React, { Component } from "react";
 import { Image, View, ScrollView, Text, TouchableOpacity } from "react-native";
 
@@ -18,7 +19,11 @@ class CompetitionCategory extends Component {
         <View style={styles.imageTextWrapper}>
           <TouchableOpacity
             style={styles.imageText}
-            // onPress={// navigation helper func goes here}
+            onPress={() =>
+              this.props.navigation.navigate("CompetitionList", {
+                category: ""
+              })
+            }
           >
             <Image
               source={require("../../../js/assets/icons/competitions/all-large.png")}
@@ -27,7 +32,11 @@ class CompetitionCategory extends Component {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.imageText}
-            // onPress={// navigation helper func goes here}
+            onPress={() =>
+              this.props.navigation.navigate("CompetitionList", {
+                category: "arts"
+              })
+            }
           >
             <Image
               source={require("../../../js/assets/icons/competitions/art-large.png")}
@@ -36,7 +45,11 @@ class CompetitionCategory extends Component {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.imageText}
-            // onPress={// navigation helper func goes here}
+            onPress={() =>
+              this.props.navigation.navigate("CompetitionList", {
+                category: "business"
+              })
+            }
           >
             <Image
               source={require("../../../js/assets/icons/competitions/business-large.png")}
@@ -45,7 +58,11 @@ class CompetitionCategory extends Component {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.imageText}
-            // onPress={// navigation helper func goes here}
+            onPress={() =>
+              this.props.navigation.navigate("CompetitionList", {
+                category: "hackathon"
+              })
+            }
           >
             <Image
               source={require("../../../js/assets/icons/competitions/hackathon-large.png")}
@@ -54,7 +71,11 @@ class CompetitionCategory extends Component {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.imageText}
-            // onPress={// navigation helper func goes here}
+            onPress={() =>
+              this.props.navigation.navigate("CompetitionList", {
+                category: "math"
+              })
+            }
           >
             <Image
               source={require("../../../js/assets/icons/competitions/math-large.png")}
@@ -63,7 +84,11 @@ class CompetitionCategory extends Component {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.imageText}
-            // onPress={// navigation helper func goes here}
+            onPress={() =>
+              this.props.navigation.navigate("CompetitionList", {
+                category: "science"
+              })
+            }
           >
             <Image
               source={require("../../../js/assets/icons/competitions/science-large.png")}
@@ -72,7 +97,11 @@ class CompetitionCategory extends Component {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.imageText}
-            // onPress={// navigation helper func goes here}
+            onPress={() =>
+              this.props.navigation.navigate("CompetitionList", {
+                category: "spelling bee"
+              })
+            }
           >
             <Image
               source={require("../../../js/assets/icons/competitions/spelling-bee-large.png")}
@@ -81,7 +110,11 @@ class CompetitionCategory extends Component {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.imageText}
-            // onPress={// navigation helper func goes here}
+            onPress={() =>
+              this.props.navigation.navigate("CompetitionList", {
+                category: "sports"
+              })
+            }
           >
             <Image
               source={require("../../../js/assets/icons/competitions/sports-large.png")}
@@ -90,7 +123,11 @@ class CompetitionCategory extends Component {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.imageText}
-            // onPress={// navigation helper func goes here}
+            onPress={() =>
+              this.props.navigation.navigate("CompetitionList", {
+                category: "tech"
+              })
+            }
           >
             <Image
               source={require("../../../js/assets/icons/competitions/tech-large.png")}

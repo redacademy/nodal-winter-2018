@@ -39,16 +39,17 @@ export const headerBarStyle = navigation => ({
   headerTitleStyle: {
     fontSize: 26,
     fontFamily: typography.fontBold,
-    letterSpacing: 1,
-    paddingBottom: 2
+    letterSpacing: 0.5,
+    paddingBottom: 2,
+    width: "100%"
   },
   headerStyle: {
     backgroundColor: colors.white,
     borderBottomWidth: 1,
     borderBottomColor: colors.lightGrey,
     height: 60,
-    paddingLeft: 25,
-    paddingRight: 25
+    paddingLeft: 20,
+    paddingRight: 0
   },
   headerBackImage: null,
   headerLeft: <HeaderBarBack navigation={navigation} />

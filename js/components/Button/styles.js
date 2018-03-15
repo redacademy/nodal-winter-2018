@@ -7,7 +7,8 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 25,
-    marginVertical: 10
+    marginVertical: 10,
+    alignSelf: 'center',
   },
   text: {
     color: colors.white,

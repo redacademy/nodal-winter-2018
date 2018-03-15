@@ -37,16 +37,16 @@ export const styles = StyleSheet.create({
   },
   text: {
     fontFamily: typography.fontMainLight,
-    fontSize: 14,
+    fontSize: 14
   },
-  time:{
-    position: 'absolute',
+  time: {
+    position: "absolute",
     bottom: 0,
     right: 0,
     fontFamily: typography.fontMainLight,
-    fontSize: 12,
+    fontSize: 12
   },
-  left:{
-    flexDirection: 'row',
+  left: {
+    flexDirection: "row"
   }
 });
