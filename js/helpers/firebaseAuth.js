@@ -4,26 +4,28 @@ export const createUserInAuthAndDB = (fullname, email, password) => {
   console.log("creating account...");
   return firebaseAuth
     .createUserWithEmailAndPassword(email, password)
-    .then(authUser =>
-      firebaseDB.collection("users").add({
-        fullname,
-        email,
-        password
-      })
-    )
-    .catch(err =>
-      console.log("something went wrong with creating account: ", err.message)
-    );
+    .then(authUser => {
+      firebaseDB
+        .collection("users")
+        .doc(authUser.uid)
+        .set({
+          fullname,
+          email
+        });
+      return authUser.uid;
+    })
+    .catch(err => {
+      throw new Error(err);
+    });
 };
 
-export const signIn = (email, password) => {
+export const signIn = (email, password) =>
   firebaseAuth
     .signInWithEmailAndPassword(email, password)
-    .then(currUser => console.log(currUser.uid))
-    .catch(err =>
-      console.log("something went wrong with signIn: ", err.message)
-    );
-};
+    .then(currUser => currUser.uid)
+    .catch(err => {
+      throw new Error(err);
+    });
 
 export const signOut = () =>
   firebaseAuth
