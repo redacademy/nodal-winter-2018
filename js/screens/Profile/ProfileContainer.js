@@ -1,7 +1,4 @@
-/* global require */ // This is to avoid a linting error with 'require'
-
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import Profile from "./Profile";
 import { Image, View } from "react-native";
 import { styles } from "./styles";
