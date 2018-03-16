@@ -8,20 +8,21 @@ export const colors = {
   cornflowerBlue: "#6067EC",
   borealisGreen: "#4ABB8B",
   transluscentGrey: "rgba(0,0,0,0.4)",
+  borderGrey: "rgba(158, 158, 158, 1)",
   transluscentWhite: "rgba(255,255,255,0.8)"
 };
 
 export const typography = {
   fontMainLight: "MissionGothic-Light",
-  fontMain: "MissionGothic-Regular",
+  fontMain: "Mission Gothic",
   fontBold: "MissionGothic-Bold",
-  fontBlack: "MissionGothic-Black",
-  fontThin: "MissionGothic-Thin",
-  fontMainLightItalic: "MissionGothic-LightItalic",
-  fontMainItalic: "MissionGothic-RegularItalic",
-  fontBoldItalic: "MissionGothic-BoldItalic",
-  fontBlackItalic: "MissionGothic-BlackItalic",
-  fontThinitalic: "MissionGothic-ThinItalic"
+  fontBlack: "mission-gothic-black",
+  fontThin: "mission-gothic-thin",
+  fontMainLightItalic: "mission-gothic-light-italic",
+  fontMainItalic: "mission-gothic-regular-italic",
+  fontBoldItalic: "mission-gothic-bold-italic",
+  fontBlackItalic: "mission-gothic-black-italic",
+  fontThinitalic: "mission-gothic-thin-italic"
 };
 
 export const containerMargin = {

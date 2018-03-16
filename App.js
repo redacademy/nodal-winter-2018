@@ -4,25 +4,16 @@
  */
 
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View } from "react-native";
-import Button from "./js/components/Button";
-import Landing from "./js/screens/Landing";
+import { Text, View } from "react-native";
+import CompetitionList from "./js/screens/CompetitionList";
+import {
+  createUserInAuthAndDB,
+  signIn,
+  signOut
+} from "./js/helpers/firebaseAuth";
 
 export default class App extends Component {
   render() {
-    return (
-      <View style={styles.container}>
-        <Landing />
-      </View>
-    );
+    return <CompetitionList />;
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#FFFFFF"
-  }
-});

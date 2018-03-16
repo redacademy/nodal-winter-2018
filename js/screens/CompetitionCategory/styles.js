@@ -3,10 +3,10 @@ import {colors, typography} from '../../config/styles';
 
 export const styles = StyleSheet.create({
   text:{
-    fontFamily: fontMainLight,
+    fontFamily: typography.fontMainLight,
   },
   title:{
-    fontFamily: fontBold,
+    fontFamily: typography.fontBold,
     fontSize: 16,
   },
   imageText:{
