@@ -7,8 +7,8 @@ import CompetitionList from "./CompetitionList";
 import { competitionValidation } from "../../helpers/timestampHelpers";
 
 class CompetitionListContainer extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       list: []
     };
@@ -47,6 +47,3 @@ class CompetitionListContainer extends Component {
 
 export default CompetitionListContainer;
 
-CompetitionList.propTypes = {
-  list: PropTypes.array.isRequired,
-};
