@@ -1,4 +1,4 @@
-import { AppRegistry } from 'react-native';
-import App from './App';
+import { AppRegistry } from "react-native";
+import App from "./js/index";
 
-AppRegistry.registerComponent('nodal', () => App);
+AppRegistry.registerComponent("nodal", () => App);

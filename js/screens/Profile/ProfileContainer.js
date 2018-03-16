@@ -13,30 +13,10 @@ class ProfileContainer extends Component {
       user: ""
     };
   }
-  static route = {
-    navigationBar: {
-      title: "Profile",
-      tintColor: "white",
-      titleStyle: { fontFamily: "mission-gothic-bold" }
-    }
-  };
 
   render() {
-    const { loading } = this.props;
-
-    return loading ? (
-      <View style={styles.loadinggif}>
-        {/* <Image source={require("../../assets/images/loading_blue.gif")} /> */}
-        {/* Placeholder Image */}
-      </View>
-    ) : (
-      <Profile user={this.state.user} />
-    );
+    return <Profile user={this.state.user} />;
   }
 }
-
-ProfileContainer.propTypes = {
-  loading: PropTypes.bool.isRequired
-};
 
 export default ProfileContainer;

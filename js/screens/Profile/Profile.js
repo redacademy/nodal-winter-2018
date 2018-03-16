@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Text, View, Image, ScrollView, TouchableOpacity } from "react-native";
 
@@ -8,38 +7,12 @@ import { typography, containerMargin } from "../../config/styles";
 import { styles } from "./styles";
 
 // This component is boilerplate
-const Profile = {
-  render() {
-    const { user } = this.props;
-    return (
-      <ScrollView style={styles.mainContainer}>
-        <Image
-          style={{ width: 250, height: 250, borderRadius: 125 }}
-          source={{
-            uri: "../../assets/images/placeholder/profile-4.jpg"
-          }}
-        />
-        <Text>Placeholder Name</Text>
-        <Text>Placeholder University Program</Text>
-        <Text style={typography.fontBold}>Workstyle</Text>
-        <View>
-          <Text>SKillsSKIllzSKIlls</Text>
-        </View>
-        <Text style={typography.fontBold}>About Me</Text>
-        <Text>description</Text>
-        <Text style={typography.fontBold}>My Skills</Text>
-        <View>SKillsSKIllzSKIlls</View>
-        <Text style={typography.fontBold}>My Competitions</Text>
-        <View>
-          <Text>competecompetecompete</Text>
-        </View>
-        <Text style={typography.fontBold}>Saved Competitions</Text>
-        <View>
-          <Text>StuffSTuffstuff</Text>
-        </View>
-      </ScrollView>
-    );
-  }
-};
+const Profile = () => (
+  <ScrollView style={styles.mainContainer}>
+    <View>
+      <Text>StuffSTuffstuff</Text>
+    </View>
+  </ScrollView>
+);
 
 export default Profile;
