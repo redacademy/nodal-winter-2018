@@ -24,9 +24,12 @@ export const typography = {
   fontThinitalic: "MissionGothic-ThinItalic"
 };
 
-export const containerMargin = {
-  marginLeft: 20,
-  marginRight: 20,
-  marginTop: 15,
-  marginBottom: 15
+export const chipStyles = {
+  chipYSpacing: 15,
+  chipXSpacing: 5,
+  chipButtonWidth: chipYSpacing + chipXSpacing * 2,
+  chipBorderRadius: 15,
+  chipBackground: "#555",
+  chipColor: "#fff",
+  chipMinHeight: 36
 };
