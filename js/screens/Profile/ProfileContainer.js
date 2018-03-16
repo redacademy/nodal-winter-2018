@@ -6,6 +6,7 @@ import { styles } from "./styles";
 class ProfileContainer extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       user: ""
     };
@@ -15,5 +16,9 @@ class ProfileContainer extends Component {
     return <Profile user={this.state.user} />;
   }
 }
+
+ProfileContainer.PropTypes = {
+  user: PropTypes.string.isRequired
+};
 
 export default ProfileContainer;

@@ -39,6 +39,7 @@ const Profile = () => {
         <Text style={styles.titleText}>
           {"Saved Competitions".toUpperCase()}
         </Text>
+
         <Text style={styles.paragraphText}>StuffSTuffstuff</Text>
       </View>
     </ScrollView>
