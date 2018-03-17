@@ -14,6 +14,6 @@ export default SwitchNavigator(
     }
   },
   {
-    initialRouteName: "SignedIn"
+    initialRouteName: "SignedOut"
   }
 );
