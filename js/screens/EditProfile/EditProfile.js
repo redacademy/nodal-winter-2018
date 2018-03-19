@@ -121,7 +121,7 @@ const EditProfile = ({ func }) => (
   </ScrollView>
 );
 EditProfile.propTypes = {
-  func: PropTypes.string.isRequired
+  func: PropTypes.func.isRequired
 };
 
 export default EditProfile;
