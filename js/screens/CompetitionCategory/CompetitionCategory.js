@@ -1,6 +1,7 @@
 /* global require */
 import React, { Component } from "react";
 import { Image, View, ScrollView, Text, TouchableOpacity } from "react-native";
+import PropTypes from "prop-types";
 
 import { styles } from "./styles";
 import { headerBarStyle } from "../../config/styles";
@@ -141,3 +142,7 @@ class CompetitionCategory extends Component {
 }
 
 export default CompetitionCategory;
+
+CompetitionCategory.propTypes = {
+  navigation: PropTypes.object.isRequired
+};

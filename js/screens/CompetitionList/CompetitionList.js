@@ -42,7 +42,8 @@ const CompetitionList = ({ list, navigation }) => {
 export default CompetitionList;
 
 CompetitionList.propTypes = {
-  list: PropTypes.array.isRequired
+  list: PropTypes.array.isRequired,
+  navigation: PropTypes.object.isRequired
 };
 
 CompetitionList.defaultProps = {

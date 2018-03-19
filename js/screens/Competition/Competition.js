@@ -2,6 +2,7 @@
 import React from "react";
 import { Image, ScrollView, View, Text } from "react-native";
 import PropTypes from "prop-types";
+import ReadMore from "react-native-read-more-text";
 
 import Button from "../../components/Button";
 import { formatCompetitionTime } from "../../helpers/timestampHelpers";
@@ -30,7 +31,6 @@ const Competition = ({ data }) => {
         />
         <Text style={styles.competitionDesText}>
           {formatCompetitionTime(data.startTime, data.endTime)}
-          {/* {new Date().getTimezoneOffset()} */}
         </Text>
       </View>
       <View style={styles.iconTextWrapper}>
@@ -67,7 +67,29 @@ const Competition = ({ data }) => {
         />
         <Text style={styles.competitionDesText}>{entryFee(data.entry)}</Text>
       </View>
-      <Text style={styles.blurb}>{data.blurb}</Text>
+      <View style={styles.blurbWrapper}>
+        <ReadMore
+          numberOfLines={5}
+          renderTruncatedFooter={handlePress => (
+            <Text
+              onPress={handlePress}
+              style={styles.readMore}
+            >
+              Read More
+            </Text>
+          )}
+          renderRevealedFooter={handlePress => (
+            <Text
+              style={styles.readMore}
+              onPress={handlePress}
+            >
+              Show Less
+            </Text>
+          )}
+        >
+          <Text style={styles.blurb}>{data.blurb}</Text>
+        </ReadMore>
+      </View>
       <Text style={styles.secondaryTitle}>PAST COMPETITIONS</Text>
       <ScrollView horizontal={true} style={styles.imageGallery}>
         {data.images.map((image, i) => (

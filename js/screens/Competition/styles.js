@@ -31,10 +31,12 @@ export const styles = StyleSheet.create({
   competitionDesText: {
     fontFamily: typography.fontMainLight,
   },
+  blurbWrapper:{
+    marginHorizontal: 20,
+    marginVertical: 10
+  },
   blurb:{
     fontFamily: typography.fontMainLight,
-    marginHorizontal: 20,
-    marginVertical: 10,
   },
   secondaryTitle:{
     fontFamily: typography.fontBold,
@@ -52,5 +54,8 @@ export const styles = StyleSheet.create({
   },
   all:{
     marginVertical: 10
+  },
+  readMore:{
+    color: colors.cornflowerBlue
   }
 })
