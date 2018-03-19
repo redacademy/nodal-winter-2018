@@ -34,8 +34,7 @@ export default class SignUpWorkStyleContainer extends Component {
   async submit() {
     this.setState({ loading: true });
     try {
-      const uid = await AsyncStorage.getItem("user");
-      await updateWorkStyle(uid, this.state.workStyle);
+      await updateWorkStyle(this.state.workStyle);
     } catch (e) {
       this.setState({
         firebaseErr: {

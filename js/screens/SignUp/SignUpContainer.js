@@ -101,14 +101,11 @@ export default class SignUpContainer extends Component {
   async submit() {
     this.setState({ loading: true });
     try {
-      const uid = await createUserInAuthAndDB(
+      await createUserInAuthAndDB(
         this.state.fullname,
         this.state.email.toLowerCase(),
         this.state.password
       );
-      await AsyncStorage.setItem("user", uid);
-      await AsyncStorage.setItem("email", this.state.email.toLowerCase());
-      await AsyncStorage.setItem("password", this.state.password);
     } catch (e) {
       this.setState({
         firebaseErr: {

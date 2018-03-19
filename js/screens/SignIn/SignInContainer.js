@@ -83,13 +83,7 @@ export default class SignInContainer extends Component {
   async submit() {
     this.setState({ loading: true });
     try {
-      const uid = await signIn(
-        this.state.email.toLowerCase(),
-        this.state.password
-      );
-      await AsyncStorage.setItem("user", uid);
-      await AsyncStorage.setItem("email", this.state.email.toLowerCase());
-      await AsyncStorage.setItem("password", this.state.password);
+      await signIn(this.state.email.toLowerCase(), this.state.password, true);
     } catch (e) {
       this.setState({
         firebaseErr: {

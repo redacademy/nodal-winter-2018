@@ -1,8 +1,8 @@
 import { firebaseAuth, firebaseDB } from "../config/firebaseConfig";
+import { AsyncStorage } from "react-native";
 
-export const createUserInAuthAndDB = (fullname, email, password) => {
-  console.log("creating account...");
-  return firebaseAuth
+export const createUserInAuthAndDB = async (fullname, email, password) => {
+  const uid = await firebaseAuth
     .createUserWithEmailAndPassword(email, password)
     .then(authUser => {
       firebaseDB
@@ -17,15 +17,24 @@ export const createUserInAuthAndDB = (fullname, email, password) => {
     .catch(err => {
       throw new Error(err);
     });
+  await AsyncStorage.setItem("user", uid);
+  await AsyncStorage.setItem("email", email.toLowerCase());
+  await AsyncStorage.setItem("password", password);
 };
 
-export const signIn = (email, password) =>
-  firebaseAuth
+export const signIn = async (email, password, writeToAsync = false) => {
+  const uid = await firebaseAuth
     .signInWithEmailAndPassword(email, password)
     .then(currUser => currUser.uid)
     .catch(err => {
       throw new Error(err);
     });
+  if (writeToAsync) {
+    await AsyncStorage.setItem("user", uid);
+    await AsyncStorage.setItem("email", email.toLowerCase());
+    await AsyncStorage.setItem("password", password);
+  }
+};
 
 export const signOut = () =>
   firebaseAuth
