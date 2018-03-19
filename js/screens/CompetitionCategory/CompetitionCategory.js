@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 
 import { styles } from "./styles";
 import { headerBarStyle } from "../../config/styles";
+import Slider from "../../components/Slider";
 
 class CompetitionCategory extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -16,6 +17,7 @@ class CompetitionCategory extends Component {
   render() {
     return (
       <ScrollView style={styles.main}>
+        <Slider sliderColor="red"/>
         <Text style={styles.text}>Browse competitions by category: </Text>
         <View style={styles.imageTextWrapper}>
           <TouchableOpacity
