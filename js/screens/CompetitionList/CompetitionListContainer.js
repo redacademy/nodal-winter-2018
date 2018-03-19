@@ -1,11 +1,16 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import PropTypes from "prop-types";
 
 import { firebaseDB } from "../../config/firebaseConfig";
 import CompetitionList from "./CompetitionList";
 import { competitionValidation } from "../../helpers/timestampHelpers";
+import { headerBarStyle } from "../../config/styles";
 
 class CompetitionListContainer extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: navigation.state.params.category.toUpperCase() || "COMPETITION",
+    ...headerBarStyle(navigation)
+  });
   constructor(props) {
     super(props);
     this.state = {
@@ -33,16 +38,24 @@ class CompetitionListContainer extends Component {
   }
 
   componentDidMount() {
-    // TODO: Change this param to dynamic, once navigation is set up
-    const param = "";
+    console.log(this.props.navigation.state.params);
+    const { params } = this.props.navigation.state;
 
-    this.asyncFetchCompList(param);
+    this.asyncFetchCompList(params.category);
   }
   render() {
     console.log(this.state.list);
-    return <CompetitionList list={this.state.list} />;
+    return (
+      <CompetitionList
+        list={this.state.list}
+        navigation={this.props.navigation}
+      />
+    );
   }
 }
 
 export default CompetitionListContainer;
 
+CompetitionListContainer.propTypes = {
+  navigation: PropTypes.object.isRequired
+};

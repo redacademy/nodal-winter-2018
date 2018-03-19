@@ -1,28 +1,38 @@
-import React, { Component } from "react";
-import { Image, View, Text } from "react-native";
+import React from "react";
+import { Image, View, Text, TouchableOpacity } from "react-native";
 import PropTypes from "prop-types";
 
-import {timestampConvertion} from '../../helpers/timestampHelpers';
+import { timestampConvertion } from "../../helpers/timestampHelpers";
 
 import { styles } from "./styles";
 
-const CompetitionList = ({ list }) => {
+const CompetitionList = ({ list, navigation }) => {
   return (
     <View style={styles.main}>
-      {list.map((el, i) => {
+      {list.map((competition, i) => {
         return (
-          <View key={i} style={styles.element}>
+          <TouchableOpacity
+            key={i}
+            style={styles.element}
+            onPress={() =>
+              navigation.navigate("Competition", {
+                data: competition
+              })
+            }
+          >
             <View style={styles.left}>
-            <Image source={{ uri: el.hero }} style={styles.image} />
-            <View style={styles.textWrapper}>
-              <Text style={styles.title}>{el.name.toUpperCase()}</Text>
-              <Text style={styles.text}>{el.host}</Text>
-            </View>
+              <Image source={{ uri: competition.hero }} style={styles.image} />
+              <View style={styles.textWrapper}>
+                <Text style={styles.title}>{competition.name.toUpperCase()}</Text>
+                <Text style={styles.text}>{competition.host}</Text>
+              </View>
             </View>
             <View>
-              <Text style={styles.time}>{timestampConvertion(el.registrationDeadline)}</Text>
+              <Text style={styles.time}>
+                {timestampConvertion(competition.registrationDeadline)}
+              </Text>
             </View>
-          </View>
+          </TouchableOpacity>
         );
       })}
     </View>
@@ -33,8 +43,5 @@ export default CompetitionList;
 
 CompetitionList.propTypes = {
   list: PropTypes.array.isRequired,
+  navigation: PropTypes.object.isRequired
 };
-
-CompetitionList.defaultProps = {
-  list: [],
-}
