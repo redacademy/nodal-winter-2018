@@ -10,7 +10,6 @@ class CompetitionListContainer extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: navigation.state.params.category.toUpperCase() || "COMPETITION",
     ...headerBarStyle(navigation)
-    // headerLeft: null
   });
   constructor(props) {
     super(props);
@@ -39,8 +38,6 @@ class CompetitionListContainer extends Component {
   }
 
   componentDidMount() {
-    // TODO: Change this param to dynamic, once navigation is set up
-    // const param = "";
     console.log(this.props.navigation.state.params);
     const { params } = this.props.navigation.state;
 

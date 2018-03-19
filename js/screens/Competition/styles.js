@@ -56,6 +56,7 @@ export const styles = StyleSheet.create({
     marginVertical: 10
   },
   readMore:{
-    color: colors.cornflowerBlue
+    fontFamily: typography.fontMainLight,
+    color: colors.borealisGreen
   }
 })

@@ -9,27 +9,27 @@ import { styles } from "./styles";
 const CompetitionList = ({ list, navigation }) => {
   return (
     <View style={styles.main}>
-      {list.map((comp, i) => {
+      {list.map((competition, i) => {
         return (
           <TouchableOpacity
             key={i}
             style={styles.element}
             onPress={() =>
               navigation.navigate("Competition", {
-                data: comp
+                data: competition
               })
             }
           >
             <View style={styles.left}>
-              <Image source={{ uri: comp.hero }} style={styles.image} />
+              <Image source={{ uri: competition.hero }} style={styles.image} />
               <View style={styles.textWrapper}>
-                <Text style={styles.title}>{comp.name.toUpperCase()}</Text>
-                <Text style={styles.text}>{comp.host}</Text>
+                <Text style={styles.title}>{competition.name.toUpperCase()}</Text>
+                <Text style={styles.text}>{competition.host}</Text>
               </View>
             </View>
             <View>
               <Text style={styles.time}>
-                {timestampConvertion(comp.registrationDeadline)}
+                {timestampConvertion(competition.registrationDeadline)}
               </Text>
             </View>
           </TouchableOpacity>
@@ -44,8 +44,4 @@ export default CompetitionList;
 CompetitionList.propTypes = {
   list: PropTypes.array.isRequired,
   navigation: PropTypes.object.isRequired
-};
-
-CompetitionList.defaultProps = {
-  list: []
 };
