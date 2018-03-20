@@ -1,12 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  ScrollView
-} from "react-native";
+import { View, Text, TextInput, TouchableOpacity } from "react-native";
 
 import { styles } from "./styles";
 
@@ -50,6 +44,7 @@ Chips.propTypes = {
   chips: PropTypes.array.isRequired,
   placeholder: PropTypes.string.isRequired,
   setText: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
   handleEditComplete: PropTypes.func.isRequired,
   inputRef: PropTypes.func.isRequired,
   deleteChip: PropTypes.func.isRequired

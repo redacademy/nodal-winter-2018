@@ -70,3 +70,8 @@ Nathan Moseley
 Starter for this project provided by Red Academy.
 
 All designs supplied by Shirley Zhou, Jenifer Wong, Lochlan Graham.
+
+## Todo:
+
+replace this with the Teams/messaging stack when complete next week. requires a placeholder for now.
+----TeamStack.js-----

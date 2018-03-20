@@ -1,6 +1,3 @@
-//todo : replace this with the Teams/messaging stack when complete next week. requires a placeholder for now.
-
-import React from "react";
 import { StackNavigator } from "react-navigation";
 
 import Landing from "../../../screens/Landing";

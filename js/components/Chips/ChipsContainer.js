@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Chips from "./Chips";
 
-import { styles } from "./styles";
-
 export default class ChipsContainer extends Component {
   constructor(props) {
     super(props);
@@ -25,11 +23,9 @@ export default class ChipsContainer extends Component {
   setChips(chips) {
     if (chips && chips.length) {
       this.setState({ chips: chips });
-      console.log(this.state.chips);
     }
   }
   handleEditComplete() {
-    console.log(this.state.text, this.state.chips);
     if (this.state.text) {
       const currentChips = this.state.chips;
       currentChips.push(this.state.text);
@@ -45,14 +41,6 @@ export default class ChipsContainer extends Component {
     if (!this.state.chips && chips.length) {
       this.deleteChip(chips[chips.length - 1]);
     }
-    let index = this.state.chips.indexOf(chip);
-    if (index >= 0) {
-      this.setState({
-        chips: update(this.state.chips, {
-          $splice: [[index, 1]]
-        })
-      });
-    }
   }
 
   setText(text) {
@@ -60,17 +48,8 @@ export default class ChipsContainer extends Component {
   }
 
   render() {
-    const {
-      chips,
-      setText,
-      handleEditComplete,
-      deleteChip,
-      value
-    } = this.props;
     const placeholder =
-      !this.props.max || chips.length < this.props.max
-        ? this.props.placeholder
-        : " ";
+      this.state.chips.length < 10 ? this.props.placeholder : " ";
 
     return (
       <Chips

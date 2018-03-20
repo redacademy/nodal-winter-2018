@@ -23,6 +23,8 @@ const Landing = ({ onboarding, navigateToSignIn, navigateToSignUp }) => (
 );
 
 Landing.propTypes = {
-  onboarding: PropTypes.bool.isRequired
+  onboarding: PropTypes.bool.isRequired,
+  navigateToSignIn: PropTypes.func.isRequired,
+  navigateToSignUp: PropTypes.func.isRequired
 };
 export default Landing;

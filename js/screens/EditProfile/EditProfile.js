@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+/* global require */
+import React from "react";
 import {
   View,
   Text,
@@ -15,31 +16,6 @@ import Button from "../../components/Button";
 import { colors } from "../../config/styles";
 import { styles } from "./styles";
 
-const options = {
-  title: "Select Profile Photo",
-  customButtons: [{ name: "file", title: "Choose Photo from File" }],
-  storageOptions: {
-    skipBackup: true,
-    path: "images"
-  }
-};
-
-uploadFile = input => {
-  const file = input.target.files[0];
-  const name = `${+new Date()}-${file.name}`;
-  const metadata = {
-    contentType: file.type
-  };
-  const task = firebaseRef.child(name).put(file, metadata);
-  task
-    .then(s => {
-      const url = s.downloadURL;
-
-      console.log(url);
-    })
-    .catch(error => error.message);
-};
-// This is a work in progress
 const EditProfile = ({ func }) => (
   <ScrollView contentContainerStyle={styles.mainContainer}>
     <TouchableOpacity

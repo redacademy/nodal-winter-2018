@@ -39,5 +39,3 @@ export const signIn = async (email, password, writeToAsync = false) => {
 export const signOut = () =>
   firebaseAuth
     .signOut()
-    .then(() => console.log("sign out success"))
-    .catch(err => console.log("something went wrong with sign out"));

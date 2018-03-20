@@ -1,22 +1,20 @@
-import React from "react";
 import { StackNavigator } from "react-navigation";
 
 import CompetitionCategory from "../../../screens/CompetitionCategory";
-import CompetitionList from '../../../screens/CompetitionList';
-import Competition from '../../../screens/Competition';
+import CompetitionList from "../../../screens/CompetitionList";
+import Competition from "../../../screens/Competition";
 
 export default StackNavigator(
   {
     CompetitionCategory: {
       screen: CompetitionCategory
     },
-    CompetitionList:{
+    CompetitionList: {
       screen: CompetitionList
     },
     Competition: {
-      screen: Competition,
+      screen: Competition
     }
-
   },
   {
     initialRouteName: "CompetitionCategory",

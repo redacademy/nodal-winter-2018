@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
 
 import { firebaseDB } from "../../config/firebaseConfig";
 import { headerBarStyle } from "../../config/styles";
@@ -14,33 +13,31 @@ class GroupDetailsContainer extends Component {
     this.asyncFetchUserList = this.asyncFetchUserList.bind(this);
   }
   static navigationOptions = ({ navigation }) => ({
-    title: "Team Placeholder",
+    title: "TEAM PLACEHOLDER",
     ...headerBarStyle(navigation),
     headerLeft: null
   });
 
-  asyncFetchUserList(param) {
-    const query = param
-      ? firebaseDB.collection("users").where("category", "==", param)
-      : firebaseDB.collection("users");
-    query
+  asyncFetchUserList() {
+    firebaseDB
+      .collection("users")
       .get()
       .then(snapshot => {
-        snapshot.forEach(user => {
+        snapshot.forEach(doc => {
           const list = this.state.list;
+          list.push(doc.data());
+          this.setState({ list });
         });
       })
-      .catch(err => console.log("query user error: ", err));
+      .catch(err => {
+        console.log("Error getting documents", err);
+      });
   }
 
   componentDidMount() {
-    // TODO: Change this param to dynamic, once navigation is set up
-    const param = "";
-
-    this.asyncFetchUserList(param);
+    this.asyncFetchUserList();
   }
   render() {
-    console.log(this.state.list);
     return <GroupDetails list={this.state.list} />;
   }
 }
