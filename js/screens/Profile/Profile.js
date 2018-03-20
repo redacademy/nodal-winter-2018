@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { Text, View, Image, ScrollView, TouchableOpacity } from "react-native";
+/* global require */
+import React from "react";
+import { Text, View, Image, ScrollView } from "react-native";
 import Chips from "../../components/Chips";
 
 // Styles
-import { typography, containerMargin } from "../../config/styles";
 import { styles } from "./styles";
 
 const Profile = () => {

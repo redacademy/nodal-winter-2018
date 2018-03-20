@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { AsyncStorage } from "react-native";
 import PropTypes from "prop-types";
 
 import { updateWorkStyle } from "../../helpers/firebaseStore";

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { AsyncStorage } from "react-native";
 import PropTypes from "prop-types";
 
 import { signIn } from "../../helpers/firebaseAuth";
@@ -49,6 +48,7 @@ export default class SignInContainer extends Component {
         emailErr: { isError: true, text: "Email is required." }
       });
     } else if (
+      /* eslint-disable-next-line */
       !/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(
         this.state.email
       )

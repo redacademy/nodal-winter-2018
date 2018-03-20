@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import EditProfile from "./EditProfile";
-import { Image, View } from "react-native";
+import { View, Text } from "react-native";
 import { styles } from "./styles";
 
 class EditProfileContainer extends Component {

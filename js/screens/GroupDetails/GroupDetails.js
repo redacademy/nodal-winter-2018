@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+/* global require */
+import React from "react";
 import { Image, View, Text, ScrollView, TouchableOpacity } from "react-native";
 import PropTypes from "prop-types";
 import Button from "../../components/Button";
@@ -28,7 +29,7 @@ const GroupDetails = ({ list }) => {
             />
           </View>
           <View style={styles.profileData}>
-            <Text style={styles.name}>Mrs. Placeholder</Text>
+            <Text style={styles.name}>{list.name}</Text>
             <Text style={styles.programOrEmail}>Program Placeholder</Text>
             <Text style={styles.programOrEmail}>place@hold.er</Text>
           </View>
@@ -44,9 +45,7 @@ const GroupDetails = ({ list }) => {
         <Button
           color={colors.coralOrange}
           text={"You are a member".toUpperCase()}
-          func={() => {
-            navigateToSignUp();
-          }}
+          func={() => {}}
         />
         <TouchableOpacity>
           <Text style={styles.leave}>Leave Group</Text>

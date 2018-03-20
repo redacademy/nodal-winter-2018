@@ -1,7 +1,7 @@
 import { StyleSheet, Dimensions } from "react-native";
 
 import { colors, typography } from "../../config/styles";
-const { height, width } = Dimensions.get("window");
+const { width } = Dimensions.get("window");
 
 export default StyleSheet.create({
   onboardingWrapper: {

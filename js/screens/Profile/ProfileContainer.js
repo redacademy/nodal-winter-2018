@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import Profile from "./Profile";
-import { Image, View } from "react-native";
-import { styles } from "./styles";
 
 class ProfileContainer extends Component {
   constructor(props) {

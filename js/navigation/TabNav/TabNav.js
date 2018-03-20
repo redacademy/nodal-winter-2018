@@ -1,7 +1,6 @@
 import React from "react";
 import { TabNavigator, TabBarBottom } from "react-navigation";
 
-import { colors } from "../../config/styles";
 import CompStack from "./stacks/CompStack";
 import TeamsStack from "./stacks/TeamsStack";
 import ProfileStack from "./stacks/ProfileStack";
@@ -20,8 +19,9 @@ export default TabNavigator(
     }
   },
   {
-    initialRouteName: "Competitions",
+    initialRouteName: "Profile",
     navigationOptions: ({ navigation }) => ({
+      /* eslint-disable-next-line */
       tabBarIcon: ({ focused }) => {
         const { routeName } = navigation.state;
         return (
