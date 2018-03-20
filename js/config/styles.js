@@ -29,13 +29,6 @@ export const typography = {
   fontThinitalic: "MissionGothic-ThinItalic"
 };
 
-export const containerMargin = {
-  marginLeft: 20,
-  marginRight: 20,
-  marginTop: 15,
-  marginBottom: 15
-};
-
 export const headerBarStyle = navigation => ({
   headerTitleStyle: {
     fontSize: 26,
