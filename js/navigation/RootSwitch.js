@@ -3,6 +3,7 @@ import { SwitchNavigator } from "react-navigation";
 
 import SignedIn from "./TabNav";
 import SignedOut from "./SignedOutStack";
+import Authentication from "./Authentication";
 
 export default SwitchNavigator(
   {
@@ -11,9 +12,12 @@ export default SwitchNavigator(
     },
     SignedIn: {
       screen: SignedIn
+    },
+    Authentication: {
+      screen: Authentication
     }
   },
   {
-    initialRouteName: "SignedIn"
+    initialRouteName: "Authentication"
   }
 );

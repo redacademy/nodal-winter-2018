@@ -4,6 +4,7 @@ import { StackNavigator } from "react-navigation";
 import Landing from "../screens/Landing";
 import SignIn from "../screens/SignIn";
 import SignUp from "../screens/SignUp";
+import SignUpWorkStyle from "../screens/SignUpWorkStyle";
 
 export default StackNavigator(
   {
@@ -15,6 +16,9 @@ export default StackNavigator(
     },
     SignUp: {
       screen: SignUp
+    },
+    SignUpWorkStyle: {
+      screen: SignUpWorkStyle
     }
   },
   {
