@@ -2,11 +2,16 @@ import { StyleSheet } from "react-native";
 import { colors, typography } from "../../config/styles";
 
 export const styles = StyleSheet.create({
+  background: {
+    backgroundColor: colors.white,
+    height: "100%"
+  },
   image: {
     width: 60,
     height: 60
   },
   main: {
+    backgroundColor: colors.white,
     marginVertical: 20,
     marginHorizontal: 0,
     borderBottomWidth: 0.2,
@@ -15,7 +20,6 @@ export const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 1.2 },
     shadowOpacity: 0.7,
     shadowRadius: 1,
-    backgroundColor: colors.white
   },
   element: {
     paddingVertical: 10,

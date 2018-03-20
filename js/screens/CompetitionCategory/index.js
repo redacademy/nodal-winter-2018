@@ -1,3 +1,3 @@
-import CompetitionCategory from "./CompetitionCategory";
+import CompetitionCategoryContainer from "./CompetitionCategoryContainer";
 
-export default CompetitionCategory;
+export default CompetitionCategoryContainer;

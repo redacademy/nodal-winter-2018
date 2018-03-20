@@ -11,8 +11,10 @@ export default StyleSheet.create({
     height: 50
   },
   container: {
+    height: "100%",
     width: "100%",
-    alignItems: "center"
+    alignItems: "center",
+    justifyContent: 'center',
   },
   dot0: {
     top: 30,

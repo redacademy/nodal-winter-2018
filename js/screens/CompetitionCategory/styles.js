@@ -3,7 +3,9 @@ import { colors, typography } from "../../config/styles";
 
 export const styles = StyleSheet.create({
   text: {
-    fontFamily: typography.fontMainLight
+    fontFamily: typography.fontMainLight,
+    marginTop: 10,
+    marginLeft: 12
   },
   title: {
     fontFamily: typography.fontBold,
@@ -27,9 +29,11 @@ export const styles = StyleSheet.create({
   imageTextWrapper: {
     flexDirection: "row",
     width: "100%",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
+    marginVertical: 5,
+    justifyContent: "center"
   },
-  main: {
-    marginVertical: 20
+  mainContainer: {
+    backgroundColor: colors.white
   }
 });
