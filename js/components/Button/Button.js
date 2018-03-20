@@ -4,11 +4,15 @@ import PropTypes from "prop-types";
 
 import { styles } from "./styles";
 
-const Button = ({ color, text, func, disabled }) => {
+const Button = ({ color, text, func, disabled, width }) => {
   return (
     <View style={{ opacity: disabled ? 0.5 : 1 }}>
       <TouchableOpacity
-        style={[styles.background, { backgroundColor: color }]}
+        style={[
+          styles.background,
+          { backgroundColor: color },
+          { width: width }
+        ]}
         onPress={() => {
           if (!disabled) func();
         }}
@@ -26,9 +30,11 @@ Button.propTypes = {
   color: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   func: PropTypes.func.isRequired,
+  width: PropTypes.number,
   disabled: PropTypes.bool
 };
 
 Button.defaultProps = {
-  disabled: false
+  disabled: false,
+  width: 275
 };
