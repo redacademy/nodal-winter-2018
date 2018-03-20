@@ -1,61 +1,54 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { View } from "react-native";
 import PropTypes from "prop-types";
 
-import { firebaseDB } from "../../config/firebaseConfig";
 import CompetitionList from "./CompetitionList";
-import { competitionValidation } from "../../helpers/timestampHelpers";
+import Loading from "../../components/Loading/";
 import { headerBarStyle } from "../../config/styles";
+import { fetchCompetitions } from "../../redux/modules/competition";
+
+import { styles } from "./styles";
 
 class CompetitionListContainer extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: navigation.state.params.category.toUpperCase() || "COMPETITION",
     ...headerBarStyle(navigation)
   });
-  constructor(props) {
-    super(props);
-    this.state = {
-      list: []
-    };
-    this.asyncFetchCompList = this.asyncFetchCompList.bind(this);
-  }
-
-  asyncFetchCompList(param) {
-    const query = param
-      ? firebaseDB.collection("competitions").where("category", "==", param)
-      : firebaseDB.collection("competitions");
-    query
-      .get()
-      .then(snapshot => {
-        snapshot.forEach(competition => {
-          const list = this.state.list;
-          if (competitionValidation(competition.data().startTime)) {
-            list.push(competition.data());
-            this.setState({ list });
-          }
-        });
-      })
-      .catch(err => console.log("query competition error: ", err));
-  }
 
   componentDidMount() {
     console.log(this.props.navigation.state.params);
     const { params } = this.props.navigation.state;
 
-    this.asyncFetchCompList(params.category);
+    this.props.dispatch(fetchCompetitions(params.category));
   }
   render() {
-    console.log(this.state.list);
+    console.log(this.props.competitions);
     return (
-      <CompetitionList
-        list={this.state.list}
-        navigation={this.props.navigation}
-      />
+      <View style={styles.background}>
+        {this.props.isLoading ? (
+          <Loading />
+        ) : (
+          <CompetitionList
+            list={this.props.competitions}
+            navigation={this.props.navigation}
+          />
+        )}
+      </View>
     );
   }
 }
 
-export default CompetitionListContainer;
+const mapStateToProps = state => ({
+  isLoading: state.competition.isLoading,
+  competitions: state.competition.competitions
+});
+
+export default connect(mapStateToProps)(CompetitionListContainer);
 
 CompetitionListContainer.propTypes = {
+  competitions: PropTypes.array.isRequired,
+  dispatch: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
   navigation: PropTypes.object.isRequired
 };

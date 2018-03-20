@@ -9,16 +9,17 @@ import { formatCompetitionTime } from "../../helpers/timestampHelpers";
 import { teamSize, entryFee } from "../../helpers/competitionScreenHelpers";
 
 import { styles } from "./styles";
+import {colors} from '../../config/styles';
 
 const Competition = ({ data }) => {
   return (
-    <ScrollView style={styles.all}>
+    <ScrollView contentContainerStyle={styles.all}>
       <Text style={styles.title}>{data.name}</Text>
       <Text style={styles.subtitle}>{data.host}</Text>
       <Image source={{ uri: data.hero }} style={styles.hero} />
       <Button
         text="Find A Group"
-        color="coral"
+        color={colors.coralOrange}
         func={
           //TODO: Navigate to find group page once that screen is built
           () => console.log("button clicked!")
@@ -103,7 +104,7 @@ const Competition = ({ data }) => {
       </ScrollView>
       <Button
         text="Find A Group"
-        color="coral"
+        color={colors.coralOrange}
         func={
           //TODO: Navigate to find group page once that screen is built
           () => console.log("button clicked!")

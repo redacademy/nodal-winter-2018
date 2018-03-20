@@ -53,7 +53,8 @@ export const styles = StyleSheet.create({
     marginRight: 10,
   },
   all:{
-    marginVertical: 10
+    paddingVertical: 10,
+    backgroundColor: colors.white
   },
   readMore:{
     fontFamily: typography.fontMainLight,
