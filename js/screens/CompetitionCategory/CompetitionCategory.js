@@ -4,8 +4,6 @@ import { Image, View, ScrollView, Text, TouchableOpacity } from "react-native";
 import PropTypes from "prop-types";
 
 import { styles } from "./styles";
-import { headerBarStyle } from "../../config/styles";
-import Slider from "../../components/Slider";
 
 const CompetitionCategory = ({navigation}) => (
   <ScrollView contentContainerStyle={styles.mainContainer}>
