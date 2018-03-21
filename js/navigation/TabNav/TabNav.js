@@ -5,6 +5,7 @@ import CompStack from "./stacks/CompStack";
 import TeamsStack from "./stacks/TeamsStack";
 import ProfileStack from "./stacks/ProfileStack";
 import TabBarIcon from "../../components/TabBarIcon";
+import EditProfile from "../../screens/EditProfile/";
 
 export default TabNavigator(
   {
@@ -15,7 +16,7 @@ export default TabNavigator(
       screen: TeamsStack
     },
     Profile: {
-      screen: ProfileStack
+      screen: EditProfile
     }
   },
   {

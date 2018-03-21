@@ -6,40 +6,22 @@ export default class ChipsContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      chips: [],
-      text: " ",
+      text: "",
       value: this.placeholder
     };
-    this.setChips = this.setChips.bind(this);
+
     this.handleEditComplete = this.handleEditComplete.bind(this);
     this.setText = this.setText.bind(this);
-    this.deleteChip = this.deleteChip.bind(this);
   }
 
-  componentDidMount() {
-    this.setChips(this.props.chips);
-  }
-
-  setChips(chips) {
-    if (chips && chips.length) {
-      this.setState({ chips: chips });
-    }
-  }
   handleEditComplete() {
     if (this.state.text) {
-      const currentChips = this.state.chips;
+      const currentChips = this.props.chips;
       currentChips.push(this.state.text);
       this.setState({
-        chips: currentChips,
         value: ""
       });
-    }
-  }
-
-  deleteChip() {
-    const chips = this.state.chips;
-    if (!this.state.chips && chips.length) {
-      this.deleteChip(chips[chips.length - 1]);
+      this.props.setChips(currentChips);
     }
   }
 
@@ -49,11 +31,11 @@ export default class ChipsContainer extends Component {
 
   render() {
     const placeholder =
-      this.state.chips.length < 10 ? this.props.placeholder : " ";
+      this.props.chips.length < 10 ? this.props.placeholder : " ";
 
     return (
       <Chips
-        chips={this.state.chips}
+        chips={this.props.chips}
         setText={this.setText}
         deleteChip={this.deleteChip}
         handleEditComplete={this.handleEditComplete}
@@ -67,6 +49,7 @@ export default class ChipsContainer extends Component {
   }
 }
 ChipsContainer.propTypes = {
-  chips: PropTypes.array.isRequired,
-  placeholder: PropTypes.string.isRequired
+  chips: PropTypes.array,
+  placeholder: PropTypes.string.isRequired,
+  setChips: PropTypes.func.isRequired
 };
