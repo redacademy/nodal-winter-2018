@@ -26,7 +26,6 @@ class EditProfileContainer extends Component {
   static propTypes = {
     navigation: PropTypes.object.isRequired
   };
-
   static navigationOptions = ({ navigation }) => ({
     title: "EDIT PROFILE",
     ...headerBarStyle(navigation, true)

@@ -1,7 +1,11 @@
 import { firebaseAuth, firebaseDB } from "../config/firebaseConfig";
 import { AsyncStorage } from "react-native";
-import { getUserError } from "../redux/modules/user";
-import { dispatch } from "react-redux";
+import {
+  getUserError,
+  resetComps,
+  resetTeam,
+  resetUser
+} from "../redux/modules/user";
 
 export const createUserInAuthAndDB = async (fullname, email, password) => {
   const uid = await firebaseAuth
@@ -38,15 +42,25 @@ export const signIn = async (email, password, writeToAsync = false) => {
   }
 };
 
-export const signOut = () => firebaseAuth.signOut();
+export const signOut = async (navigation, dispatch) => {
+  try {
+    await firebaseAuth.signOut();
+    await AsyncStorage.clear();
+    dispatch(resetComps());
+    dispatch(resetTeam());
+    dispatch(resetUser());
+  } finally {
+    navigation.navigate("Landing", { disableOnboarding: true });
+  }
+};
 
-export const updateUserProfile = async (
+export const updateUserProfile = (
   fullname,
   program,
   schoolName,
   aboutMe,
   chips
-) => {
+) => async dispatch => {
   try {
     const uid = await AsyncStorage.getItem("user");
     await firebaseDB

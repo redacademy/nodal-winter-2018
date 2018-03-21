@@ -8,8 +8,10 @@ const GET_USER_LOADING = "GET_USER_LOADING";
 const GET_USER_SCORE = "GET_USER_SCORE";
 const GET_USER_WORKSTYLE = "GET_USER_WORKSTYLE";
 const GET_USER = "GET_USER";
+const GET_USERS = "GET_USERZ";
 const GET_USER_ERROR = "GET_USER_ERROR";
 const GET_UPDATE_USER = "GET_UPDATE_USER";
+const RESET_USER = "RESET_USER";
 
 const SET_FULLNAME = "SET_FULLNAME";
 const SET_PROGRAM = "SET_PROGRAM";
@@ -73,6 +75,11 @@ export const getUser = user => ({
   payload: user
 });
 
+const getUsers = user => ({
+  type: GET_USERS,
+  payload: user
+});
+
 const getUserError = err => ({
   type: GET_USER_ERROR,
   payload: err
@@ -81,6 +88,9 @@ const getUserError = err => ({
 const updateUser = updatedUser => ({
   type: GET_UPDATE_USER,
   payload: updatedUser
+});
+export const resetUser = () => ({
+  type: RESET_USER
 });
 
 export const updateProfileOnEdit = ({
@@ -144,22 +154,20 @@ export const fetchOtherUser = uid => async dispatch => {
   await userQuery
     .get()
     .then(doc => {
-      dispatch(getUser(doc.data()));
+      dispatch(getUsers(doc.data()));
     })
     .catch(err => dispatch(getUserError(err)));
 };
-
-export default (
-  state = {
-    isLoading: false,
-    score: [],
-    workstyle: "",
-    user: {},
-    userForm: {},
-    error: ""
-  },
-  action
-) => {
+const initialState = {
+  isLoading: false,
+  score: [],
+  workstyle: "",
+  user: {},
+  userForm: {},
+  users: {},
+  error: ""
+};
+export default (state = initialState, action) => {
   switch (action.type) {
     case GET_USER_LOADING:
       return {
@@ -187,6 +195,15 @@ export default (
         isLoading: false,
         error: ""
       };
+    case GET_USERS:
+      return {
+        ...state,
+        users: {
+          ...state.users,
+          [action.payload.uid]: action.payload
+        },
+        isLoading: false
+      };
     case GET_USER_ERROR:
       return {
         ...state,
@@ -196,7 +213,10 @@ export default (
     case GET_UPDATE_USER:
       return {
         ...state,
-        user: { ...state.user, ...action.payload },
+        user: {
+          ...state.user,
+          ...action.payload
+        },
         isLoading: false
       };
     case SET_FULLNAME:
@@ -234,6 +254,9 @@ export default (
         ...state,
         userForm: { ...state.user, profilePhoto: action.payload }
       };
+    case RESET_USER:
+      return initialState;
+
     default:
       return state;
   }
