@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import { updateWorkStyle } from "../../helpers/firebaseStore";
+import { updateWorkstyle } from "../../helpers/firebaseStore";
 import { headerBarStyle } from "../../config/styles";
 import SignUpWorkStyle from "./SignUpWorkStyle";
 export default class SignUpWorkStyleContainer extends Component {
@@ -33,7 +33,7 @@ export default class SignUpWorkStyleContainer extends Component {
   async submit() {
     this.setState({ loading: true });
     try {
-      await updateWorkStyle(this.state.workStyle);
+      await updateWorkstyle(this.state.workStyle);
     } catch (e) {
       this.setState({
         firebaseErr: {

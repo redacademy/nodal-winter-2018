@@ -11,6 +11,49 @@ const GET_USER = "GET_USER";
 const GET_USER_ERROR = "GET_USER_ERROR";
 const GET_UPDATE_USER = "GET_UPDATE_USER";
 
+const SET_FULLNAME = "SET_FULLNAME";
+const SET_PROGRAM = "SET_PROGRAM";
+const SET_SCHOOL_NAME = "SET_SCHOOL_NAME";
+const SET_ABOUT_ME = "SET_ABOUT_ME";
+const SET_WORKSTYLE = "SET_WORKSTYLE";
+const SET_CHIPS = "SET_CHIPS";
+const SET_PROFILE_PHOTO = "SET_PROFILE_PHOTO";
+
+export const setFullName = fullName => ({
+  type: SET_FULLNAME,
+  payload: fullName
+});
+
+export const setProgram = program => ({
+  type: SET_PROGRAM,
+  payload: program
+});
+
+export const setSchoolName = schoolName => ({
+  type: SET_SCHOOL_NAME,
+  payload: schoolName
+});
+
+export const setAboutMe = aboutMe => ({
+  type: SET_ABOUT_ME,
+  payload: aboutMe
+});
+
+export const setChips = chips => ({
+  type: SET_CHIPS,
+  payload: chips
+});
+
+export const setWorkstyle = workstyle => ({
+  type: SET_WORKSTYLE,
+  payload: workstyle
+});
+
+export const setProfilePhoto = profilePhoto => ({
+  type: SET_PROFILE_PHOTO,
+  payload: profilePhoto
+});
+
 const getUserLoading = () => ({
   type: GET_USER_LOADING
 });
@@ -25,7 +68,7 @@ const getUserWorkstyle = workstyle => ({
   payload: workstyle
 });
 
-const getUser = user => ({
+export const getUser = user => ({
   type: GET_USER,
   payload: user
 });
@@ -50,7 +93,6 @@ export const updateProfileOnEdit = ({
   chips
 }) => async dispatch => {
   dispatch(getUserLoading());
-  // Add checking for empty data fields
   try {
     await updateUserProfile(fullname, program, schoolName, aboutMe, chips);
     await updateProfilePic(profilePhoto);
@@ -67,12 +109,7 @@ export const updateProfileOnEdit = ({
       })
     );
   } catch (err) {
-    dispatch(
-      getUserError({
-        isError: true,
-        text: err.message
-      })
-    );
+    dispatch(getUserError(err));
   }
 };
 
@@ -102,6 +139,7 @@ export const fetchUser = () => async dispatch => {
 
 export const fetchOtherUser = uid => async dispatch => {
   dispatch(getUserLoading());
+  const uid = await AsyncStorage.getItem("user");
   const userQuery = firebaseDB.collection("users").doc(uid);
   await userQuery
     .get()
@@ -112,7 +150,14 @@ export const fetchOtherUser = uid => async dispatch => {
 };
 
 export default (
-  state = { isLoading: false, score: [], workstyle: "", user: {}, error: "" },
+  state = {
+    isLoading: false,
+    score: [],
+    workstyle: "",
+    user: {},
+    userForm: {},
+    error: ""
+  },
   action
 ) => {
   switch (action.type) {
@@ -138,19 +183,56 @@ export default (
       return {
         ...state,
         user: action.payload,
+        userForm: action.payload,
         isLoading: false,
         error: ""
       };
     case GET_USER_ERROR:
       return {
         ...state,
-        error: action.payload.message
+        error: action.payload.message,
+        isLoading: false
       };
     case GET_UPDATE_USER:
       return {
         ...state,
         user: { ...state.user, ...action.payload },
         isLoading: false
+      };
+    case SET_FULLNAME:
+      return {
+        ...state,
+        userForm: { ...state.user, fullname: action.payload }
+      };
+    case SET_PROGRAM:
+      return {
+        ...state,
+        userForm: { ...state.user, program: action.payload }
+      };
+    case SET_SCHOOL_NAME:
+      return {
+        ...state,
+        userForm: { ...state.user, schoolName: action.payload }
+      };
+    case SET_ABOUT_ME:
+      return {
+        ...state,
+        userForm: { ...state.user, aboutMe: action.payload }
+      };
+    case SET_WORKSTYLE:
+      return {
+        ...state,
+        userForm: { ...state.user, workstyle: action.payload }
+      };
+    case SET_CHIPS:
+      return {
+        ...state,
+        userForm: { ...state.user, chips: action.payload }
+      };
+    case SET_PROFILE_PHOTO:
+      return {
+        ...state,
+        userForm: { ...state.user, profilePhoto: action.payload }
       };
     default:
       return state;

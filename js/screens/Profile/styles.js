@@ -4,8 +4,11 @@ import { colors, typography } from "../../config/styles";
 const { width } = Dimensions.get("window");
 
 export const styles = StyleSheet.create({
+  background: {
+    backgroundColor: colors.white,
+    height: "100%"
+  },
   mainContainer: {
-    width,
     flex: 1,
     alignItems: "center"
   },
@@ -14,6 +17,20 @@ export const styles = StyleSheet.create({
     height: 200,
     borderRadius: 100,
     margin: 20
+  },
+  profilePhotoButton: {
+    marginTop: 20,
+    marginBottom: 20,
+    height: 200,
+    width: 200,
+    borderRadius: 100,
+    backgroundColor: colors.lightBlue,
+    marginRight: 12,
+    borderColor: colors.black,
+    borderWidth: 1,
+    alignSelf: "center",
+    alignItems: "center",
+    justifyContent: "center"
   },
   profileIcon: {
     height: 100,
@@ -25,9 +42,11 @@ export const styles = StyleSheet.create({
     fontSize: 22
   },
   profileEditIcon: {
-    marginLeft: 10,
-    height: 20,
-    width: 20
+    position: "absolute",
+    left: 140,
+    top: 15,
+    height: 30,
+    width: 30
   },
   textInput: {
     height: 40,
@@ -39,31 +58,38 @@ export const styles = StyleSheet.create({
     borderColor: colors.grey,
     borderWidth: 1
   },
-  titleText: {
-    fontSize: 18,
-    height: 50,
+  nameText: {
+    fontSize: 22,
     marginBottom: 10,
-    marginTop: 20,
     fontFamily: typography.fontMain,
     alignSelf: "center"
   },
-  paragraphText: {
-    fontSize: 16,
-    fontFamily: typography.fontLight
+  titleText: {
+    fontSize: 18,
+    marginTop: 15,
+    marginBottom: 10,
+    fontFamily: typography.fontBold,
+    alignSelf: "center"
   },
-  heading: {
-    margin: 15
+  paragraphText: {
+    paddingHorizontal: 30,
+    fontSize: 16,
+    fontFamily: typography.fontMainLight
   },
   workstyle: {
     flexDirection: "row",
     justifyContent: "space-between"
   },
   workstyleIcons: {
-    marginHorizontal: 5
+    alignSelf: "center",
+    height: 101,
+    width: 101
   },
   workstyleText: {
+    marginVertical: 10,
     alignSelf: "center",
-    fontFamily: typography.fontLight
+    fontSize: 16,
+    fontFamily: typography.fontMainLight
   },
   largeInput: {
     height: 120,
@@ -80,5 +106,28 @@ export const styles = StyleSheet.create({
     marginTop: 30,
     flex: 3,
     alignItems: "center"
+  },
+  chipsContainer: {
+    flexBasis: 1,
+    paddingHorizontal: 30,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignContent: "flex-start",
+    marginHorizontal: 5,
+    width,
+    alignSelf: "center"
+  },
+  chip: {
+    flexWrap: "nowrap",
+    height: 25,
+    margin: 5,
+    paddingHorizontal: 10,
+    borderWidth: 1,
+    borderRadius: 15
+  },
+  chipValue: {
+    flexWrap: "nowrap",
+    fontFamily: typography.fontMainLight,
+    fontSize: 16
   }
 });
