@@ -24,7 +24,7 @@ class CompetitionContainer extends Component {
   async findBestMatch(teamSize) {
     await this.props.dispatch(fetchUserWorkstyle());
     //TODO: change the user score to dynamic values
-    await this.props.dispatch(getUserScore([ 1, 4, 5]));
+    await this.props.dispatch(getUserScore([1, 4, 5]));
 
     await this.props.dispatch(
       fetchBestMatch(
@@ -34,23 +34,16 @@ class CompetitionContainer extends Component {
         teamSize
       )
     );
-
-    // await this.props.dispatch(
-    //   fetchOtherMatches(
-    //     this.props.userWorkstyle,
-    //     this.props.userScore,
-    //     this.props.navigation.state.params.data.id
-    //   )
-    // );
   }
 
-
-  async findOtherMatches(){
-      
-    if(this.props.userWorkstyle === undefined || this.props.userScore === undefined) {
+  async findOtherMatches() {
+    if (
+      this.props.userWorkstyle === undefined ||
+      this.props.userScore === undefined
+    ) {
       await this.props.dispatch(fetchUserWorkstyle());
       //TODO: change the user score to dynamic values
-      await this.props.dispatch(getUserScore([ 1, 4, 5]));
+      await this.props.dispatch(getUserScore([1, 4, 5]));
     }
 
     await this.props.dispatch(
@@ -84,5 +77,6 @@ export default connect(mapStateToProps)(CompetitionContainer);
 CompetitionContainer.propTypes = {
   navigation: PropTypes.object.isRequired,
   dispatch: PropTypes.func.isRequired,
-  userScore: PropTypes.array.isRequired
+  userScore: PropTypes.array.isRequired,
+  userWorkstyle: PropTypes.string.isRequired
 };
