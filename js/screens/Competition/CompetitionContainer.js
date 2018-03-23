@@ -85,7 +85,6 @@ class CompetitionContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  teams: state.teams.otherMatches,
   userScore: state.user.score,
   userWorkstyle: state.user.workstyle,
   teamId: state.teams.bestMatch.id
@@ -98,7 +97,7 @@ CompetitionContainer.propTypes = {
   dispatch: PropTypes.func.isRequired,
   userScore: PropTypes.array.isRequired,
   userWorkstyle: PropTypes.string.isRequired,
-  teamId: PropTypes.string.isRequired
+  teamId: PropTypes.string
 };
 
 CompetitionContainer.defaultProps = {
