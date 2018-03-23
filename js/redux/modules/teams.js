@@ -4,7 +4,8 @@ import { firebaseDB } from "../../config/firebaseConfig";
 import {
   teamType,
   similarTeamType,
-  findBestMatch
+  findBestMatch,
+  generateQuery
 } from "../../helpers/matchingHelpers";
 
 // Action types
@@ -36,7 +37,6 @@ export const getTeamReset = () => ({
 });
 
 // Async action creators
-
 // Async action to fetch best match to user
 export const fetchBestMatch = (
   workstyle,
@@ -50,11 +50,7 @@ export const fetchBestMatch = (
   const type = teamType(...score);
   const teams = {};
 
-  const teamsQuery = firebaseDB
-    .collection("teams")
-    .where("competitionId", "==", competitionId)
-    .where("workstyle", "==", workstyle)
-    .where("type", "==", type);
+  const teamsQuery = generateQuery("teams", competitionId, workstyle, type);
 
   await teamsQuery
     .get()
@@ -90,7 +86,7 @@ export const fetchBestMatch = (
           competitionId,
           teamSize,
           users: {
-            uid: { fun: score[0], grow: score[1], win: score[2], id: uid }
+            [uid]: { fun: score[0], grow: score[1], win: score[2], id: uid }
           }
         })
         .then(async docRef => {
@@ -117,41 +113,59 @@ export const fetchOtherMatches = (
   dispatch(getTeamLoading());
 
   const [typeOne, typeTwo] = similarTeamType(...score);
-  const matches = [];
+  const matches = {};
 
-  const teamsQueryOne = firebaseDB
-    .collection("teams")
-    .where("competitionId", "==", competitionId)
-    .where("workstyle", "==", workstyle)
-    .where("type", "==", typeOne);
+  const teamsQueryOne = generateQuery(
+    "teams",
+    competitionId,
+    workstyle,
+    typeOne
+  );
 
-  const teamsQueryTwo = firebaseDB
-    .collection("teams")
-    .where("competitionId", "==", competitionId)
-    .where("workstyle", "==", workstyle)
-    .where("type", "==", typeTwo);
+  const teamsQueryTwo = generateQuery(
+    "teams",
+    competitionId,
+    workstyle,
+    typeTwo
+  );
 
   await teamsQueryOne.get().then(snapshot =>
     snapshot.forEach(team => {
-      matches.push(team.data());
+      const newMatch = team.data();
+      //TODO: helper goes here
+      newMatch.id = team.id;
+      matches[team.id] = newMatch;
     })
   );
   await teamsQueryTwo.get().then(snapshot =>
     snapshot.forEach(team => {
-      matches.push(team.data());
+      const newMatch = team.data();
+      newMatch.id = team.id;
+      matches[team.id] = newMatch;
     })
   );
 
   if (flag) {
     return matches;
   } else {
-    dispatch(getTeamOtherMatches(matches));
+    const result = Object.values(matches);
+    dispatch(getTeamOtherMatches(result));
   }
 };
 
 //TODO: action to add user to team
-export const addUserToTeam = (teamId, userId) => {
-  //
+export const addUserToTeam = (score, teamId, userId) => async dispatch => {
+  const teamRef = await firebaseDB.collection("teams").doc(teamId);
+  await teamRef.update({
+    users: {
+      [userId]: {
+        fun: score[0],
+        grow: score[1],
+        win: score[2],
+        id: userId
+      }
+    }
+  });
 };
 
 //TODO: action to remove user from the team

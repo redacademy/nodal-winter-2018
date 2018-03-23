@@ -12,7 +12,7 @@ import { teamSize, entryFee } from "../../helpers/competitionScreenHelpers";
 import { styles } from "./styles";
 import { colors } from "../../config/styles";
 
-const Competition = ({ data, findBestMatch, findOtherMatches }) => {
+const Competition = ({ data, findBestMatch, findOtherMatches, addUser }) => {
   return (
     <ScrollView contentContainerStyle={styles.all}>
       <Text style={styles.title}>{data.name}</Text>
@@ -101,7 +101,7 @@ const Competition = ({ data, findBestMatch, findOtherMatches }) => {
         text="Find A Group"
         color={colors.coralOrange}
         func={
-          findOtherMatches
+          addUser
           //TODO: Navigate to find group page once that screen is built
         }
       />

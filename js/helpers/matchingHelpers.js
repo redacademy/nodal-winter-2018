@@ -1,5 +1,4 @@
-// import { AsyncStorage } from "react-native";
-// import { firebaseDB } from "../config/firebaseConfig";
+import { firebaseDB } from "../config/firebaseConfig";
 
 // Look up object for team work type
 const typeLookup = {
@@ -20,6 +19,14 @@ const similarTypeLookup = {
   "001": ["D", "E"],
   "100": ["A", "D"]
 };
+
+//Query helper function
+export const generateQuery = (collection, competitionId, workstyle, type) =>
+  firebaseDB
+    .collection(collection)
+    .where("competitionId", "==", competitionId)
+    .where("workstyle", "==", workstyle)
+    .where("type", "==", type);
 
 // Helper function - default team name generator
 // @params: team type, number of team existed with this types
@@ -54,19 +61,27 @@ export const similarTeamType = (fun, grow, win) =>
 // Match user with same type, almost full team
 //@param: array of teams that are matches
 export const findBestMatch = teams => {
+  console.log(teams);
   let otherMatches = teams;
   let teamUserNum = 0;
   let teamUserGap = 100;
   let match;
   let resultId;
   Object.entries(otherMatches).forEach(([key, value]) => {
+    console.log(key, value);
     teamUserNum = Object.keys(value.users).length;
-    if ((value.teamSize - teamUserNum) < teamUserGap) {
+    if (value.teamSize - teamUserNum < teamUserGap) {
       resultId = key;
       match = value;
+      match.id = key;
     }
   });
   delete otherMatches[resultId];
-  otherMatches = Object.values(otherMatches);
+  // otherMatches = Object.values(otherMatches);
+  otherMatches = Object.entries(otherMatches).map(([key, value]) => {
+    const newTeam = value;
+    newTeam.id = key;
+    return newTeam;
+  });
   return { match, otherMatches };
 };
