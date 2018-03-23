@@ -1,6 +1,6 @@
 import { SwitchNavigator } from "react-navigation";
 
-import SignedIn from "./TabNav";
+import SignedIn from "./ModalStack";
 import SignedOut from "./SignedOutStack";
 import Authentication from "./Authentication";
 

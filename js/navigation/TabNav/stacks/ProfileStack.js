@@ -10,6 +10,7 @@ export default StackNavigator(
   },
   {
     initialRouteName: "Profile",
-    headerMode: "modal"
+    headerMode: "screen",
+    mode: "modal"
   }
 );

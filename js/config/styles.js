@@ -12,6 +12,9 @@ export const colors = {
   dandelionYellow: "#FDE966",
   cornflowerBlue: "#6067EC",
   borealisGreen: "#4ABB8B",
+  lightCoralOrange: "#FDE5DC",
+  lightDandelionYellow: "#FEF9D8",
+  lightBorealisGreen: "#D1EEE2",
   transluscentGrey: "rgba(0,0,0,0.4)",
   transluscentWhite: "rgba(255,255,255,0.8)",
   lightBlue: "rgb(175, 170, 249)"
@@ -30,7 +33,7 @@ export const typography = {
   fontThinitalic: "MissionGothic-ThinItalic"
 };
 
-export const headerBarStyle = navigation => ({
+export const headerBarStyle = (navigation, modal = false) => ({
   headerTitleStyle: {
     fontSize: 26,
     fontFamily: typography.fontBold,
@@ -47,5 +50,5 @@ export const headerBarStyle = navigation => ({
     paddingRight: 0
   },
   headerBackImage: null,
-  headerLeft: <HeaderBarBack navigation={navigation} />
+  headerLeft: <HeaderBarBack navigation={navigation} modal={modal} />
 });

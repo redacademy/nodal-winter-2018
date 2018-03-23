@@ -32,6 +32,7 @@ const ValidatedTextInput = ({
         spellCheck={false}
         blurOnSubmit={true}
         keyboardType={type === "email" ? "email-address" : "default"}
+        autoCapitalize={type === "email" ? "none" : "words"}
         placeholder={placeholder}
         placeholderTextColor={colors.grey}
         value={text}
