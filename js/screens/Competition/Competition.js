@@ -12,7 +12,7 @@ import { teamSize, entryFee } from "../../helpers/competitionScreenHelpers";
 import { styles } from "./styles";
 import { colors } from "../../config/styles";
 
-const Competition = ({ data, findBestMatch, findOtherMatches, addUser }) => {
+const Competition = ({ data, navigation }) => {
   return (
     <ScrollView contentContainerStyle={styles.all}>
       <Text style={styles.title}>{data.name}</Text>
@@ -21,10 +21,12 @@ const Competition = ({ data, findBestMatch, findOtherMatches, addUser }) => {
       <Button
         text="Find A Group"
         color={colors.coralOrange}
-        func={
-          () => findBestMatch(data.maxTeamNum)
-          //TODO: Navigate to find group page once that screen is built
-        }
+        func={() => {
+          navigation.navigate("JoinTeamModal", {
+            title: data.name,
+            data: data.maxTeamNum
+          });
+        }}
       />
       <View style={styles.iconTextWrapper}>
         <Image
@@ -100,10 +102,12 @@ const Competition = ({ data, findBestMatch, findOtherMatches, addUser }) => {
       <Button
         text="Find A Group"
         color={colors.coralOrange}
-        func={
-          addUser
-          //TODO: Navigate to find group page once that screen is built
-        }
+        func={() => {
+          navigation.navigate("JoinTeamModal", {
+            title: data.name,
+            data: data.maxTeamNum
+          });
+        }}
       />
     </ScrollView>
   );
@@ -113,6 +117,5 @@ export default Competition;
 
 Competition.propTypes = {
   data: PropTypes.object.isRequired,
-  findBestMatch: PropTypes.func.isRequired,
-  findOtherMatches: PropTypes.func.isRequired
+  navigation: PropTypes.object.isRequired
 };

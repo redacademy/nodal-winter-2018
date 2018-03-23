@@ -76,9 +76,7 @@ class CompetitionContainer extends Component {
     return (
       <Competition
         data={this.props.navigation.state.params.data}
-        findBestMatch={this.findBestMatch}
-        findOtherMatches={this.findOtherMatches}
-        addUser={this.addUser}
+        navigation={this.props.navigation}
       />
     );
   }
