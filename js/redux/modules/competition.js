@@ -33,7 +33,9 @@ export const fetchCompetitions = param => dispatch => {
     .then(snapshot => {
       snapshot.forEach(competition => {
         if (competitionValidation(competition.data().startTime)) {
-          list.push(competition.data());
+          const data = competition.data();
+          data.id = competition.id;
+          list.push(data)
         }
       });
       dispatch(getCompetition(list));

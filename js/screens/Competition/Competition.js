@@ -1,6 +1,7 @@
 /* global require */
 import React from "react";
 import { Image, ScrollView, View, Text } from "react-native";
+
 import PropTypes from "prop-types";
 import ReadMore from "react-native-read-more-text";
 
@@ -9,9 +10,9 @@ import { formatCompetitionTime } from "../../helpers/timestampHelpers";
 import { teamSize, entryFee } from "../../helpers/competitionScreenHelpers";
 
 import { styles } from "./styles";
-import {colors} from '../../config/styles';
+import { colors } from "../../config/styles";
 
-const Competition = ({ data }) => {
+const Competition = ({ data, findBestMatch, findOtherMatches, addUser }) => {
   return (
     <ScrollView contentContainerStyle={styles.all}>
       <Text style={styles.title}>{data.name}</Text>
@@ -21,8 +22,8 @@ const Competition = ({ data }) => {
         text="Find A Group"
         color={colors.coralOrange}
         func={
+          () => findBestMatch(data.maxTeamNum)
           //TODO: Navigate to find group page once that screen is built
-          () => console.log("button clicked!")
         }
       />
       <View style={styles.iconTextWrapper}>
@@ -72,18 +73,12 @@ const Competition = ({ data }) => {
         <ReadMore
           numberOfLines={5}
           renderTruncatedFooter={handlePress => (
-            <Text
-              onPress={handlePress}
-              style={styles.readMore}
-            >
+            <Text onPress={handlePress} style={styles.readMore}>
               Read More
             </Text>
           )}
           renderRevealedFooter={handlePress => (
-            <Text
-              style={styles.readMore}
-              onPress={handlePress}
-            >
+            <Text style={styles.readMore} onPress={handlePress}>
               Show Less
             </Text>
           )}
@@ -106,8 +101,8 @@ const Competition = ({ data }) => {
         text="Find A Group"
         color={colors.coralOrange}
         func={
+          addUser
           //TODO: Navigate to find group page once that screen is built
-          () => console.log("button clicked!")
         }
       />
     </ScrollView>
@@ -117,5 +112,7 @@ const Competition = ({ data }) => {
 export default Competition;
 
 Competition.propTypes = {
-  data: PropTypes.object.isRequired
+  data: PropTypes.object.isRequired,
+  findBestMatch: PropTypes.func.isRequired,
+  findOtherMatches: PropTypes.func.isRequired
 };

@@ -12,6 +12,7 @@ class CompetitionCategoryContainer extends Component {
     headerLeft: null
   });
 
+
   render() {
     return <CompetitionCategory navigation={this.props.navigation}/>
   }

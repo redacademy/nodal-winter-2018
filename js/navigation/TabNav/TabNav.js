@@ -19,7 +19,7 @@ export default TabNavigator(
     }
   },
   {
-    initialRouteName: "Profile",
+    initialRouteName: "Competitions",
     navigationOptions: ({ navigation }) => ({
       /* eslint-disable-next-line */
       tabBarIcon: ({ focused }) => {
