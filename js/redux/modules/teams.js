@@ -5,7 +5,8 @@ import {
   teamType,
   similarTeamType,
   findBestMatch,
-  generateQuery
+  generateQuery,
+  filterOtherMatches
 } from "../../helpers/matchingHelpers";
 
 // Action types
@@ -132,16 +133,19 @@ export const fetchOtherMatches = (
   await teamsQueryOne.get().then(snapshot =>
     snapshot.forEach(team => {
       const newMatch = team.data();
-      //TODO: helper goes here
-      newMatch.id = team.id;
-      matches[team.id] = newMatch;
+      if (filterOtherMatches(score, Object.values(team.users))) {
+        newMatch.id = team.id;
+        matches[team.id] = newMatch;
+      }
     })
   );
   await teamsQueryTwo.get().then(snapshot =>
     snapshot.forEach(team => {
       const newMatch = team.data();
-      newMatch.id = team.id;
-      matches[team.id] = newMatch;
+      if (filterOtherMatches(score, Object.values(team.users))) {
+        newMatch.id = team.id;
+        matches[team.id] = newMatch;
+      }
     })
   );
 
