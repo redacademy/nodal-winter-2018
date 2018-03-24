@@ -47,6 +47,27 @@ export const teamName = (type, length) => {
   }
 };
 
+//Helper function to filter other matches teams
+export const filterOtherMatches = (score, team) => {
+  let teamFun = 0;
+  let teamGrow = 0;
+  let teamWin = 0;
+  const userFun = score[0] * team.length;
+  const userGrow = score[1] * team.length;
+  const userWin = score[2] * team.length;
+  team.forEach(user => {
+    teamFun += user.fun;
+    teamGrow += user.grow;
+    teamWin += user.win;
+  });
+  return (
+    Math.abs(teamFun - userFun) +
+      Math.abs(teamGrow - userGrow) +
+      Math.abs(teamWin - userWin) <=
+    3 * team.length
+  );
+};
+
 // Helper function to determine the type of team based on user score of fun, grow, win
 // @params: score of to have fun, to grow, to win
 export const teamType = (fun, grow, win) =>
