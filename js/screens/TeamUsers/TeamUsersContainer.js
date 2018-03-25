@@ -13,10 +13,6 @@ export default class TeamUsersContainer extends Component {
     ...headerBarStyle(navigation)
   });
 
-  constructor() {
-    super();
-  }
-
   render() {
     return <TeamUsers />;
   }
