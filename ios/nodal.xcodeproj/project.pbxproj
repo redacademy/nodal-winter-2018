@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -12,6 +13,7 @@
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* nodalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* nodalTests.m */; };
+		1325D6402B284938BECD87B7 /* mission-gothic-thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA960EBE1FAF47098064B332 /* mission-gothic-thin.otf */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
@@ -21,6 +23,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		14DFBD895D6E486EBB4ED58A /* mission-gothic-bold-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 12815901F5324AABBA9F6A93 /* mission-gothic-bold-italic.otf */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -33,19 +36,17 @@
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* nodalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* nodalTests.m */; };
-		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
-		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
-		F45A8B9065284E8887D21139 /* mission-gothic-black-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 49F3C03152804746ADBC2B33 /* mission-gothic-black-italic.otf */; };
-		E92CF174CE624FDA84E211D6 /* mission-gothic-black.otf in Resources */ = {isa = PBXBuildFile; fileRef = D735FDB1AF654D3F85771993 /* mission-gothic-black.otf */; };
-		14DFBD895D6E486EBB4ED58A /* mission-gothic-bold-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 12815901F5324AABBA9F6A93 /* mission-gothic-bold-italic.otf */; };
 		3AB3EAA9073544F4905DC804 /* mission-gothic-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F7B86E013BEF4C239884EB28 /* mission-gothic-bold.otf */; };
-		546C820AF7174E2D8FDA83EF /* mission-gothic-light-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 234DE476D56043F091A6439E /* mission-gothic-light-italic.otf */; };
-		9399E1EEF6414CA5BA4F62C9 /* mission-gothic-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A712C884A3C45FF9A65CE5F /* mission-gothic-light.otf */; };
-		633A9DD821AD4E9DA6B17DDA /* mission-gothic-regular-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = A768C66126FE4B0DBA2ABBFF /* mission-gothic-regular-italic.otf */; };
-		CE89A45B0C754133BA3084F6 /* mission-gothic-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FBF1F92A5CAF4914BACF3788 /* mission-gothic-regular.otf */; };
 		43E560AB7C6040D080D50E79 /* mission-gothic-thin-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 52A529202B8342E29715A6EB /* mission-gothic-thin-italic.otf */; };
-		1325D6402B284938BECD87B7 /* mission-gothic-thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA960EBE1FAF47098064B332 /* mission-gothic-thin.otf */; };
+		546C820AF7174E2D8FDA83EF /* mission-gothic-light-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 234DE476D56043F091A6439E /* mission-gothic-light-italic.otf */; };
+		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
+		633A9DD821AD4E9DA6B17DDA /* mission-gothic-regular-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = A768C66126FE4B0DBA2ABBFF /* mission-gothic-regular-italic.otf */; };
+		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		9399E1EEF6414CA5BA4F62C9 /* mission-gothic-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A712C884A3C45FF9A65CE5F /* mission-gothic-light.otf */; };
+		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		CE89A45B0C754133BA3084F6 /* mission-gothic-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FBF1F92A5CAF4914BACF3788 /* mission-gothic-regular.otf */; };
+		E92CF174CE624FDA84E211D6 /* mission-gothic-black.otf in Resources */ = {isa = PBXBuildFile; fileRef = D735FDB1AF654D3F85771993 /* mission-gothic-black.otf */; };
+		F45A8B9065284E8887D21139 /* mission-gothic-black-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 49F3C03152804746ADBC2B33 /* mission-gothic-black-italic.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,62 @@
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = nodal;
+		};
+		0433D8F22069851C00EFE8C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EBF21BDC1FC498900052F4D5;
+			remoteInfo = jsinspector;
+		};
+		0433D8F42069851C00EFE8C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EBF21BFA1FC4989A0052F4D5;
+			remoteInfo = "jsinspector-tvOS";
+		};
+		0433D8F62069851C00EFE8C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 139D7ECE1E25DB7D00323FB7;
+			remoteInfo = "third-party";
+		};
+		0433D8F82069851C00EFE8C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D383D3C1EBD27B6005632C8;
+			remoteInfo = "third-party-tvOS";
+		};
+		0433D8FA2069851C00EFE8C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 139D7E881E25C6D100323FB7;
+			remoteInfo = "double-conversion";
+		};
+		0433D8FC2069851C00EFE8C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D383D621EBD27B9005632C8;
+			remoteInfo = "double-conversion-tvOS";
+		};
+		0433D8FE2069851C00EFE8C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9936F3131F5F2E4B0010BF04;
+			remoteInfo = privatedata;
+		};
+		0433D9002069851C00EFE8C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9936F32F1F5F2E5B0010BF04;
+			remoteInfo = "privatedata-tvOS";
 		};
 		139105C01AF99BAD00B5F7CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -278,6 +335,7 @@
 		00E356EE1AD99517003FC87E /* nodalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nodalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* nodalTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nodalTests.m; sourceTree = "<group>"; };
+		12815901F5324AABBA9F6A93 /* mission-gothic-bold-italic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "mission-gothic-bold-italic.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-bold-italic.otf"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* nodal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nodal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -288,23 +346,22 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = nodal/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = nodal/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		234DE476D56043F091A6439E /* mission-gothic-light-italic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "mission-gothic-light-italic.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-light-italic.otf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* nodal-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "nodal-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* nodal-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "nodal-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		49F3C03152804746ADBC2B33 /* mission-gothic-black-italic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "mission-gothic-black-italic.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-black-italic.otf"; sourceTree = "<group>"; };
+		4A712C884A3C45FF9A65CE5F /* mission-gothic-light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "mission-gothic-light.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-light.otf"; sourceTree = "<group>"; };
+		52A529202B8342E29715A6EB /* mission-gothic-thin-italic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "mission-gothic-thin-italic.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-thin-italic.otf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		A768C66126FE4B0DBA2ABBFF /* mission-gothic-regular-italic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "mission-gothic-regular-italic.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-regular-italic.otf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
-		49F3C03152804746ADBC2B33 /* mission-gothic-black-italic.otf */ = {isa = PBXFileReference; name = "mission-gothic-black-italic.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-black-italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		D735FDB1AF654D3F85771993 /* mission-gothic-black.otf */ = {isa = PBXFileReference; name = "mission-gothic-black.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-black.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		12815901F5324AABBA9F6A93 /* mission-gothic-bold-italic.otf */ = {isa = PBXFileReference; name = "mission-gothic-bold-italic.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-bold-italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		F7B86E013BEF4C239884EB28 /* mission-gothic-bold.otf */ = {isa = PBXFileReference; name = "mission-gothic-bold.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		234DE476D56043F091A6439E /* mission-gothic-light-italic.otf */ = {isa = PBXFileReference; name = "mission-gothic-light-italic.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-light-italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		4A712C884A3C45FF9A65CE5F /* mission-gothic-light.otf */ = {isa = PBXFileReference; name = "mission-gothic-light.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		A768C66126FE4B0DBA2ABBFF /* mission-gothic-regular-italic.otf */ = {isa = PBXFileReference; name = "mission-gothic-regular-italic.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-regular-italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		FBF1F92A5CAF4914BACF3788 /* mission-gothic-regular.otf */ = {isa = PBXFileReference; name = "mission-gothic-regular.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		52A529202B8342E29715A6EB /* mission-gothic-thin-italic.otf */ = {isa = PBXFileReference; name = "mission-gothic-thin-italic.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-thin-italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		EA960EBE1FAF47098064B332 /* mission-gothic-thin.otf */ = {isa = PBXFileReference; name = "mission-gothic-thin.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-thin.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D735FDB1AF654D3F85771993 /* mission-gothic-black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "mission-gothic-black.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-black.otf"; sourceTree = "<group>"; };
+		EA960EBE1FAF47098064B332 /* mission-gothic-thin.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "mission-gothic-thin.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-thin.otf"; sourceTree = "<group>"; };
+		F7B86E013BEF4C239884EB28 /* mission-gothic-bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "mission-gothic-bold.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-bold.otf"; sourceTree = "<group>"; };
+		FBF1F92A5CAF4914BACF3788 /* mission-gothic-regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "mission-gothic-regular.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -458,13 +515,21 @@
 			isa = PBXGroup;
 			children = (
 				146834041AC3E56700842450 /* libReact.a */,
+				3DAD3EA31DF850E9000B6D8A /* libReact.a */,
 				3DAD3EA51DF850E9000B6D8A /* libyoga.a */,
 				3DAD3EA71DF850E9000B6D8A /* libyoga.a */,
 				3DAD3EA91DF850E9000B6D8A /* libcxxreact.a */,
 				3DAD3EAB1DF850E9000B6D8A /* libcxxreact.a */,
 				3DAD3EAD1DF850E9000B6D8A /* libjschelpers.a */,
 				3DAD3EAF1DF850E9000B6D8A /* libjschelpers.a */,
-				3DAD3EA31DF850E9000B6D8A /* libReact-tvOS.a */,
+				0433D8F32069851C00EFE8C2 /* libjsinspector.a */,
+				0433D8F52069851C00EFE8C2 /* libjsinspector-tvOS.a */,
+				0433D8F72069851C00EFE8C2 /* libthird-party.a */,
+				0433D8F92069851C00EFE8C2 /* libthird-party.a */,
+				0433D8FB2069851C00EFE8C2 /* libdouble-conversion.a */,
+				0433D8FD2069851C00EFE8C2 /* libdouble-conversion.a */,
+				0433D8FF2069851C00EFE8C2 /* libprivatedata.a */,
+				0433D9012069851C00EFE8C2 /* libprivatedata-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -549,17 +614,8 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		ADBDB9201DFEBF0600ED6528 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */,
-				2D16E6721FA4F8DC00B85C8A /* libRCTBlob-tvOS.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		8542EA4AD57A4D50AD85F46F /* Resources */ = {
-			isa = "PBXGroup";
+			isa = PBXGroup;
 			children = (
 				49F3C03152804746ADBC2B33 /* mission-gothic-black-italic.otf */,
 				D735FDB1AF654D3F85771993 /* mission-gothic-black.otf */,
@@ -574,7 +630,15 @@
 			);
 			name = Resources;
 			sourceTree = "<group>";
-			path = "";
+		};
+		ADBDB9201DFEBF0600ED6528 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */,
+				2D16E6721FA4F8DC00B85C8A /* libRCTBlob-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -662,7 +726,12 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = EXK4P7JY8D;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = EXK4P7JY8D;
+						ProvisioningStyle = Automatic;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -782,6 +851,62 @@
 			remoteRef = 00C302E31ABCB9EE00DB3ED1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		0433D8F32069851C00EFE8C2 /* libjsinspector.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libjsinspector.a;
+			remoteRef = 0433D8F22069851C00EFE8C2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0433D8F52069851C00EFE8C2 /* libjsinspector-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libjsinspector-tvOS.a";
+			remoteRef = 0433D8F42069851C00EFE8C2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0433D8F72069851C00EFE8C2 /* libthird-party.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libthird-party.a";
+			remoteRef = 0433D8F62069851C00EFE8C2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0433D8F92069851C00EFE8C2 /* libthird-party.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libthird-party.a";
+			remoteRef = 0433D8F82069851C00EFE8C2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0433D8FB2069851C00EFE8C2 /* libdouble-conversion.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libdouble-conversion.a";
+			remoteRef = 0433D8FA2069851C00EFE8C2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0433D8FD2069851C00EFE8C2 /* libdouble-conversion.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libdouble-conversion.a";
+			remoteRef = 0433D8FC2069851C00EFE8C2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0433D8FF2069851C00EFE8C2 /* libprivatedata.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libprivatedata.a;
+			remoteRef = 0433D8FE2069851C00EFE8C2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0433D9012069851C00EFE8C2 /* libprivatedata-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libprivatedata-tvOS.a";
+			remoteRef = 0433D9002069851C00EFE8C2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		139105C11AF99BAD00B5F7CC /* libRCTSettings.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -866,10 +991,10 @@
 			remoteRef = 3DAD3E981DF850E9000B6D8A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		3DAD3EA31DF850E9000B6D8A /* libReact-tvOS.a */ = {
+		3DAD3EA31DF850E9000B6D8A /* libReact.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = "libReact-tvOS.a";
+			path = libReact.a;
 			remoteRef = 3DAD3EA21DF850E9000B6D8A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -1094,6 +1219,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = EXK4P7JY8D;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1115,6 +1241,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = EXK4P7JY8D;
 				INFOPLIST_FILE = nodalTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1131,9 +1258,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-        ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = EXK4P7JY8D;
 				INFOPLIST_FILE = nodal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1142,6 +1272,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = nodal;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1150,8 +1281,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-        ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = EXK4P7JY8D;
 				INFOPLIST_FILE = nodal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1160,6 +1294,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = nodal;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

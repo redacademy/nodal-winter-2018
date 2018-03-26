@@ -1,6 +1,6 @@
 /* global require */
 import React from "react";
-import { View, Text, Image, ScrollView } from "react-native";
+import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import PropTypes from "prop-types";
 
 import styles from "./styles";
@@ -9,7 +9,12 @@ import { colors } from "../../config/styles";
 import Button from "../../components/Button";
 import Loading from "../../components/Loading";
 
-const MatchScreenLoading = ({ loading, navigation, noMatch }) => {
+const MatchScreenLoading = ({
+  loading,
+  navigation,
+  noMatch,
+  createNewTeamWithUser
+}) => {
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -31,7 +36,7 @@ const MatchScreenLoading = ({ loading, navigation, noMatch }) => {
                   style={{ alignSelf: "center" }}
                   source={require("../../assets/icons/other/check-mark.png")}
                 />
-                <Text style={styles.title}>{"GROUP FOUND!"}</Text>
+                <Text style={styles.title}>GROUP FOUND!</Text>
                 <Text style={styles.text}>Joining group chat room now…</Text>
               </View>
             )}
@@ -51,22 +56,51 @@ const MatchScreenLoading = ({ loading, navigation, noMatch }) => {
             </Text>
           </View>
         )}
-        <View style={styles.buttonView}>
-          <Button
-            color={colors.cornflowerBlue}
-            text={noMatch ? "Create New Group" : "NEXT"}
-            disabled={loading}
-            width={noMatch ? 220 : 140}
-            func={() => {
-              navigation.goBack();
-            }}
-          />
-          {noMatch && (
-            <Text style={styles.noThanks}>
-              {"No Thanks, I'll come back later"}
-            </Text>
-          )}
-        </View>
+
+        {noMatch ? (
+          <View style={styles.buttonView}>
+            <Button
+              color={colors.cornflowerBlue}
+              text={"Create New Group"}
+              disabled={loading}
+              width={220}
+              func={
+                //TODO: Add navigate to teammates screen (only the new user)
+                createNewTeamWithUser
+              }
+            />
+            <TouchableOpacity
+              onPress={() => {
+                console.log("TODO: Navigate back to competition screen");
+              }}
+              //TODO: Navigate back to competition screen
+            >
+              <Text style={styles.noThanks}>
+                {"No Thanks, I'll come back later"}
+              </Text>
+            </TouchableOpacity>
+          </View>
+        ) : (
+          <View>
+            <Button
+              color={colors.cornflowerBlue}
+              text={"NEXT"}
+              disabled={loading}
+              width={140}
+              func={
+                //TODO
+                () => {
+                  console.log("TODO: Navigate to list of teammates screen");
+                }
+              }
+            />
+            {noMatch && (
+              <Text style={styles.noThanks}>
+                {"No Thanks, I'll come back later"}
+              </Text>
+            )}
+          </View>
+        )}
       </View>
     </ScrollView>
   );
@@ -75,7 +109,8 @@ const MatchScreenLoading = ({ loading, navigation, noMatch }) => {
 MatchScreenLoading.propTypes = {
   loading: PropTypes.bool.isRequired,
   noMatch: PropTypes.bool.isRequired,
-  navigation: PropTypes.object.isRequired
+  navigation: PropTypes.object.isRequired,
+  createNewTeamWithUser: PropTypes.func.isRequired
 };
 
 export default MatchScreenLoading;

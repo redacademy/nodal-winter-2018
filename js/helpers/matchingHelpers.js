@@ -10,7 +10,7 @@ const typeLookup = {
   "100": "M"
 };
 
-// Loop up object for similar work types
+// Look up object for similar work types
 const similarTypeLookup = {
   "110": ["K", "M"],
   "101": ["L", "M"],
@@ -82,14 +82,14 @@ export const similarTeamType = (fun, grow, win) =>
 // Match user with same type, almost full team
 //@param: array of teams that are matches
 export const findBestMatch = teams => {
-  console.log(teams);
+
   let otherMatches = teams;
   let teamUserNum = 0;
   let teamUserGap = 100;
   let match;
   let resultId;
   Object.entries(otherMatches).forEach(([key, value]) => {
-    console.log(key, value);
+
     teamUserNum = Object.keys(value.users).length;
     if (value.teamSize - teamUserNum < teamUserGap) {
       resultId = key;
@@ -98,7 +98,6 @@ export const findBestMatch = teams => {
     }
   });
   delete otherMatches[resultId];
-  // otherMatches = Object.values(otherMatches);
   otherMatches = Object.entries(otherMatches).map(([key, value]) => {
     const newTeam = value;
     newTeam.id = key;
