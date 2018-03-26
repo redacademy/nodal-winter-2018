@@ -2,14 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-// import {
-//   fetchBestMatch,
-//   fetchOtherMatches,
-//   addUserToTeam
-// } from "../../redux/modules/teams";
-// import { fetchUserWorkstyle } from "../../redux/modules/user";
-// import { getUserScore } from "../../redux/modules/user";
-
 import Competition from "./Competition";
 import { headerBarStyle } from "../../config/styles";
 

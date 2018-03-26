@@ -127,30 +127,40 @@ export const fetchOtherMatches = (
     typeTwo
   );
 
-  await teamsQueryOne.get().then(snapshot =>
-    snapshot.forEach(team => {
-      const newMatch = team.data();
-      if (team.users && filterOtherMatches(score, Object.values(team.users))) {
-        newMatch.id = team.id;
-        matches[team.id] = newMatch;
-      }
-    })
-  );
+  try {
+    await teamsQueryOne.get().then(snapshot =>
+      snapshot.forEach(team => {
+        const newMatch = team.data();
+        if (
+          team.users &&
+          filterOtherMatches(score, Object.values(team.users))
+        ) {
+          newMatch.id = team.id;
+          matches[team.id] = newMatch;
+        }
+      })
+    );
 
-  await teamsQueryTwo.get().then(snapshot =>
-    snapshot.forEach(team => {
-      const newMatch = team.data();
-      if (team.users && filterOtherMatches(score, Object.values(team.users))) {
-        newMatch.id = team.id;
-        matches[team.id] = newMatch;
-      }
-    })
-  );
-  if (flag) {
-    return matches;
-  } else {
-    const result = Object.values(matches);
-    dispatch(getTeamOtherMatches(result));
+    await teamsQueryTwo.get().then(snapshot =>
+      snapshot.forEach(team => {
+        const newMatch = team.data();
+        if (
+          team.users &&
+          filterOtherMatches(score, Object.values(team.users))
+        ) {
+          newMatch.id = team.id;
+          matches[team.id] = newMatch;
+        }
+      })
+    );
+    if (flag) {
+      return matches;
+    } else {
+      const result = Object.values(matches);
+      dispatch(getTeamOtherMatches(result));
+    }
+  } catch (error) {
+    dispatch(getTeamError(error));
   }
 };
 
@@ -162,39 +172,47 @@ export const createTeamAndAddUser = (
   teamSize,
   score
 ) => async dispatch => {
-  const uid = await AsyncStorage.getItem("user");
-  firebaseDB
-    .collection("teams")
-    .add({
-      workstyle,
-      type,
-      competitionId,
-      teamSize,
-      users: {
-        [uid]: { fun: score[0], grow: score[1], win: score[2], id: uid }
-      }
-    })
-    .then(async docRef => {
-      // Refetch newly added team, which is a perfect match :)
-      const newTeam = await docRef.get();
-      dispatch(getTeamBestMatch(newTeam.data()));
-    });
+  try {
+    const uid = await AsyncStorage.getItem("user");
+    firebaseDB
+      .collection("teams")
+      .add({
+        workstyle,
+        type,
+        competitionId,
+        teamSize,
+        users: {
+          [uid]: { fun: score[0], grow: score[1], win: score[2], id: uid }
+        }
+      })
+      .then(async docRef => {
+        // Refetch newly added team, which is a perfect match :)
+        const newTeam = await docRef.get();
+        dispatch(getTeamBestMatch(newTeam.data()));
+      });
+  } catch (error) {
+    dispatch(getTeamError(error));
+  }
 };
 
 //TODO: action to add user to team
 export const addUserToTeam = (score, teamId, userId) => async dispatch => {
-  const teamRef = await firebaseDB.collection("teams").doc(teamId);
-  await teamRef.update({
-    users: {
-      [userId]: {
-        fun: score[0],
-        grow: score[1],
-        win: score[2],
-        id: userId
+  try {
+    const teamRef = await firebaseDB.collection("teams").doc(teamId);
+    await teamRef.update({
+      users: {
+        [userId]: {
+          fun: score[0],
+          grow: score[1],
+          win: score[2],
+          id: userId
+        }
       }
-    }
-  });
-  // add competition id to user
+    });
+    //TODO: add competition id to user
+  } catch (error) {
+    dispatch(getTeamError(error));
+  }
 };
 
 //TODO: action to remove user from the team

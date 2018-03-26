@@ -32,9 +32,7 @@ const MatchScreenLoading = ({ loading, navigation, noMatch }) => {
                   source={require("../../assets/icons/other/check-mark.png")}
                 />
                 <Text style={styles.title}>{"GROUP FOUND!"}</Text>
-                <Text style={styles.text}>
-                  {"Joining group chat room now…"}
-                </Text>
+                <Text style={styles.text}>Joining group chat room now…</Text>
               </View>
             )}
           </View>
@@ -63,12 +61,10 @@ const MatchScreenLoading = ({ loading, navigation, noMatch }) => {
               navigation.goBack();
             }}
           />
-          {noMatch ? (
+          {noMatch && (
             <Text style={styles.noThanks}>
               {"No Thanks, I'll come back later"}
             </Text>
-          ) : (
-            ""
           )}
         </View>
       </View>

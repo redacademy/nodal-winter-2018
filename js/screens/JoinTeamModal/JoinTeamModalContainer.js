@@ -26,38 +26,34 @@ class JoinTeamModalContainer extends Component {
       win: 1,
       pointsLeft: 7
     };
-    this.updateFun = this.updateFun.bind(this);
-    this.updateGrow = this.updateGrow.bind(this);
-    this.updateWin = this.updateWin.bind(this);
-    this.findBestMatch = this.findBestMatch.bind(this);
   }
   componentDidMount() {
     this.props.dispatch(fetchUserWorkstyle());
   }
 
-  updateFun(fun) {
+  updateFun = fun => {
     if (this.state.pointsLeft - (fun - this.state.fun) >= 0)
       this.setState({
         fun,
         pointsLeft: this.state.pointsLeft - (fun - this.state.fun)
       });
-  }
-  updateGrow(grow) {
+  };
+  updateGrow = grow => {
     if (this.state.pointsLeft - (grow - this.state.grow) >= 0)
       this.setState({
         grow,
         pointsLeft: this.state.pointsLeft - (grow - this.state.grow)
       });
-  }
-  updateWin(win) {
+  };
+  updateWin = win => {
     if (this.state.pointsLeft - (win - this.state.win) >= 0)
       this.setState({
         win,
         pointsLeft: this.state.pointsLeft - (win - this.state.win)
       });
-  }
+  };
 
-  async findBestMatch() {
+  findBestMatch = async () => {
     const userScore = [this.state.fun, this.state.grow, this.state.win];
     await this.props.dispatch(
       fetchBestMatch(
@@ -67,7 +63,7 @@ class JoinTeamModalContainer extends Component {
         this.props.navigation.state.params.teamSize
       )
     );
-  }
+  };
 
   render() {
     return (
