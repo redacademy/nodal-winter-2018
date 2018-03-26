@@ -18,19 +18,27 @@ class MatchScreenLoadingContainer extends Component {
     }
   }
   render() {
-    return <MatchScreenLoading loading={this.props.loading} navigation={this.props.navigation}/>;
+    return (
+      <MatchScreenLoading
+        loading={this.props.loading}
+        navigation={this.props.navigation}
+        noMatch={this.props.noMatch}
+      />
+    );
   }
 }
 MatchScreenLoadingContainer.propTypes = {
   dispatch: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.string.isRequired,
+  noMatch: PropTypes.bool.isRequired,
   navigation: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
   loading: state.teams.isLoading,
-  error: state.teams.error
+  error: state.teams.error,
+  noMatch: state.teams.noMatch
 });
 
 export default connect(mapStateToProps)(MatchScreenLoadingContainer);

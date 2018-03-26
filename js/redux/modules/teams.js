@@ -15,6 +15,7 @@ const GET_TEAM_OTHER_MATCHES = "GET_TEAM_OTHER_MATCHES";
 const GET_TEAM_RESET = "GET_TEAM_RESET";
 const GET_TEAM_LOADING = "GET_TEAM_LOADING";
 const GET_TEAM_ERROR = "GET_TEAM_ERROR";
+const GET_TEAM_TEMP_DATA = "GET_TEAM_TEMP_DATA";
 
 // Action creators
 const getTeamBestMatch = match => ({
@@ -31,6 +32,10 @@ const getTeamError = error => ({
 });
 const getTeamLoading = () => ({
   type: GET_TEAM_LOADING
+});
+const getTeamTempData = data => ({
+  type: GET_TEAM_TEMP_DATA,
+  payload: data
 });
 
 export const getTeamReset = () => ({
@@ -72,38 +77,23 @@ export const fetchBestMatch = (
         fetchOtherMatches(workstyle, score, competitionId, true)
       );
       const result = findBestMatch(rematch);
+
       if (result.match !== undefined) {
         dispatch(getTeamBestMatch(result.match));
         dispatch(getTeamOtherMatches(result.otherMatches));
-      } else{
-        dispatch(getTeamBestMatch({}));
-        dispatch(getTeamOtherMatches([]));
+      } else {
+        // if there is no match for other types either, reset bestMatch and otherMatches
+        dispatch(
+          getTeamTempData({
+            workstyle,
+            type,
+            competitionId,
+            teamSize,
+            score
+          })
+        );
+        dispatch(getTeamReset());
       }
-
-      // if there's no match with the similar types either
-      // create new team
-      // if (result.match === undefined) {
-      //   const uid = await AsyncStorage.getItem("user");
-      //   firebaseDB
-      //     .collection("teams")
-      //     .add({
-      //       workstyle,
-      //       type,
-      //       competitionId,
-      //       teamSize,
-      //       users: {
-      //         [uid]: { fun: score[0], grow: score[1], win: score[2], id: uid }
-      //       }
-      //     })
-      //     .then(async docRef => {
-      //       // Refetch newly added team, which is a perfect match:)
-      //       const newTeam = await docRef.get();
-      //       dispatch(getTeamBestMatch(newTeam.data()));
-      //     });
-      // } else {
-      //   dispatch(getTeamBestMatch(result.match));
-      //   dispatch(getTeamOtherMatches(result.otherMatches));
-      // }
     }
   } catch (err) {
     dispatch(getTeamError(err));
@@ -164,6 +154,33 @@ export const fetchOtherMatches = (
   }
 };
 
+// Async action to create new team for user
+export const createTeamAndAddUser = (
+  workstyle,
+  type,
+  competitionId,
+  teamSize,
+  score
+) => async dispatch => {
+  const uid = await AsyncStorage.getItem("user");
+  firebaseDB
+    .collection("teams")
+    .add({
+      workstyle,
+      type,
+      competitionId,
+      teamSize,
+      users: {
+        [uid]: { fun: score[0], grow: score[1], win: score[2], id: uid }
+      }
+    })
+    .then(async docRef => {
+      // Refetch newly added team, which is a perfect match :)
+      const newTeam = await docRef.get();
+      dispatch(getTeamBestMatch(newTeam.data()));
+    });
+};
+
 //TODO: action to add user to team
 export const addUserToTeam = (score, teamId, userId) => async dispatch => {
   const teamRef = await firebaseDB.collection("teams").doc(teamId);
@@ -187,7 +204,14 @@ export const removeUserFromTeam = (teamId, userId) => {
 
 // Reducer
 export default (
-  state = { isLoading: false, bestMatch: {}, otherMatches: [], error: "" },
+  state = {
+    isLoading: false,
+    bestMatch: {},
+    otherMatches: [],
+    error: "",
+    tempData: {},
+    noMatch: false
+  },
   action
 ) => {
   switch (action.type) {
@@ -200,21 +224,31 @@ export default (
       return {
         ...state,
         error: action.payload,
-        isLoading: false
+        isLoading: false,
+        noMatch: false
       };
     case GET_TEAM_BEST_MATCH:
       return {
         ...state,
         bestMatch: action.payload,
         isLoading: false,
-        error: ""
+        error: "",
+        noMatch: false
       };
     case GET_TEAM_OTHER_MATCHES:
       return {
         ...state,
         isLoading: false,
         otherMatches: state.otherMatches.concat(action.payload),
-        error: ""
+        error: "",
+        noMatch: false
+      };
+    case GET_TEAM_TEMP_DATA:
+      return {
+        ...state,
+        tempData: action.payload,
+        noMatch: true,
+        isLoading: false
       };
     case GET_TEAM_RESET:
       return {

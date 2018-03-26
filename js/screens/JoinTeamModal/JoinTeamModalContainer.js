@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import { fetchBestMatch, fetchOtherMatches } from "../../redux/modules/teams";
+import { fetchBestMatch } from "../../redux/modules/teams";
 import { fetchUserWorkstyle } from "../../redux/modules/user";
 
 import { headerBarStyle } from "../../config/styles";
 import JoinTeamModal from "./JoinTeamModal";
 class JoinTeamModalContainer extends Component {
   static propTypes = {
+    error: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
     navigation: PropTypes.object.isRequired,
     userWorkstyle: PropTypes.string.isRequired
@@ -66,14 +67,6 @@ class JoinTeamModalContainer extends Component {
         this.props.navigation.state.params.teamSize
       )
     );
-    // await this.props.dispatch(
-    //   fetchOtherMatches(
-    //     this.props.userWorkstyle,
-    //     userScore,
-    //     this.props.navigation.state.params.competitionId,
-    //     false
-    //   )
-    // );
   }
 
   render() {

@@ -9,7 +9,7 @@ import { colors } from "../../config/styles";
 import Button from "../../components/Button";
 import Loading from "../../components/Loading";
 
-const MatchScreenLoading = ({ loading, navigation }) => {
+const MatchScreenLoading = ({ loading, navigation, noMatch }) => {
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -19,12 +19,24 @@ const MatchScreenLoading = ({ loading, navigation }) => {
               style={styles.imageBubbles}
               source={require("../../assets/images/matching/chatroom-image.png")}
             />
-            <Image
-              style={{ alignSelf: "center" }}
-              source={require("../../assets/icons/other/check-mark.png")}
-            />
-            <Text style={styles.title}>GROUP FOUND!</Text>
-            <Text style={styles.text}>Joining group chat room now…</Text>
+            {noMatch ? (
+              <Text style={[styles.text, { paddingHorizontal: 15 }]}>
+                {
+                  "Looks like you're the first one here.\nDo you want to create your own group?"
+                }
+              </Text>
+            ) : (
+              <View>
+                <Image
+                  style={{ alignSelf: "center" }}
+                  source={require("../../assets/icons/other/check-mark.png")}
+                />
+                <Text style={styles.title}>{"GROUP FOUND!"}</Text>
+                <Text style={styles.text}>
+                  {"Joining group chat room now…"}
+                </Text>
+              </View>
+            )}
           </View>
         ) : (
           <View>
@@ -41,22 +53,33 @@ const MatchScreenLoading = ({ loading, navigation }) => {
             </Text>
           </View>
         )}
-        <Button
-          color={colors.cornflowerBlue}
-          text={"NEXT"}
-          disabled={loading}
-          width={140}
-          func={() => {
-            navigation.goBack();
-          }}
-        />
+        <View style={styles.buttonView}>
+          <Button
+            color={colors.cornflowerBlue}
+            text={noMatch ? "Create New Group" : "NEXT"}
+            disabled={loading}
+            width={noMatch ? 220 : 140}
+            func={() => {
+              navigation.goBack();
+            }}
+          />
+          {noMatch ? (
+            <Text style={styles.noThanks}>
+              {"No Thanks, I'll come back later"}
+            </Text>
+          ) : (
+            ""
+          )}
+        </View>
       </View>
     </ScrollView>
   );
 };
 
 MatchScreenLoading.propTypes = {
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
+  noMatch: PropTypes.bool.isRequired,
+  navigation: PropTypes.object.isRequired
 };
 
 export default MatchScreenLoading;
