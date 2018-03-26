@@ -24,7 +24,8 @@ const Competition = ({ data, navigation }) => {
         func={() => {
           navigation.navigate("JoinTeamModal", {
             title: data.name,
-            data: data.maxTeamNum
+            teamSize: data.maxTeamNum,
+            competitionId: data.id
           });
         }}
       />
@@ -105,7 +106,8 @@ const Competition = ({ data, navigation }) => {
         func={() => {
           navigation.navigate("JoinTeamModal", {
             title: data.name,
-            data: data.maxTeamNum
+            teamSize: data.maxTeamNum,
+            competitionId: data.id
           });
         }}
       />

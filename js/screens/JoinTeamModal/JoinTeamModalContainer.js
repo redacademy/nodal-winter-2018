@@ -1,11 +1,18 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import PropTypes from "prop-types";
+
+import { fetchBestMatch } from "../../redux/modules/teams";
+import { fetchUserWorkstyle } from "../../redux/modules/user";
 
 import { headerBarStyle } from "../../config/styles";
 import JoinTeamModal from "./JoinTeamModal";
-export default class JoinTeamModalContainer extends Component {
+class JoinTeamModalContainer extends Component {
   static propTypes = {
-    navigation: PropTypes.object.isRequired
+    error: PropTypes.string.isRequired,
+    dispatch: PropTypes.func.isRequired,
+    navigation: PropTypes.object.isRequired,
+    userWorkstyle: PropTypes.string.isRequired
   };
   static navigationOptions = ({ navigation }) => ({
     title: navigation.state.params && navigation.state.params.title,
@@ -19,41 +26,49 @@ export default class JoinTeamModalContainer extends Component {
       win: 1,
       pointsLeft: 7
     };
-    this.updateFun = this.updateFun.bind(this);
-    this.updateGrow = this.updateGrow.bind(this);
-    this.updateWin = this.updateWin.bind(this);
-    this.submit = this.submit.bind(this);
+  }
+  componentDidMount() {
+    this.props.dispatch(fetchUserWorkstyle());
   }
 
-  updateFun(fun) {
+  updateFun = fun => {
     if (this.state.pointsLeft - (fun - this.state.fun) >= 0)
       this.setState({
         fun,
         pointsLeft: this.state.pointsLeft - (fun - this.state.fun)
       });
-  }
-  updateGrow(grow) {
+  };
+  updateGrow = grow => {
     if (this.state.pointsLeft - (grow - this.state.grow) >= 0)
       this.setState({
         grow,
         pointsLeft: this.state.pointsLeft - (grow - this.state.grow)
       });
-  }
-  updateWin(win) {
+  };
+  updateWin = win => {
     if (this.state.pointsLeft - (win - this.state.win) >= 0)
       this.setState({
         win,
         pointsLeft: this.state.pointsLeft - (win - this.state.win)
       });
-  }
+  };
 
-  async submit() {
-    //
-  }
+  findBestMatch = async () => {
+    const userScore = [this.state.fun, this.state.grow, this.state.win];
+    await this.props.dispatch(
+      fetchBestMatch(
+        this.props.userWorkstyle,
+        userScore,
+        this.props.navigation.state.params.competitionId,
+        this.props.navigation.state.params.teamSize
+      )
+    );
+  };
 
   render() {
     return (
       <JoinTeamModal
+        error={this.props.error}
         fun={this.state.fun}
         grow={this.state.grow}
         win={this.state.win}
@@ -61,8 +76,16 @@ export default class JoinTeamModalContainer extends Component {
         updateFun={this.updateFun}
         updateGrow={this.updateGrow}
         updateWin={this.updateWin}
-        submit={this.submit}
+        findBestMatch={this.findBestMatch}
+        navigation={this.props.navigation}
       />
     );
   }
 }
+
+const mapStateToProps = state => ({
+  userWorkstyle: state.user.workstyle,
+  error: state.teams.error
+});
+
+export default connect(mapStateToProps)(JoinTeamModalContainer);

@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from "react-native";
 
-import { typography } from "../../config/styles";
+import { colors, typography } from "../../config/styles";
 const { height } = Dimensions.get("window");
 
 export default StyleSheet.create({
@@ -42,5 +42,16 @@ export default StyleSheet.create({
     alignSelf: "center",
     width: 100,
     height: 50
+  },
+  noThanks: {
+    color: colors.grey,
+    marginTop: 7,
+    textDecorationLine: "underline",
+    textAlign: 'center',
+    fontSize: 14,
+    fontFamily: typography.fontMainLight
+  },
+  buttonView:{
+    marginTop: 5,
   }
 });

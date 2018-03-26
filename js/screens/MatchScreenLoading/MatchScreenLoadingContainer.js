@@ -3,41 +3,42 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import MatchScreenLoading from "./MatchScreenLoading";
-import { getContentLoading } from "../../redux/modules/matchScreenLoading";
-import { getButtonLoading } from "../../redux/modules/matchScreenLoading";
 
 class MatchScreenLoadingContainer extends Component {
   static navigationOptions = {
     header: null
   };
-
-  componentDidMount() {
-    setTimeout(() => {
-      this.props.dispatch(getContentLoading());
-    }, 5000);
-    setTimeout(() => {
-      this.props.dispatch(getButtonLoading());
-    }, 5000);
+  componentWillReceiveProps(newProps) {
+    if (newProps.error) {
+      this.props.navigation.navigate("JoinTeamModal", {
+        title: this.props.navigation.state.params.title,
+        teamSize: this.props.navigation.state.params.teamSize,
+        competitionId: this.props.navigation.state.params.competitionId
+      });
+    }
   }
-
   render() {
     return (
       <MatchScreenLoading
-        buttonLoading={this.props.buttonLoading}
-        contentLoading={this.props.contentLoading}
+        loading={this.props.loading}
+        navigation={this.props.navigation}
+        noMatch={this.props.noMatch}
       />
     );
   }
 }
 MatchScreenLoadingContainer.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  buttonLoading: PropTypes.bool.isRequired,
-  contentLoading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.string.isRequired,
+  noMatch: PropTypes.bool.isRequired,
+  navigation: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  buttonLoading: state.matchScreenLoading.buttonLoading,
-  contentLoading: state.matchScreenLoading.contentLoading
+  loading: state.teams.isLoading,
+  error: state.teams.error,
+  noMatch: state.teams.noMatch
 });
 
 export default connect(mapStateToProps)(MatchScreenLoadingContainer);

@@ -9,22 +9,32 @@ import { colors } from "../../config/styles";
 import Button from "../../components/Button";
 import Loading from "../../components/Loading";
 
-const MatchScreenLoading = ({ contentLoading, buttonLoading }) => {
+const MatchScreenLoading = ({ loading, navigation, noMatch }) => {
   return (
     <ScrollView>
       <View style={styles.container}>
-        {contentLoading === false ? (
+        {!loading ? (
           <View>
             <Image
               style={styles.imageBubbles}
               source={require("../../assets/images/matching/chatroom-image.png")}
             />
-            <Image
-              style={{ alignSelf: "center" }}
-              source={require("../../assets/icons/other/check-mark.png")}
-            />
-            <Text style={styles.title}>GROUP FOUND!</Text>
-            <Text style={styles.text}>Joining group chat room now…</Text>
+            {noMatch ? (
+              <Text style={[styles.text, { paddingHorizontal: 15 }]}>
+                {
+                  "Looks like you're the first one here.\nDo you want to create your own group?"
+                }
+              </Text>
+            ) : (
+              <View>
+                <Image
+                  style={{ alignSelf: "center" }}
+                  source={require("../../assets/icons/other/check-mark.png")}
+                />
+                <Text style={styles.title}>{"GROUP FOUND!"}</Text>
+                <Text style={styles.text}>Joining group chat room now…</Text>
+              </View>
+            )}
           </View>
         ) : (
           <View>
@@ -37,35 +47,35 @@ const MatchScreenLoading = ({ contentLoading, buttonLoading }) => {
             </View>
             <Text style={styles.title}>ALMOST THERE!</Text>
             <Text style={styles.text}>
-              We’re working on matching you with your dream team!
+              {"We're working on matching you with your dream team!"}
             </Text>
           </View>
         )}
-        {buttonLoading === false ? (
+        <View style={styles.buttonView}>
           <Button
             color={colors.cornflowerBlue}
-            text={"NEXT"}
-            disabled={false}
-            width={200}
-            func={() => {}}
+            text={noMatch ? "Create New Group" : "NEXT"}
+            disabled={loading}
+            width={noMatch ? 220 : 140}
+            func={() => {
+              navigation.goBack();
+            }}
           />
-        ) : (
-          <Button
-            color={colors.cornflowerBlue}
-            text={"NEXT"}
-            disabled={true}
-            width={200}
-            func={() => {}}
-          />
-        )}
+          {noMatch && (
+            <Text style={styles.noThanks}>
+              {"No Thanks, I'll come back later"}
+            </Text>
+          )}
+        </View>
       </View>
     </ScrollView>
   );
 };
 
 MatchScreenLoading.propTypes = {
-  buttonLoading: PropTypes.bool.isRequired,
-  contentLoading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
+  noMatch: PropTypes.bool.isRequired,
+  navigation: PropTypes.object.isRequired
 };
 
 export default MatchScreenLoading;
