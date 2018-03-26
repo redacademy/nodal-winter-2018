@@ -9,7 +9,7 @@ import {
   addUserToTeam
 } from "../../redux/modules/teams";
 import { fetchUserWorkstyle } from "../../redux/modules/user";
-import { getUserScore } from "../../redux/modules/user";
+// import { getUserScore } from "../../redux/modules/user";
 
 import Competition from "./Competition";
 import { headerBarStyle } from "../../config/styles";

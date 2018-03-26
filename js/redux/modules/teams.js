@@ -27,7 +27,7 @@ const getTeamOtherMatches = otherMatches => ({
 });
 const getTeamError = error => ({
   type: GET_TEAM_ERROR,
-  payload: error
+  payload: error.message
 });
 const getTeamLoading = () => ({
   type: GET_TEAM_LOADING
@@ -53,58 +53,65 @@ export const fetchBestMatch = (
 
   const teamsQuery = generateQuery("teams", competitionId, workstyle, type);
 
-  await teamsQuery
-    .get()
-    .then(snapshot => {
+  try {
+    await teamsQuery.get().then(snapshot => {
       if (!snapshot.empty) {
         snapshot.forEach(team => {
           teams[team.id] = team.data();
         });
       }
-    })
-    .catch(error => dispatch(getTeamError(error)));
+    });
 
-  if (Object.keys(teams).length) {
-    const { match, otherMatches } = findBestMatch(teams);
-    dispatch(getTeamBestMatch(match));
-    dispatch(getTeamOtherMatches(otherMatches));
-  } else {
-    // if there's no match with the user type, fetch similar type teams
-    const rematch = await dispatch(
-      fetchOtherMatches(workstyle, score, competitionId, true)
-    );
-    const result = findBestMatch(rematch);
-
-    // if there's no match with the similar types either
-    // create new team
-    if (result.match === undefined) {
-      const uid = await AsyncStorage.getItem("user");
-      firebaseDB
-        .collection("teams")
-        .add({
-          workstyle,
-          type,
-          competitionId,
-          teamSize,
-          users: {
-            [uid]: { fun: score[0], grow: score[1], win: score[2], id: uid }
-          }
-        })
-        .then(async docRef => {
-          // Refetch newly added team, which is a perfect match
-          const newTeam = await docRef.get();
-          dispatch(getTeamBestMatch(newTeam.data()));
-        })
-        .catch(err => dispatch(getTeamError(err)));
+    if (Object.keys(teams).length) {
+      const { match, otherMatches } = findBestMatch(teams);
+      dispatch(getTeamBestMatch(match));
+      dispatch(getTeamOtherMatches(otherMatches));
     } else {
-      dispatch(getTeamBestMatch(result.match));
-      dispatch(getTeamOtherMatches(result.otherMatches));
+      // if there's no match with the user type, fetch similar type teams
+      const rematch = await dispatch(
+        fetchOtherMatches(workstyle, score, competitionId, true)
+      );
+      const result = findBestMatch(rematch);
+      if (result.match !== undefined) {
+        dispatch(getTeamBestMatch(result.match));
+        dispatch(getTeamOtherMatches(result.otherMatches));
+      } else{
+        dispatch(getTeamBestMatch({}));
+        dispatch(getTeamOtherMatches([]));
+      }
+
+      // if there's no match with the similar types either
+      // create new team
+      // if (result.match === undefined) {
+      //   const uid = await AsyncStorage.getItem("user");
+      //   firebaseDB
+      //     .collection("teams")
+      //     .add({
+      //       workstyle,
+      //       type,
+      //       competitionId,
+      //       teamSize,
+      //       users: {
+      //         [uid]: { fun: score[0], grow: score[1], win: score[2], id: uid }
+      //       }
+      //     })
+      //     .then(async docRef => {
+      //       // Refetch newly added team, which is a perfect match:)
+      //       const newTeam = await docRef.get();
+      //       dispatch(getTeamBestMatch(newTeam.data()));
+      //     });
+      // } else {
+      //   dispatch(getTeamBestMatch(result.match));
+      //   dispatch(getTeamOtherMatches(result.otherMatches));
+      // }
     }
+  } catch (err) {
+    dispatch(getTeamError(err));
   }
 };
 
 // Async action to fetch other matches when user clicks "browse other groups"
-// @param: user workstyle, score, competition id and flag true for refetch if no best match exists
+// @param: user workstyle, score[fun, grow, win], competition id and flag true for refetch if no best match exists
 export const fetchOtherMatches = (
   workstyle,
   score,
@@ -133,22 +140,22 @@ export const fetchOtherMatches = (
   await teamsQueryOne.get().then(snapshot =>
     snapshot.forEach(team => {
       const newMatch = team.data();
-      if (filterOtherMatches(score, Object.values(team.users))) {
-        newMatch.id = team.id;
-        matches[team.id] = newMatch;
-      }
-    })
-  );
-  await teamsQueryTwo.get().then(snapshot =>
-    snapshot.forEach(team => {
-      const newMatch = team.data();
-      if (filterOtherMatches(score, Object.values(team.users))) {
+      if (team.users && filterOtherMatches(score, Object.values(team.users))) {
         newMatch.id = team.id;
         matches[team.id] = newMatch;
       }
     })
   );
 
+  await teamsQueryTwo.get().then(snapshot =>
+    snapshot.forEach(team => {
+      const newMatch = team.data();
+      if (team.users && filterOtherMatches(score, Object.values(team.users))) {
+        newMatch.id = team.id;
+        matches[team.id] = newMatch;
+      }
+    })
+  );
   if (flag) {
     return matches;
   } else {
@@ -170,6 +177,7 @@ export const addUserToTeam = (score, teamId, userId) => async dispatch => {
       }
     }
   });
+  // add competition id to user
 };
 
 //TODO: action to remove user from the team

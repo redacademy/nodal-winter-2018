@@ -23,7 +23,7 @@ class CompetitionListContainer extends Component {
     this.props.dispatch(fetchCompetitions(params.category));
   }
   render() {
-    console.log(this.props.competitions);
+
     return (
       <View style={styles.background}>
         {this.props.isLoading ? (

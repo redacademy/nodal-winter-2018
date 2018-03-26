@@ -9,11 +9,11 @@ import { colors } from "../../config/styles";
 import Button from "../../components/Button";
 import Loading from "../../components/Loading";
 
-const MatchScreenLoading = ({ contentLoading, buttonLoading }) => {
+const MatchScreenLoading = ({ loading, navigation }) => {
   return (
     <ScrollView>
       <View style={styles.container}>
-        {contentLoading === false ? (
+        {!loading ? (
           <View>
             <Image
               style={styles.imageBubbles}
@@ -37,35 +37,26 @@ const MatchScreenLoading = ({ contentLoading, buttonLoading }) => {
             </View>
             <Text style={styles.title}>ALMOST THERE!</Text>
             <Text style={styles.text}>
-              We’re working on matching you with your dream team!
+              {"We're working on matching you with your dream team!"}
             </Text>
           </View>
         )}
-        {buttonLoading === false ? (
-          <Button
-            color={colors.cornflowerBlue}
-            text={"NEXT"}
-            disabled={false}
-            width={200}
-            func={() => {}}
-          />
-        ) : (
-          <Button
-            color={colors.cornflowerBlue}
-            text={"NEXT"}
-            disabled={true}
-            width={200}
-            func={() => {}}
-          />
-        )}
+        <Button
+          color={colors.cornflowerBlue}
+          text={"NEXT"}
+          disabled={loading}
+          width={140}
+          func={() => {
+            navigation.goBack();
+          }}
+        />
       </View>
     </ScrollView>
   );
 };
 
 MatchScreenLoading.propTypes = {
-  buttonLoading: PropTypes.bool.isRequired,
-  contentLoading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired
 };
 
 export default MatchScreenLoading;

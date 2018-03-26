@@ -6,6 +6,14 @@ export default StyleSheet.create({
     alignItems: "center",
     backgroundColor: colors.white
   },
+  error:{
+    fontFamily: typography.fontMainLight,
+    fontSize: 20,
+    textAlign: "center",
+    lineHeight: 21,
+    paddingVertical: 10,
+    color: 'red'
+  },
   instructions: {
     fontFamily: typography.fontMainLight,
     fontSize: 16,
