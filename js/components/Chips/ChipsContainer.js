@@ -50,3 +50,6 @@ ChipsContainer.propTypes = {
   placeholder: PropTypes.string.isRequired,
   setChips: PropTypes.func
 };
+ChipsContainer.defaultProps = {
+  chips: []
+};

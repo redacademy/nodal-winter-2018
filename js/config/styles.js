@@ -24,7 +24,7 @@ export const typography = {
   fontMainLight: "MissionGothic-Light",
   fontMain: "MissionGothic-Regular",
   fontBold: "MissionGothic-Bold",
-  fontBlack: "MissionGothic-Black",
+  fontBlack: "MissionGothic-Bold",
   fontThin: "MissionGothic-Thin",
   fontMainLightItalic: "MissionGothic-LightItalic",
   fontMainItalic: "MissionGothic-RegularItalic",

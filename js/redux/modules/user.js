@@ -80,7 +80,7 @@ const getUsers = user => ({
   payload: user
 });
 
-const getUserError = err => ({
+export const getUserError = err => ({
   type: GET_USER_ERROR,
   payload: err
 });
@@ -149,7 +149,6 @@ export const fetchUser = () => async dispatch => {
 
 export const fetchOtherUser = uid => async dispatch => {
   dispatch(getUserLoading());
-  const uid = await AsyncStorage.getItem("user");
   const userQuery = firebaseDB.collection("users").doc(uid);
   await userQuery
     .get()
@@ -222,37 +221,37 @@ export default (state = initialState, action) => {
     case SET_FULLNAME:
       return {
         ...state,
-        userForm: { ...state.user, fullname: action.payload }
+        userForm: { ...state.userForm, fullname: action.payload }
       };
     case SET_PROGRAM:
       return {
         ...state,
-        userForm: { ...state.user, program: action.payload }
+        userForm: { ...state.userForm, program: action.payload }
       };
     case SET_SCHOOL_NAME:
       return {
         ...state,
-        userForm: { ...state.user, schoolName: action.payload }
+        userForm: { ...state.userForm, schoolName: action.payload }
       };
     case SET_ABOUT_ME:
       return {
         ...state,
-        userForm: { ...state.user, aboutMe: action.payload }
+        userForm: { ...state.userForm, aboutMe: action.payload }
       };
     case SET_WORKSTYLE:
       return {
         ...state,
-        userForm: { ...state.user, workstyle: action.payload }
+        userForm: { ...state.userForm, workstyle: action.payload }
       };
     case SET_CHIPS:
       return {
         ...state,
-        userForm: { ...state.user, chips: action.payload }
+        userForm: { ...state.userForm, chips: action.payload }
       };
     case SET_PROFILE_PHOTO:
       return {
         ...state,
-        userForm: { ...state.user, profilePhoto: action.payload }
+        userForm: { ...state.userForm, profilePhoto: action.payload }
       };
     case RESET_USER:
       return initialState;
