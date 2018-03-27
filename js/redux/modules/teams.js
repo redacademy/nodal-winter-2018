@@ -263,17 +263,12 @@ export const removeUserFromTeam = async (
 ) => async dispatch => {
   const teamRef = firebaseDB.collection("teams").doc(teamId);
   const userRef = firebaseDB.collection("users").doc(userId);
-  let users = {};
-  let competitions = {};
-  let teams = {};
+
   try {
-    await teamRef.get().then(snapshot => {
-      users = snapshot.data().users;
-    });
-    await userRef.get().then(snapshot => {
-      competitions = snapshot.data().competitions;
-      teams = snapshot.data().teams;
-    });
+    const users = await teamRef.get().then(snapshot => snapshot.data().users);
+    const { competitions, teams } = await userRef
+      .get()
+      .then(snapshot => snapshot.data());
 
     delete users[userId];
     delete competitions[competitionId];

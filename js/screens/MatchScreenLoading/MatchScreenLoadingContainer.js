@@ -9,10 +9,6 @@ class MatchScreenLoadingContainer extends Component {
   static navigationOptions = {
     header: null
   };
-  constructor() {
-    super();
-    this.createNewTeamWithUser = this.createNewTeamWithUser.bind(this);
-  }
 
   componentWillReceiveProps(newProps) {
     if (newProps.error) {
