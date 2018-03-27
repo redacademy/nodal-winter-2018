@@ -5,6 +5,10 @@ export const styles = StyleSheet.create({
   mainContainer: {
     width: "100%"
   },
+  background: {
+    backgroundColor: colors.white,
+    height: "100%"
+  },
   profilePhotoButton: {
     marginTop: 30,
     height: 200,
@@ -23,7 +27,13 @@ export const styles = StyleSheet.create({
     width: 100,
     tintColor: "white"
   },
+  profilePhoto: {
+    height: 200,
+    width: 200,
+    borderRadius: 100
+  },
   profileCircleText: {
+    alignSelf: "center",
     fontFamily: typography.fontMain,
     fontSize: 22
   },
@@ -37,10 +47,11 @@ export const styles = StyleSheet.create({
     width: 250,
     alignSelf: "center",
     marginTop: 20,
-    paddingLeft: 20,
+    paddingHorizontal: 20,
     borderRadius: 100,
     borderColor: colors.grey,
-    borderWidth: 1
+    borderWidth: 1,
+    fontFamily: typography.fontLight
   },
   screenText: {
     fontSize: 18,
@@ -52,23 +63,40 @@ export const styles = StyleSheet.create({
   },
   workstyle: {
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-around",
+    paddingHorizontal: 20
   },
   workstyleIcons: {
     marginHorizontal: 5
+  },
+  icons: {
+    height: 80,
+    width: 80
   },
   workstyleText: {
     alignSelf: "center",
     fontFamily: typography.fontLight
   },
   largeInput: {
-    height: 120,
+    minHeight: 120,
     width: 250,
     alignSelf: "center",
     marginTop: 20,
     paddingLeft: 20,
+    paddingTop: 10,
     borderRadius: 20,
     borderColor: colors.grey,
-    borderWidth: 1
+    borderWidth: 1,
+    alignContent: "flex-start",
+    fontFamily: typography.fontLight
+  },
+  largeInputChips: {
+    minHeight: 120,
+    width: 250,
+    alignSelf: "center",
+    borderRadius: 20,
+    borderColor: colors.grey,
+    borderWidth: 1,
+    alignContent: "flex-start"
   }
 });

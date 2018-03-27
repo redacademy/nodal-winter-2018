@@ -45,8 +45,9 @@
 		9399E1EEF6414CA5BA4F62C9 /* mission-gothic-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A712C884A3C45FF9A65CE5F /* mission-gothic-light.otf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		CE89A45B0C754133BA3084F6 /* mission-gothic-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FBF1F92A5CAF4914BACF3788 /* mission-gothic-regular.otf */; };
-		E92CF174CE624FDA84E211D6 /* mission-gothic-black.otf in Resources */ = {isa = PBXBuildFile; fileRef = D735FDB1AF654D3F85771993 /* mission-gothic-black.otf */; };
-		F45A8B9065284E8887D21139 /* mission-gothic-black-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 49F3C03152804746ADBC2B33 /* mission-gothic-black-italic.otf */; };
+		43E560AB7C6040D080D50E79 /* mission-gothic-thin-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 52A529202B8342E29715A6EB /* mission-gothic-thin-italic.otf */; };
+		1325D6402B284938BECD87B7 /* mission-gothic-thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA960EBE1FAF47098064B332 /* mission-gothic-thin.otf */; };
+		6E62AA7BE6EA4E018AF0919E /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE4F0B1CC2B4BED81759427 /* libRNImagePicker.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -358,10 +359,18 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		A768C66126FE4B0DBA2ABBFF /* mission-gothic-regular-italic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "mission-gothic-regular-italic.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-regular-italic.otf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
-		D735FDB1AF654D3F85771993 /* mission-gothic-black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "mission-gothic-black.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-black.otf"; sourceTree = "<group>"; };
-		EA960EBE1FAF47098064B332 /* mission-gothic-thin.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "mission-gothic-thin.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-thin.otf"; sourceTree = "<group>"; };
-		F7B86E013BEF4C239884EB28 /* mission-gothic-bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "mission-gothic-bold.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-bold.otf"; sourceTree = "<group>"; };
-		FBF1F92A5CAF4914BACF3788 /* mission-gothic-regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "mission-gothic-regular.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-regular.otf"; sourceTree = "<group>"; };
+		49F3C03152804746ADBC2B33 /* mission-gothic-black-italic.otf */ = {isa = PBXFileReference; name = "mission-gothic-black-italic.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-black-italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D735FDB1AF654D3F85771993 /* mission-gothic-black.otf */ = {isa = PBXFileReference; name = "mission-gothic-black.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-black.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		12815901F5324AABBA9F6A93 /* mission-gothic-bold-italic.otf */ = {isa = PBXFileReference; name = "mission-gothic-bold-italic.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-bold-italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F7B86E013BEF4C239884EB28 /* mission-gothic-bold.otf */ = {isa = PBXFileReference; name = "mission-gothic-bold.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		234DE476D56043F091A6439E /* mission-gothic-light-italic.otf */ = {isa = PBXFileReference; name = "mission-gothic-light-italic.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-light-italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4A712C884A3C45FF9A65CE5F /* mission-gothic-light.otf */ = {isa = PBXFileReference; name = "mission-gothic-light.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A768C66126FE4B0DBA2ABBFF /* mission-gothic-regular-italic.otf */ = {isa = PBXFileReference; name = "mission-gothic-regular-italic.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-regular-italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FBF1F92A5CAF4914BACF3788 /* mission-gothic-regular.otf */ = {isa = PBXFileReference; name = "mission-gothic-regular.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		52A529202B8342E29715A6EB /* mission-gothic-thin-italic.otf */ = {isa = PBXFileReference; name = "mission-gothic-thin-italic.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-thin-italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		EA960EBE1FAF47098064B332 /* mission-gothic-thin.otf */ = {isa = PBXFileReference; name = "mission-gothic-thin.otf"; path = "../js/assets/fonts/missiongothic_personal_license/mission-gothic-thin.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E2BEC68775C2434DBDA5BCBB /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; name = "RNImagePicker.xcodeproj"; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		0AE4F0B1CC2B4BED81759427 /* libRNImagePicker.a */ = {isa = PBXFileReference; name = "libRNImagePicker.a"; path = "libRNImagePicker.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -390,6 +399,7 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				6E62AA7BE6EA4E018AF0919E /* libRNImagePicker.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,6 +585,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
+				E2BEC68775C2434DBDA5BCBB /* RNImagePicker.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1233,6 +1244,14 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nodal.app/nodal";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+				);
 			};
 			name = Debug;
 		};
@@ -1251,6 +1270,14 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nodal.app/nodal";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+				);
 			};
 			name = Release;
 		};
@@ -1274,6 +1301,10 @@
 				PRODUCT_NAME = nodal;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+				);
 			};
 			name = Debug;
 		};
@@ -1296,6 +1327,10 @@
 				PRODUCT_NAME = nodal;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+				);
 			};
 			name = Release;
 		};
@@ -1322,6 +1357,14 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+				);
 			};
 			name = Debug;
 		};
@@ -1348,6 +1391,14 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+				);
 			};
 			name = Release;
 		};
@@ -1369,6 +1420,10 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nodal-tvOS.app/nodal-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 			};
 			name = Debug;
 		};
@@ -1390,6 +1445,10 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nodal-tvOS.app/nodal-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 			};
 			name = Release;
 		};

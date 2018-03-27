@@ -1,7 +1,5 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet } from "react-native";
 import { typography } from "../../config/styles";
-
-const { width } = Dimensions.get("window");
 
 export const styles = StyleSheet.create({
   chipsContainer: {
@@ -9,20 +7,19 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     alignContent: "flex-start",
-    padding: 15,
-    margin: 15,
-    width,
+    marginHorizontal: 5,
+    width: 250,
     alignSelf: "center"
   },
   chipsInput: {
+    marginHorizontal: 20,
     width: 150,
     height: 50,
     fontSize: 18
   },
   chip: {
     flexWrap: "nowrap",
-    height: 30,
-    padding: 3,
+    height: 25,
     margin: 5,
     paddingHorizontal: 10,
     borderWidth: 1,
