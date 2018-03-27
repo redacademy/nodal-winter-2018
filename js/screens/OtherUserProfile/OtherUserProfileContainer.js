@@ -32,16 +32,19 @@ class OtherUserProfileContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
   isLoading: state.user.isLoading,
-  user: state.user.user
+  user: state.user.users["u1S6v0sfhfSQZAjSrCdOar0SSA52"]
 });
 
 OtherUserProfileContainer.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired,
+  user: PropTypes.object,
   isLoading: PropTypes.bool.isRequired,
   navigation: PropTypes.object.isRequired
+};
+OtherUserProfileContainer.defaultProps = {
+  user: {}
 };
 
 export default connect(mapStateToProps)(OtherUserProfileContainer);

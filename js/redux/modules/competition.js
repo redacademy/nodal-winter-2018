@@ -5,6 +5,7 @@ import { competitionValidation } from "../../helpers/timestampHelpers";
 const GET_COMPETITION_LOADING = "GET_COMPETITION_LOADING";
 const GET_COMPETITION = "GET_COMPETITION";
 const GET_COMPETITION_ERROR = "GET_COMPETITION_ERROR";
+const RESET_COMPS = "RESET_COMPS";
 
 // Action creators
 const getCompetitionLoading = () => ({
@@ -19,6 +20,9 @@ const getCompetitionError = err => ({
 const getCompetition = competitions => ({
   type: GET_COMPETITION,
   payload: competitions
+});
+export const resetComps = () => ({
+  type: RESET_COMPS
 });
 
 // Async action creator
@@ -35,19 +39,16 @@ export const fetchCompetitions = param => dispatch => {
         if (competitionValidation(competition.data().startTime)) {
           const data = competition.data();
           data.id = competition.id;
-          list.push(data)
+          list.push(data);
         }
       });
       dispatch(getCompetition(list));
     })
     .catch(err => dispatch(getCompetitionError(err)));
 };
-
+const intitialState = { isLoading: false, competitions: [], error: "" };
 // Reducer
-export default (
-  state = { isLoading: false, competitions: [], error: "" },
-  action
-) => {
+export default (state = intitialState, action) => {
   switch (action.type) {
     case GET_COMPETITION_LOADING:
       return {
@@ -67,6 +68,8 @@ export default (
         ...state,
         error: action.payload.message
       };
+    case RESET_COMPS:
+      return intitialState;
     default:
       return state;
   }

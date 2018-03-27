@@ -26,7 +26,6 @@ class EditProfileContainer extends Component {
   static propTypes = {
     navigation: PropTypes.object.isRequired
   };
-
   static navigationOptions = ({ navigation }) => ({
     title: "EDIT PROFILE",
     ...headerBarStyle(navigation, true)
@@ -69,7 +68,7 @@ class EditProfileContainer extends Component {
       cameraType: "front"
     };
     ImagePicker.showImagePicker(options, response => {
-      if (response) {
+      if (response.error) {
         this.props.dispatch(getUserError(response.error));
       } else {
         const source = `data:image/jpeg;base64,${response.data}`;

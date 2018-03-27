@@ -1,7 +1,8 @@
 import { firebaseAuth, firebaseDB } from "../config/firebaseConfig";
 import { AsyncStorage } from "react-native";
-import { getUserError } from "../redux/modules/user";
-import { dispatch } from "react-redux";
+import { resetUser } from "../redux/modules/user";
+import { resetComps } from "../redux/modules/competition";
+import { resetTeam } from "../redux/modules/teams";
 
 export const createUserInAuthAndDB = async (fullname, email, password) => {
   const uid = await firebaseAuth
@@ -38,7 +39,17 @@ export const signIn = async (email, password, writeToAsync = false) => {
   }
 };
 
-export const signOut = () => firebaseAuth.signOut();
+export const signOut = async (navigation, dispatch) => {
+  try {
+    await firebaseAuth.signOut();
+    await AsyncStorage.clear();
+    dispatch(resetComps());
+    dispatch(resetTeam());
+    dispatch(resetUser());
+  } finally {
+    navigation.navigate("Landing", { disableOnboarding: true });
+  }
+};
 
 export const updateUserProfile = async (
   fullname,
@@ -47,22 +58,18 @@ export const updateUserProfile = async (
   aboutMe,
   chips
 ) => {
-  try {
-    const uid = await AsyncStorage.getItem("user");
-    await firebaseDB
-      .collection("users")
-      .doc(uid)
-      .set(
-        {
-          fullname,
-          program,
-          schoolName,
-          aboutMe,
-          chips
-        },
-        { merge: true }
-      );
-  } catch (err) {
-    dispatch(getUserError(err));
-  }
+  const uid = await AsyncStorage.getItem("user");
+  await firebaseDB
+    .collection("users")
+    .doc(uid)
+    .set(
+      {
+        fullname,
+        program,
+        schoolName,
+        aboutMe,
+        chips
+      },
+      { merge: true }
+    );
 };

@@ -3,6 +3,7 @@ import { View } from "react-native";
 import Profile from "./Profile";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { signOut } from "../../helpers/firebaseAuth";
 import { headerBarStyle } from "../../config/styles";
 import { fetchUser } from "../../redux/modules/user";
 import Loading from "../../components/Loading/";
@@ -21,7 +22,7 @@ class ProfileContainer extends Component {
   }
 
   signOut = () => {
-    this.props.navigation.navigate("SignedOut", { disableOnboarding: true });
+    signOut(this.props.navigation, this.props.dispatch);
   };
 
   openEditProfile = () => {
