@@ -2,6 +2,11 @@ import { StyleSheet } from "react-native";
 import { colors, typography } from "../../config/styles";
 
 export const styles = StyleSheet.create({
+  mainContainer: {
+    width: "100%",
+    flex: 1,
+    alignItems: "center"
+  },
   image: {
     width: 82,
     height: 82,
@@ -24,7 +29,11 @@ export const styles = StyleSheet.create({
     alignContent: "center",
     paddingHorizontal: 24,
     backgroundColor: colors.white,
-    borderBottomWidth: 1,
+    borderBottomWidth: 2,
+    shadowColor: colors.grey,
+    shadowOffset: { width: 0, height: 1.2 },
+    shadowOpacity: 0.7,
+    shadowRadius: 1,
     borderTopWidth: 1,
     borderColor: colors.lightGrey
   },
@@ -36,8 +45,8 @@ export const styles = StyleSheet.create({
   },
   heading: {
     marginHorizontal: 0,
-    paddingVertical: 5,
-    borderBottomWidth: 2,
+    paddingVertical: 6,
+    borderBottomWidth: 1.5,
     borderColor: colors.lightGrey,
     backgroundColor: colors.white
   },
@@ -50,20 +59,31 @@ export const styles = StyleSheet.create({
     marginHorizontal: 0,
     paddingVertical: 5,
     backgroundColor: colors.white,
-    borderBottomWidth: 0.5,
-    borderColor: colors.lightGrey,
     shadowColor: colors.white,
     shadowOffset: { width: 0, height: 1.2 }
   },
-  title: {
+  mainTitle: {
     alignSelf: "center",
+    paddingTop: 3,
+    fontFamily: typography.fontBold,
+    fontSize: 14
+  },
+  title: {
+    alignSelf: "flex-start",
+    paddingLeft: 30,
+    paddingBottom: 2,
     fontFamily: typography.fontBold,
     fontSize: 18
   },
   text: {
     alignSelf: "center",
     fontFamily: typography.fontMainLight,
-    fontSize: 14
+    fontSize: 16
+  },
+  teamTitle: {
+    alignSelf: "center",
+    fontSize: 14,
+    fontFamily: typography.fontBold,
   },
   left: {
     flexDirection: "row"
@@ -77,7 +97,9 @@ export const styles = StyleSheet.create({
     fontSize: 14
   },
   profileData: {
-    justifyContent: "center"
+    justifyContent: "center",
+    borderBottomWidth: 0.5,
+    borderColor: colors.lightGrey
   },
   buttonContainer: {
     justifyContent: "center",
@@ -89,5 +111,16 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     textDecorationLine: "underline",
     color: colors.grey
+  },
+  bestMatchContainer: {
+    width: "100%",
+    backgroundColor: colors.white,
+    borderBottomWidth: 0.2,
+    borderColor: colors.borderGrey,
+    shadowColor: colors.grey,
+    shadowOffset: { width: 0, height: 1.2 },
+    shadowOpacity: 0.7,
+    shadowRadius: 1,
+    zIndex: 5,
   }
 });
