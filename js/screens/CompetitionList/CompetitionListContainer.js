@@ -17,7 +17,6 @@ class CompetitionListContainer extends Component {
   });
 
   componentDidMount() {
-    console.log(this.props.navigation.state.params);
     const { params } = this.props.navigation.state;
 
     this.props.dispatch(fetchCompetitions(params.category));

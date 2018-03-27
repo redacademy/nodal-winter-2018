@@ -1,5 +1,7 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import { colors, typography } from "../../config/styles";
+
+const { width } = Dimensions.get("window");
 
 export const styles = StyleSheet.create({
   text: {
@@ -8,11 +10,12 @@ export const styles = StyleSheet.create({
     marginLeft: 12
   },
   title: {
+    marginTop: 5,
     fontFamily: typography.fontBold,
     fontSize: 16
   },
   imageText: {
-    width: 140,
+    width: width > 320 ? 165 : 140,
     height: 120,
     marginHorizontal: 7.5,
     marginVertical: 6.5,

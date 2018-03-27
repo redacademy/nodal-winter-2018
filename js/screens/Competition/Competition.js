@@ -19,7 +19,7 @@ const Competition = ({ data, navigation }) => {
       <Text style={styles.subtitle}>{data.host}</Text>
       <Image source={{ uri: data.hero }} style={styles.hero} />
       <Button
-        text="Find A Group"
+        text="FIND A GROUP"
         color={colors.coralOrange}
         func={() => {
           navigation.navigate("JoinTeamModal", {

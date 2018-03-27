@@ -1,5 +1,7 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import { colors, typography } from "../../config/styles";
+
+const { width } = Dimensions.get("window");
 
 export const styles = StyleSheet.create({
   background: {
@@ -7,48 +9,45 @@ export const styles = StyleSheet.create({
     height: "100%"
   },
   image: {
-    width: 60,
-    height: 60
+    width: 70,
+    height: 70
   },
   main: {
     backgroundColor: colors.white,
-    marginVertical: 20,
     marginHorizontal: 0,
-    borderBottomWidth: 0.2,
-    borderColor: colors.borderGrey,
     shadowColor: colors.grey,
     shadowOffset: { width: 0, height: 1.2 },
     shadowOpacity: 0.7,
-    shadowRadius: 1,
+    shadowRadius: 1
   },
   element: {
     paddingVertical: 10,
     flexDirection: "row",
     justifyContent: "space-between",
     paddingHorizontal: 10,
-    borderTopWidth: 0.25,
-    borderColor: colors.borderGrey
+    borderBottomWidth: 1,
+    borderColor: colors.lightGrey
   },
   textWrapper: {
-    paddingLeft: 5,
+    paddingLeft: 10,
     flexDirection: "column",
     justifyContent: "space-between",
     maxWidth: "70%"
   },
   title: {
     fontFamily: typography.fontBold,
-    fontSize: 12
+    fontSize: width > 320 ? 14 : 12
   },
   text: {
     fontFamily: typography.fontMainLight,
-    fontSize: 14
+    fontSize: width > 320 ? 16 : 14
   },
   time: {
     position: "absolute",
     bottom: 0,
     right: 0,
     fontFamily: typography.fontMainLight,
-    fontSize: 12
+    fontSize: width > 320 ? 14 : 12
   },
   left: {
     flexDirection: "row"
