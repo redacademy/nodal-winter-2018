@@ -1,23 +1,14 @@
 import { StackNavigator } from "react-navigation";
-
-import Landing from "../../../screens/Landing";
-import SignIn from "../../../screens/SignIn";
-import SignUp from "../../../screens/SignUp";
+import OtherUserProfile from "../../../screens/OtherUserProfile/";
 
 export default StackNavigator(
   {
-    Landing: {
-      screen: Landing
-    },
-    SignIn: {
-      screen: SignIn
-    },
-    SignUp: {
-      screen: SignUp
+    OtherUserProfile: {
+      screen: OtherUserProfile
     }
   },
   {
-    initialRouteName: "Landing",
+    initialRouteName: "OtherUserProfile",
     headerMode: "screen"
   }
 );
