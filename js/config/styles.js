@@ -45,9 +45,7 @@ export const headerBarStyle = (navigation, modal = false) => ({
     backgroundColor: colors.white,
     borderBottomWidth: 1,
     borderBottomColor: colors.lightGrey,
-    height: 60,
-    paddingLeft: 20,
-    paddingRight: 0
+    height: 60
   },
   headerBackImage: null,
   headerLeft: <HeaderBarBack navigation={navigation} modal={modal} />

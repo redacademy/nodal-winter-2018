@@ -11,6 +11,7 @@ const HeaderBarBack = ({ navigation, modal }) => (
     onPress={() => {
       navigation.goBack();
     }}
+    style={styles.wrapper}
   >
     <Image source={modal ? closeIcon : backIcon} style={styles.icon} />
   </TouchableOpacity>
