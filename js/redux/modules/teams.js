@@ -3,6 +3,7 @@ import { AsyncStorage } from "react-native";
 import { firebaseDB } from "../../config/firebaseConfig";
 import {
   teamType,
+  teamName,
   similarTeamType,
   findBestMatch,
   generateQuery,
@@ -178,13 +179,16 @@ export const createTeamAndAddUser = (
 ) => async dispatch => {
   try {
     const uid = await AsyncStorage.getItem("user");
-    firebaseDB
+    const name = teamName(type);
+    let teamId = "";
+    await firebaseDB
       .collection("teams")
       .add({
         workstyle,
         type,
         competitionId,
         teamSize,
+        name,
         users: {
           [uid]: { fun: score[0], grow: score[1], win: score[2], id: uid }
         }

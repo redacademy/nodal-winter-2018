@@ -30,20 +30,21 @@ export const generateQuery = (collection, competitionId, workstyle, type) =>
 
 // Helper function - default team name generator
 // @params: team type, number of team existed with this types
-export const teamName = (type, length) => {
+export const teamName = type => {
+  const randomNumber = Math.floor(Math.random() * Math.floor(1000));
   switch (type) {
     case "A":
-      return `Alpha ${length}`;
+      return `Alpha ${randomNumber}`;
     case "D":
-      return `Delta ${length}`;
+      return `Delta ${randomNumber}`;
     case "E":
-      return `Eta ${length}`;
+      return `Eta ${randomNumber}`;
     case "K":
-      return `Kappa ${length}`;
+      return `Kappa ${randomNumber}`;
     case "L":
-      return `Lambda ${length}`;
+      return `Lambda ${randomNumber}`;
     case "M":
-      return `Mu ${length}`;
+      return `Mu ${randomNumber}`;
   }
 };
 
@@ -82,14 +83,12 @@ export const similarTeamType = (fun, grow, win) =>
 // Match user with same type, almost full team
 //@param: array of teams that are matches
 export const findBestMatch = teams => {
-
   let otherMatches = teams;
   let teamUserNum = 0;
   let teamUserGap = 100;
   let match;
   let resultId;
   Object.entries(otherMatches).forEach(([key, value]) => {
-
     teamUserNum = Object.keys(value.users).length;
     if (value.teamSize - teamUserNum < teamUserGap) {
       resultId = key;
