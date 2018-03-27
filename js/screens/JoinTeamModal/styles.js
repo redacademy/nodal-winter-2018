@@ -28,7 +28,7 @@ export default StyleSheet.create({
     marginVertical: 8
   },
   points: {
-    fontFamily: typography.fontBlack,
+    fontFamily: typography.fontBold,
     fontSize: 20,
     lineHeight: 21
   },

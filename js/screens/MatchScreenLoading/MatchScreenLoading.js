@@ -90,7 +90,9 @@ const MatchScreenLoading = ({
               func={
                 //TODO
                 () => {
-                  console.log("TODO: Navigate to list of teammates screen");
+                  navigation.pop();
+                  navigation.navigate("Matches");
+                  // console.log("TODO: Navigate to list of teammates screen");
                 }
               }
             />
