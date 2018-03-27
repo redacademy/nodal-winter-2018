@@ -179,13 +179,9 @@ export const createTeamAndAddUser = (
 ) => async dispatch => {
   try {
     const uid = await AsyncStorage.getItem("user");
-<<<<<<< HEAD
-    firebaseDB
-=======
     const name = teamName(type);
     let teamId = "";
     await firebaseDB
->>>>>>> Add matches screen; add random team name when create new team.
       .collection("teams")
       .add({
         workstyle,
