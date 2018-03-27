@@ -1,45 +1,40 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import { firebaseDB } from "../../config/firebaseConfig";
 import { headerBarStyle } from "../../config/styles";
 import GroupDetails from "./GroupDetails";
 
+import PropTypes from "prop-types";
+
 class GroupDetailsContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      list: []
-    };
-    this.asyncFetchUserList = this.asyncFetchUserList.bind(this);
-  }
   static navigationOptions = ({ navigation }) => ({
-    title: "TEAM PLACEHOLDER",
-    ...headerBarStyle(navigation),
-    headerLeft: null
+    title: "TEAM NAME",
+    ...headerBarStyle(navigation)
   });
 
-  asyncFetchUserList() {
-    firebaseDB
-      .collection("users")
-      .get()
-      .then(snapshot => {
-        snapshot.forEach(doc => {
-          const list = this.state.list;
-          list.push(doc.data());
-          this.setState({ list });
-        });
-      })
-      .catch(err => {
-        console.log("Error getting documents", err);
-      });
-  }
-
-  componentDidMount() {
-    this.asyncFetchUserList();
-  }
   render() {
-    return <GroupDetails list={this.state.list} />;
+    return (
+      <GroupDetails
+        bestMatch={this.props.bestMatch}
+        otherMatches={this.props.otherMatches}
+      />
+    );
   }
 }
 
-export default GroupDetailsContainer;
+const mapStateToProps = state => ({
+  bestMatch: state.teams.bestMatch,
+  otherMatches: state.teams.otherMatches
+});
+
+GroupDetailsContainer.propTypes = {
+  bestMatch: PropTypes.object,
+  otherMatches: PropTypes.array
+};
+
+GroupDetailsContainer.defaultProps = {
+  bestMatch: {},
+  otherMatches: []
+};
+
+export default connect(mapStateToProps)(GroupDetailsContainer);

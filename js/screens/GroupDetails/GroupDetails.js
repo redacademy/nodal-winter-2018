@@ -1,15 +1,14 @@
-/* global require */
 import React from "react";
-import { Image, View, Text, ScrollView, TouchableOpacity } from "react-native";
 import PropTypes from "prop-types";
-import Button from "../../components/Button";
+import { View, Text, ScrollView } from "react-native";
+import TeamUserCard from "../../components/TeamUserCard/";
+import { getAvgCirgoal } from "../../helpers/teamUserCardHelper";
 
 import { styles } from "./styles";
-import { colors } from "../../config/styles";
 
-const GroupDetails = ({ list }) => {
+const GroupDetails = ({ bestMatch, otherMatches }) => {
   return (
-    <ScrollView contentContainerStyle={{ backgroundColor: colors.white }}>
+    <ScrollView>
       <View style={styles.main}>
         <View style={styles.heading}>
           <Text style={styles.headingTitle}>Ace the Case</Text>
@@ -18,45 +17,61 @@ const GroupDetails = ({ list }) => {
           </Text>
         </View>
         <View style={styles.titleContainer}>
-          <Text style={styles.title}>Group Details</Text>
+          <Text style={styles.mainTitle}>YOUR MATCHES</Text>
+        </View>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>BEST MATCH</Text>
         </View>
 
-        <View style={styles.element}>
-          <View style={styles.left}>
-            <Image
-              source={require("../../../js/assets/images/placeholder/profile-5.jpg")}
-              style={styles.image}
-            />
-          </View>
-          <View style={styles.profileData}>
-            <Text style={styles.name}>{list.name}</Text>
-            <Text style={styles.programOrEmail}>Program Placeholder</Text>
-            <Text style={styles.programOrEmail}>place@hold.er</Text>
-          </View>
-          <View>
-            <Image
-              source={require("../../../js/assets/icons/matching.png")}
-              style={styles.image}
-            />
-          </View>
+        <View style={styles.bestMatchContainer}>
+          <TeamUserCard
+            fun={getAvgCirgoal(bestMatch.users, "fun")}
+            grow={getAvgCirgoal(bestMatch.users, "grow")}
+            win={getAvgCirgoal(bestMatch.users, "win")}
+            profileImage={
+              bestMatch.users &&
+              Object.values(bestMatch.users).map(user => user.profileImage)
+            }
+          >
+            <Text style={styles.teamTitle}>Team Name</Text>
+            <Text style={styles.text}>
+              {Object.keys(bestMatch.users).length +
+                "/" +
+                bestMatch.teamSize +
+                " Members"}
+            </Text>
+          </TeamUserCard>
         </View>
-      </View>
-      <View style={styles.buttonContainer}>
-        <Button
-          color={colors.coralOrange}
-          text={"You are a member".toUpperCase()}
-          func={() => {}}
-        />
-        <TouchableOpacity>
-          <Text style={styles.leave}>Leave Group</Text>
-        </TouchableOpacity>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>OTHER MATCHES</Text>
+        </View>
+        {otherMatches.length &&
+          otherMatches.map((team, index) => {
+            return (
+              <TeamUserCard
+                key={index}
+                fun={getAvgCirgoal(team.users, "fun")}
+                grow={getAvgCirgoal(team.users, "grow")}
+                win={getAvgCirgoal(team.users, "win")}
+                profileImage={
+                  team.users &&
+                  Object.values(team.users).map(user => user.profileImage)
+                }
+              >
+                <View>
+                  <Text />
+                </View>
+              </TeamUserCard>
+            );
+          })}
       </View>
     </ScrollView>
   );
 };
 
-export default GroupDetails;
-
 GroupDetails.propTypes = {
-  list: PropTypes.array.isRequired
+  bestMatch: PropTypes.Object.isRequired,
+  otherMatches: PropTypes.Object.isRequired
 };
+
+export default GroupDetails;
