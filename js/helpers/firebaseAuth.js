@@ -13,7 +13,8 @@ export const createUserInAuthAndDB = async (fullname, email, password) => {
         .doc(authUser.uid)
         .set({
           fullname,
-          email
+          email,
+          uid: authUser.uid
         });
       return authUser.uid;
     })

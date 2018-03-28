@@ -162,7 +162,16 @@ const initialState = {
   score: [],
   workstyle: "",
   user: {},
-  userForm: {},
+  userForm: {
+    fullname: "",
+        program: "",
+        schoolName: "",
+        aboutMe: "",
+        workstyle: ""ITS HERE,
+        profilePhoto: this.props.user.profilePhoto,
+        chips: this.props.user.chips
+    chips: []
+  },
   users: {},
   error: ""
 };

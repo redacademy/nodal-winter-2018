@@ -90,7 +90,7 @@ const MatchScreenLoading = ({
                 //next
                 () => {
                   navigation.pop();
-                  navigation.navigate("GroupDetailsC");
+                  navigation.navigate("Matches");
                   // console.log("TODO: Navigate to list of teammates screen");
                 }
               }
