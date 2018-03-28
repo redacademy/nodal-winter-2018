@@ -37,7 +37,7 @@ const GroupDetails = ({
                 fun={user.fun}
                 grow={user.grow}
                 win={user.win}
-                profileImage={users[uid].profilePhoto}
+                profileImage={user[uid] && users[uid].profilePhoto}
               >
                 <Text style={styles.teamTitle}>{bestMatch.name}</Text>
                 <Text style={styles.text}>
