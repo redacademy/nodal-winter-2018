@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { AsyncStorage } from "react-native";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
@@ -32,6 +33,7 @@ class MatchScreenLoadingContainer extends Component {
       createTeamAndAddUser(workstyle, type, competitionId, teamSize, score)
     );
   };
+
   render() {
     return (
       <MatchScreenLoading
@@ -39,17 +41,20 @@ class MatchScreenLoadingContainer extends Component {
         navigation={this.props.navigation}
         noMatch={this.props.noMatch}
         createNewTeamWithUser={this.createNewTeamWithUser}
+        users={this.props.users}
       />
     );
   }
 }
+
 MatchScreenLoadingContainer.propTypes = {
   dispatch: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.string.isRequired,
   noMatch: PropTypes.bool.isRequired,
   tempData: PropTypes.object,
-  navigation: PropTypes.object.isRequired
+  navigation: PropTypes.object.isRequired,
+  users: PropTypes.object
 };
 MatchScreenLoadingContainer.defaultProps = {
   tempData: {}
@@ -59,7 +64,8 @@ const mapStateToProps = state => ({
   loading: state.teams.isLoading,
   error: state.teams.error,
   noMatch: state.teams.noMatch,
-  tempData: state.teams.tempData
+  tempData: state.teams.tempData,
+  users: state.teams.bestMatch.users
 });
 
 export default connect(mapStateToProps)(MatchScreenLoadingContainer);
