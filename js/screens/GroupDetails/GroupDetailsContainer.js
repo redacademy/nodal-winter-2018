@@ -34,9 +34,15 @@ class GroupDetailsContainer extends Component {
   addUser = async () => {
     const score = this.props.score;
     const uid = await AsyncStorage.getItem("user");
+    await this.props.dispatch(fetchOtherUser(uid));
     console.log(this.props.bestMatch.id);
     await this.props.dispatch(
-      addUserToTeam(score, this.props.bestMatch.id, uid)
+      addUserToTeam(
+        score,
+        this.props.bestMatch.id,
+        this.props.bestMatch.competitionId,
+        uid
+      )
     );
   };
 
