@@ -23,9 +23,12 @@ class GroupDetailsContainer extends Component {
   }
 
   fetchUsersProfile = async () => {
-    //TODO: if user exits, dont use best match, use params.users
+    const includeMe = !this.props.navigation.state.params.isCompStack;
+    //TODO: if user exists, dont use best match, use params.users
     //Remove params.users from navigation props in loading
     // const users = this.props.navigation.state.params.users;
+    if (includeMe)
+      this.props.dispatch(fetchOtherUser(await AsyncStorage.getItem("user")));
     await Object.values(this.props.bestMatch.users).map(user => {
       this.props.dispatch(fetchOtherUser(user.id));
     });

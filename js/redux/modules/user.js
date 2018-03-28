@@ -161,7 +161,9 @@ const initialState = {
   isLoading: false,
   score: [],
   workstyle: "",
-  user: {},
+  user: {
+    chips: []
+  },
   userForm: {
     fullname: "",
     program: "",

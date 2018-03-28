@@ -15,14 +15,22 @@ export const getAllTeams = async () => {
     .doc(uid)
     .get()
     .then(snapshot => snapshot.data().teams);
-  return (
-    teamsIds &&
-    Object.keys(teamsIds).map(async id => {
-      return await firebaseDB
-        .collection("teams")
-        .doc(id)
-        .get()
-        .then(snapshot => snapshot.data());
-    })
-  );
+  let result = [];
+  teamsIds &&
+    (await new Promise((res, rej) => {
+      const proms = Object.keys(teamsIds).map(id =>
+        firebaseDB
+          .collection("teams")
+          .doc(id)
+          .get()
+          .then(snapshot => {
+            result.push(snapshot.data());
+          })
+      );
+      Promise.all(proms).then(() => {
+        res();
+      });
+    }));
+  console.log(result);
+  return result;
 };

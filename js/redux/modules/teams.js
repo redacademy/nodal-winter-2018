@@ -298,7 +298,7 @@ export const removeUserFromTeam = async (
 
 const intitialState = {
   isLoading: false,
-  bestMatch: {},
+  bestMatch: { users: {} },
   otherMatches: [],
   error: "",
   tempData: {},

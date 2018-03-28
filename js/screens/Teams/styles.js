@@ -1,57 +1,126 @@
-import { StyleSheet, Dimensions } from "react-native";
-
+import { StyleSheet } from "react-native";
 import { colors, typography } from "../../config/styles";
-const { height } = Dimensions.get("window");
 
-export default StyleSheet.create({
-  container: {
-    height,
-    paddingTop: 30,
-    paddingBottom: 20,
+export const styles = StyleSheet.create({
+  mainContainer: {
+    width: "100%",
     flex: 1,
-    justifyContent: "space-around",
-    alignItems: "center",
-    backgroundColor: "#FFFFFF"
+    alignItems: "center"
   },
   image: {
-    alignSelf: "center",
-    height: 240,
-    width: 300,
-    marginTop: 30
+    width: 82,
+    height: 82,
+    borderRadius: 41
   },
-  imageBubbles: {
+  main: {
+    marginHorizontal: 0,
+    borderBottomWidth: 0.2,
+    borderColor: colors.borderGrey,
+    shadowColor: colors.grey,
+    shadowOffset: { width: 0, height: 1.2 },
+    shadowOpacity: 0.7,
+    shadowRadius: 1,
+    backgroundColor: colors.white
+  },
+  element: {
+    paddingVertical: 10,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignContent: "center",
+    paddingHorizontal: 24,
+    backgroundColor: colors.white,
+    borderBottomWidth: 2,
+    shadowColor: colors.grey,
+    shadowOffset: { width: 0, height: 1.2 },
+    shadowOpacity: 0.7,
+    shadowRadius: 1,
+    borderTopWidth: 1,
+    borderColor: colors.lightGrey
+  },
+  textWrapper: {
+    paddingLeft: 5,
+    flexDirection: "column",
+    justifyContent: "space-between",
+    maxWidth: "70%"
+  },
+  heading: {
+    marginHorizontal: 0,
+    paddingVertical: 6,
+    borderBottomWidth: 1.5,
+    borderColor: colors.lightGrey,
+    backgroundColor: colors.white
+  },
+  headingTitle: {
     alignSelf: "center",
-    height: 195,
-    width: 215,
-    marginVertical: 50
+    fontFamily: typography.fontMain,
+    fontSize: 22
+  },
+  titleContainer: {
+    marginHorizontal: 0,
+    paddingVertical: 5,
+    backgroundColor: colors.white,
+    shadowColor: colors.white,
+    shadowOffset: { width: 0, height: 1.2 }
+  },
+  mainTitle: {
+    alignSelf: "center",
+    paddingTop: 3,
+    fontFamily: typography.fontBold,
+    fontSize: 14
   },
   title: {
-    marginTop: 30,
-    marginBottom: 20,
-    fontSize: 26,
-    textAlign: "center",
-    fontFamily: typography.fontBold
+    alignSelf: "flex-start",
+    paddingLeft: 30,
+    paddingBottom: 2,
+    fontFamily: typography.fontBold,
+    fontSize: 18
   },
   text: {
-    fontSize: 18,
-    paddingHorizontal: 50,
-    textAlign: "center",
-    fontFamily: typography.fontMainLight
-  },
-  loading: {
     alignSelf: "center",
-    width: 100,
-    height: 50
+    fontFamily: typography.fontMainLight,
+    fontSize: 16
   },
-  noThanks: {
-    color: colors.grey,
-    marginTop: 7,
-    textDecorationLine: "underline",
-    textAlign: "center",
+  teamTitle: {
+    alignSelf: "center",
     fontSize: 14,
-    fontFamily: typography.fontMainLight
+    fontFamily: typography.fontBold
   },
-  buttonView: {
-    marginTop: 5
+  left: {
+    flexDirection: "row"
+  },
+  name: {
+    fontFamily: typography.fontMain,
+    fontSize: 14
+  },
+  programOrEmail: {
+    fontFamily: typography.fontMainLight,
+    fontSize: 14
+  },
+  profileData: {
+    justifyContent: "center",
+    borderBottomWidth: 0.5,
+    borderColor: colors.lightGrey
+  },
+  buttonContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginVertical: 20,
+    backgroundColor: colors.white
+  },
+  leave: {
+    fontSize: 16,
+    textDecorationLine: "underline",
+    color: colors.grey
+  },
+  bestMatchContainer: {
+    width: "100%",
+    backgroundColor: colors.white,
+    borderBottomWidth: 0.2,
+    borderColor: colors.borderGrey,
+    shadowColor: colors.grey,
+    shadowOffset: { width: 0, height: 1.2 },
+    shadowOpacity: 0.7,
+    shadowRadius: 1,
+    zIndex: 5
   }
 });

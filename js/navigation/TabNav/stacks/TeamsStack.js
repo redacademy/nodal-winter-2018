@@ -16,7 +16,7 @@ export default StackNavigator(
     GroupDetails: {
       screen: Teams
     },
-    Users: {
+    User: {
       screen: User
     }
   },

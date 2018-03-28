@@ -18,9 +18,19 @@ class TeamsContainer extends Component {
   goToTeam = users => {
     this.props.navigation.navigate("GroupDetails", { users });
   };
-
-  async componentDidMount() {
-    this.teams = await getAllTeams();
+  constructor() {
+    super();
+    this.state = {
+      teams: []
+    };
+  }
+  async func() {
+    const newTeams = await getAllTeams();
+    console.log(newTeams);
+    this.setState({ teams: newTeams });
+  }
+  componentDidMount() {
+    this.func();
   }
 
   render() {
@@ -28,7 +38,7 @@ class TeamsContainer extends Component {
       <Teams
         goToTeam={this.goToTeam}
         users={this.props.users}
-        teams={this.teams ? this.teams : []}
+        teams={this.state.teams}
       />
     );
   }
