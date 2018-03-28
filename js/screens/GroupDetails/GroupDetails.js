@@ -3,11 +3,19 @@ import PropTypes from "prop-types";
 import { View, Text, ScrollView } from "react-native";
 import TeamUserCard from "../../components/TeamUserCard/";
 import { getAvgCirgoal } from "../../helpers/teamUserCardHelper";
+import Button from "../../components/Button";
+import { colors } from "../../config/styles";
 
 import { styles } from "./styles";
 
-const GroupDetails = ({ bestMatch, users }) => {
-  console.log(users);
+const GroupDetails = ({
+  isCompStack,
+  bestMatch,
+  users,
+  navigation,
+  addUser
+}) => {
+  console.log(isCompStack);
   return (
     <ScrollView>
       <View style={styles.main}>
@@ -25,11 +33,11 @@ const GroupDetails = ({ bestMatch, users }) => {
           return (
             <View key={uid} style={styles.bestMatchContainer}>
               <TeamUserCard
-                onPress={()=>{}}
+                onPress={() => {}}
                 fun={user.fun}
                 grow={user.grow}
                 win={user.win}
-                profileImage={users[uid].profileImage}
+                profileImage={users[uid].profilePhoto}
               >
                 <Text style={styles.teamTitle}>{bestMatch.name}</Text>
                 <Text style={styles.text}>
@@ -43,13 +51,38 @@ const GroupDetails = ({ bestMatch, users }) => {
           );
         })}
       </View>
+      {isCompStack ? (
+        <View>
+          <Button
+            color={colors.coralOrange}
+            text={"Browse Other Groups"}
+            func={() => {
+              navigation.navigate("Matches");
+            }}
+          />
+          <Button
+            color={colors.coralOrange}
+            text={"Join the Group"}
+            func={async () => {
+              await addUser();
+              navigation.pop();
+              navigation.navigate("GroupDetails", {
+                users: users,
+                isCompStack: false
+              });
+            }}
+          />
+        </View>
+      ) : (
+        ""
+      )}
     </ScrollView>
   );
 };
 
 GroupDetails.propTypes = {
   bestMatch: PropTypes.object.isRequired,
-  // otherMatches: PropTypes.object.isRequired
+  users: PropTypes.object.isRequired
 };
 
 export default GroupDetails;

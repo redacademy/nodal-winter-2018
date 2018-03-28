@@ -91,7 +91,10 @@ const MatchScreenLoading = ({
                 //next
                 () => {
                   navigation.pop();
-                  navigation.navigate("GroupDetailsC", {users: users});
+                  navigation.navigate("GroupDetailsC", {
+                    users: users,
+                    isCompStack: true
+                  });
                 }
               }
             />

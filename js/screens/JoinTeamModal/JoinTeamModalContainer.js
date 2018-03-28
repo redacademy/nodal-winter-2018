@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import { fetchBestMatch } from "../../redux/modules/teams";
-import { fetchUserWorkstyle } from "../../redux/modules/user";
+import { fetchUserWorkstyle, getUserScore } from "../../redux/modules/user";
 
 import { headerBarStyle } from "../../config/styles";
 import JoinTeamModal from "./JoinTeamModal";
@@ -55,6 +55,7 @@ class JoinTeamModalContainer extends Component {
 
   findBestMatch = async () => {
     const userScore = [this.state.fun, this.state.grow, this.state.win];
+    await this.props.dispatch(getUserScore(userScore));
     await this.props.dispatch(
       fetchBestMatch(
         this.props.userWorkstyle,

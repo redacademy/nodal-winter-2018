@@ -162,7 +162,15 @@ const initialState = {
   score: [],
   workstyle: "",
   user: {},
-  userForm: {},
+  userForm: {
+    fullname: "",
+    program: "",
+    schoolName: "",
+    aboutMe: "",
+    workstyle: "",
+    profilePhoto: "",
+    chips: []
+  },
   users: {},
   error: ""
 };
@@ -190,7 +198,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         user: action.payload,
-        userForm: action.payload,
+        userForm: { ...state.userForm, ...action.payload },
         isLoading: false,
         error: ""
       };

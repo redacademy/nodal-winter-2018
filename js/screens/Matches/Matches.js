@@ -7,7 +7,7 @@ import { getAvgCirgoal } from "../../helpers/teamUserCardHelper";
 
 import { styles } from "./styles";
 
-const Matches = ({ bestMatch, otherMatches, goToTeam }) => {
+const Matches = ({ bestMatch, otherMatches, goToTeam, users }) => {
   return (
     <ScrollView>
       <View style={styles.main}>
@@ -29,10 +29,20 @@ const Matches = ({ bestMatch, otherMatches, goToTeam }) => {
             fun={getAvgCirgoal(bestMatch.users, "fun")}
             grow={getAvgCirgoal(bestMatch.users, "grow")}
             win={getAvgCirgoal(bestMatch.users, "win")}
-            profileImage={
-              bestMatch.users &&
-              Object.values(bestMatch.users).map(user => user.profileImage)
-            }
+            profileImage={(() => {
+              console.log(
+                bestMatch.users &&
+                  Object.values(bestMatch.users).map(
+                    user => users[user.uid] && users[user.uid].profileImage
+                  )
+              );
+              return (
+                bestMatch.users &&
+                Object.values(bestMatch.users).map(
+                  user => users[user.uid] && users[user.uid].profileImage
+                )
+              );
+            })()}
             onPress={goToTeam}
           >
             <Text style={styles.teamTitle}>{bestMatch.name}</Text>
@@ -58,7 +68,9 @@ const Matches = ({ bestMatch, otherMatches, goToTeam }) => {
                   win={getAvgCirgoal(team.users, "win")}
                   profileImage={
                     team.users &&
-                    Object.values(team.users).map(user => user.profileImage)
+                    Object.values(team.users).map(
+                      user => users[user.uid].profileImage
+                    )
                   }
                   onPress={goToTeam}
                 >
@@ -83,5 +95,6 @@ export default Matches;
 Matches.propTypes = {
   bestMatch: PropTypes.object.isRequired,
   otherMatches: PropTypes.array.isRequired,
-  goToTeam: PropTypes.func.isRequired
+  goToTeam: PropTypes.func.isRequired,
+  users: PropTypes.object.isRequired
 };
