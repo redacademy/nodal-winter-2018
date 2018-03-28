@@ -164,12 +164,11 @@ const initialState = {
   user: {},
   userForm: {
     fullname: "",
-        program: "",
-        schoolName: "",
-        aboutMe: "",
-        workstyle: ""ITS HERE,
-        profilePhoto: this.props.user.profilePhoto,
-        chips: this.props.user.chips
+    program: "",
+    schoolName: "",
+    aboutMe: "",
+    workstyle: "",
+    profilePhoto: "",
     chips: []
   },
   users: {},
@@ -199,7 +198,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         user: action.payload,
-        userForm: action.payload,
+        userForm: { ...state.userForm, ...action.payload },
         isLoading: false,
         error: ""
       };
