@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import { fetchBestMatch } from "../../redux/modules/teams";
+import { fetchBestMatch, fetchOtherMatches } from "../../redux/modules/teams";
 import { fetchUserWorkstyle, getUserScore } from "../../redux/modules/user";
 
 import { headerBarStyle } from "../../config/styles";
@@ -62,6 +62,14 @@ class JoinTeamModalContainer extends Component {
         userScore,
         this.props.navigation.state.params.competitionId,
         this.props.navigation.state.params.teamSize
+      )
+    );
+    await this.props.dispatch(
+      fetchOtherMatches(
+        this.props.userWorkstyle,
+        userScore,
+        this.props.navigation.state.params.competitionId,
+        false
       )
     );
   };

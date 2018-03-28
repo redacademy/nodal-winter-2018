@@ -66,7 +66,9 @@ const MatchScreenLoading = ({
               disabled={loading}
               width={220}
               func={() => {
-                navigation.navigate("GroupDetails");
+                navigation.navigate("GroupDetails", {
+                  isCompStack: false
+                });
                 createNewTeamWithUser();
               }}
             />

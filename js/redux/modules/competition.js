@@ -31,7 +31,6 @@ export const fetchCompetitions = param => dispatch => {
   const query = param
     ? firebaseDB.collection("competitions").where("category", "==", param)
     : firebaseDB.collection("competitions");
-  const list = [];
   query
     .get()
     .then(snapshot => {
@@ -39,14 +38,13 @@ export const fetchCompetitions = param => dispatch => {
         if (competitionValidation(competition.data().startTime)) {
           const data = competition.data();
           data.id = competition.id;
-          list.push(data);
+          dispatch(getCompetition(data));
         }
       });
-      dispatch(getCompetition(list));
     })
     .catch(err => dispatch(getCompetitionError(err)));
 };
-const intitialState = { isLoading: false, competitions: [], error: "" };
+const intitialState = { isLoading: false, competitions: {}, error: "" };
 // Reducer
 export default (state = intitialState, action) => {
   switch (action.type) {
@@ -60,7 +58,10 @@ export default (state = intitialState, action) => {
       return {
         ...state,
         isLoading: false,
-        competitions: action.payload,
+        competitions: {
+          ...state.competitions,
+          [action.payload.id]: action.payload
+        },
         error: ""
       };
     case GET_COMPETITION_ERROR:

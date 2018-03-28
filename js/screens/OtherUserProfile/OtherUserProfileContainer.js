@@ -16,7 +16,7 @@ class OtherUserProfileContainer extends Component {
   });
 
   componentDidMount() {
-    this.props.dispatch(fetchOtherUser("u1S6v0sfhfSQZAjSrCdOar0SSA52"));
+    this.props.dispatch(fetchOtherUser(this.props.navigation.state.params.uid));
   }
 
   render() {
@@ -34,7 +34,7 @@ class OtherUserProfileContainer extends Component {
 
 const mapStateToProps = (state, ownProps) => ({
   isLoading: state.user.isLoading,
-  user: state.user.users["u1S6v0sfhfSQZAjSrCdOar0SSA52"]
+  user: state.user.users[ownProps.navigation.state.params.uid]
 });
 
 OtherUserProfileContainer.propTypes = {

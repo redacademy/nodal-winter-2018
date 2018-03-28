@@ -10,7 +10,7 @@ import { styles } from "./styles";
 
 const GroupDetails = ({
   isCompStack,
-  bestMatch,
+  teamUsers,
   users,
   navigation,
   addUser
@@ -29,22 +29,25 @@ const GroupDetails = ({
           <Text style={styles.mainTitle}>GROUP DETAILS</Text>
         </View>
 
-        {Object.entries(bestMatch.users).map(([uid, user]) => {
+        {Object.entries(teamUsers).map(([uid, user]) => {
           return (
             <View key={uid} style={styles.bestMatchContainer}>
               <TeamUserCard
-                onPress={() => {}}
+                onPress={() => {
+                  navigation.navigate(isCompStack ? "UserC" : "User", {
+                    uid
+                  });
+                }}
                 fun={user.fun}
                 grow={user.grow}
                 win={user.win}
-                profileImage={user[uid] && users[uid].profilePhoto}
+                profileImage={users[uid] && users[uid].profilePhoto}
               >
-                <Text style={styles.teamTitle}>{bestMatch.name}</Text>
+                <Text style={styles.teamTitle}>
+                  {users[uid] && users[uid].fullname}
+                </Text>
                 <Text style={styles.text}>
-                  {Object.keys(bestMatch.users).length +
-                    "/" +
-                    bestMatch.teamSize +
-                    " Members"}
+                  {users[uid] && users[uid].program}
                 </Text>
               </TeamUserCard>
             </View>
@@ -81,7 +84,7 @@ const GroupDetails = ({
 };
 
 GroupDetails.propTypes = {
-  bestMatch: PropTypes.object.isRequired,
+  // bestMatch: PropTypes.object.isRequired,
   users: PropTypes.object.isRequired
 };
 

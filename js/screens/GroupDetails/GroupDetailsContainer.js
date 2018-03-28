@@ -6,6 +6,7 @@ import { fetchOtherUser } from "../../redux/modules/user";
 import { headerBarStyle } from "../../config/styles";
 import GroupDetails from "./GroupDetails";
 import { addUserToTeam } from "../../redux/modules/teams";
+import { firebaseDB } from "../../config/firebaseConfig";
 
 import PropTypes from "prop-types";
 
@@ -20,14 +21,30 @@ class GroupDetailsContainer extends Component {
     this.isCompStack = navigation.state.params
       ? navigation.state.params.isCompStack
       : false;
+    this.state = {
+      teamUsers: {}
+    };
   }
 
   fetchUsersProfile = async () => {
-    //TODO: if user exits, dont use best match, use params.users
+    // const includeMe = !this.props.navigation.state.params.isCompStack;
+    //TODO: if user exists, dont use best match, use params.users
     //Remove params.users from navigation props in loading
     // const users = this.props.navigation.state.params.users;
-    await Object.values(this.props.bestMatch.users).map(user => {
-      this.props.dispatch(fetchOtherUser(user.id));
+    // if (includeMe)
+    this.props.dispatch(fetchOtherUser(await AsyncStorage.getItem("user")));
+
+    const teams = await firebaseDB
+      .collection("teams")
+      .doc(this.props.bestMatch.id)
+      .get()
+      .then(snapshot => snapshot.data())
+      .catch(err => console.log(err));
+
+    await this.setState({ teamUsers: teams.users });
+
+    await Object.keys(teams.users).map(async user => {
+      await this.props.dispatch(fetchOtherUser(user));
     });
   };
 
@@ -51,11 +68,13 @@ class GroupDetailsContainer extends Component {
   }
 
   render() {
+    // this.state.teamUsers
     return (
+      Object.keys(this.state.teamUsers).length &&
       Object.keys(this.props.users).length && (
         <GroupDetails
           isCompStack={this.isCompStack}
-          bestMatch={this.props.bestMatch}
+          teamUsers={this.state.teamUsers}
           users={this.props.users}
           navigation={this.props.navigation}
           addUser={this.addUser}

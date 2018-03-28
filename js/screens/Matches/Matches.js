@@ -29,21 +29,15 @@ const Matches = ({ bestMatch, otherMatches, goToTeam, users }) => {
             fun={getAvgCirgoal(bestMatch.users, "fun")}
             grow={getAvgCirgoal(bestMatch.users, "grow")}
             win={getAvgCirgoal(bestMatch.users, "win")}
-            profileImage={(() => {
-              console.log(
-                bestMatch.users &&
-                  Object.values(bestMatch.users).map(
-                    user => users[user.uid] && users[user.uid].profileImage
-                  )
-              );
-              return (
-                bestMatch.users &&
-                Object.values(bestMatch.users).map(
-                  user => users[user.uid] && users[user.uid].profileImage
-                )
-              );
-            })()}
-            onPress={goToTeam}
+            profileImage={
+              bestMatch.users &&
+              Object.values(bestMatch.users).map(
+                user => users[user.id] && users[user.id].profilePhoto
+              )
+            }
+            onPress={() => {
+              goToTeam(bestMatch.users);
+            }}
           >
             <Text style={styles.teamTitle}>{bestMatch.name}</Text>
             <Text style={styles.text}>
@@ -69,16 +63,18 @@ const Matches = ({ bestMatch, otherMatches, goToTeam, users }) => {
                   profileImage={
                     team.users &&
                     Object.values(team.users).map(
-                      user => users[user.uid].profileImage
+                      user => users[user.id].profileImage
                     )
                   }
-                  onPress={goToTeam}
+                  onPress={() => {
+                    goToTeam(team.users);
+                  }}
                 >
-                  <Text style={styles.teamTitle}>{bestMatch.name}</Text>
+                  <Text style={styles.teamTitle}>{team.name}</Text>
                   <Text style={styles.text}>
-                    {Object.keys(bestMatch.users).length +
+                    {Object.keys(team.users).length +
                       "/" +
-                      bestMatch.teamSize +
+                      team.teamSize +
                       " Members"}
                   </Text>
                 </TeamUserCard>
