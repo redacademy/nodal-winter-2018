@@ -231,15 +231,15 @@ export const addUserToTeam = (
   try {
     console.log(userId);
     const teamRef = firebaseDB.collection("teams").doc(teamId);
+    const users = await teamRef.get().then(snapshot => snapshot.data().users);
+    users[userId] = {
+      fun: score[0],
+      grow: score[1],
+      win: score[2],
+      id: userId
+    };
     await teamRef.update({
-      users: {
-        [userId]: {
-          fun: score[0],
-          grow: score[1],
-          win: score[2],
-          id: userId
-        }
-      }
+      users: users
     });
 
     firebaseDB
