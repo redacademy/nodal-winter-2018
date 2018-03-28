@@ -22,14 +22,13 @@ class CompetitionListContainer extends Component {
     this.props.dispatch(fetchCompetitions(params.category));
   }
   render() {
-
     return (
       <View style={styles.background}>
         {this.props.isLoading ? (
           <Loading />
         ) : (
           <CompetitionList
-            list={this.props.competitions}
+            list={Object.values(this.props.competitions)}
             navigation={this.props.navigation}
           />
         )}

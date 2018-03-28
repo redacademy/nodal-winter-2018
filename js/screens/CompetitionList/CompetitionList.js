@@ -23,7 +23,9 @@ const CompetitionList = ({ list, navigation }) => {
             <View style={styles.left}>
               <Image source={{ uri: competition.hero }} style={styles.image} />
               <View style={styles.textWrapper}>
-                <Text style={styles.title}>{competition.name.toUpperCase()}</Text>
+                <Text style={styles.title}>
+                  {competition.name.toUpperCase()}
+                </Text>
                 <Text style={styles.text}>{competition.host}</Text>
               </View>
             </View>

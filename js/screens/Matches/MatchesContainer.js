@@ -15,8 +15,8 @@ class MatchesContainer extends Component {
     ...headerBarStyle(navigation)
   });
 
-  goToTeam = () => {
-    this.props.navigation.navigate("GroupDetailsC");
+  goToTeam = users => {
+    this.props.navigation.navigate("GroupDetailsC", { users });
   };
 
   getUser = uid => {
