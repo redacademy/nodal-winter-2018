@@ -13,7 +13,8 @@ const MatchScreenLoading = ({
   loading,
   navigation,
   noMatch,
-  createNewTeamWithUser
+  createNewTeamWithUser,
+  users
 }) => {
   return (
     <ScrollView>
@@ -90,8 +91,7 @@ const MatchScreenLoading = ({
                 //next
                 () => {
                   navigation.pop();
-                  navigation.navigate("GroupDetailsC");
-                  // console.log("TODO: Navigate to list of teammates screen");
+                  navigation.navigate("GroupDetailsC", {users: users});
                 }
               }
             />

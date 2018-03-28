@@ -50,21 +50,27 @@ const Matches = ({ bestMatch, otherMatches, goToTeam }) => {
         {otherMatches.length &&
           otherMatches.map((team, index) => {
             return (
-              <TeamUserCard
-                key={index}
-                fun={getAvgCirgoal(team.users, "fun")}
-                grow={getAvgCirgoal(team.users, "grow")}
-                win={getAvgCirgoal(team.users, "win")}
-                profileImage={
-                  team.users &&
-                  Object.values(team.users).map(user => user.profileImage)
-                }
-                onPress={goToTeam}
-              >
-                <View>
-                  <Text />
-                </View>
-              </TeamUserCard>
+              <View key={index} style={styles.bestMatchContainer}>
+                <TeamUserCard
+                  key={index}
+                  fun={getAvgCirgoal(team.users, "fun")}
+                  grow={getAvgCirgoal(team.users, "grow")}
+                  win={getAvgCirgoal(team.users, "win")}
+                  profileImage={
+                    team.users &&
+                    Object.values(team.users).map(user => user.profileImage)
+                  }
+                  onPress={goToTeam}
+                >
+                  <Text style={styles.teamTitle}>{bestMatch.name}</Text>
+                  <Text style={styles.text}>
+                    {Object.keys(bestMatch.users).length +
+                      "/" +
+                      bestMatch.teamSize +
+                      " Members"}
+                  </Text>
+                </TeamUserCard>
+              </View>
             );
           })}
       </View>

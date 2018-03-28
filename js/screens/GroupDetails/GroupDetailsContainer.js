@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import { fetchOtherUser } from "../../redux/modules/user";
 import { headerBarStyle } from "../../config/styles";
 import GroupDetails from "./GroupDetails";
 
@@ -19,12 +20,26 @@ class GroupDetailsContainer extends Component {
       : false;
   }
 
+  fetchUsersProfile = async () => {
+    const users = this.props.navigation.state.params.users;
+    await Object.values(users).map(user => {
+      this.props.dispatch(fetchOtherUser(user.id));
+      console.log(user);
+    });
+    // console.log(users);
+  };
+
+  async componentDidMount() {
+    await this.fetchUsersProfile();
+  }
+
   render() {
+    // console.log(this.props.users);
     return (
       <GroupDetails
         isCompStack={this.isCompStack}
         bestMatch={this.props.bestMatch}
-        otherMatches={this.props.otherMatches}
+        users={this.props.users}
       />
     );
   }
@@ -32,17 +47,18 @@ class GroupDetailsContainer extends Component {
 
 const mapStateToProps = state => ({
   bestMatch: state.teams.bestMatch,
-  otherMatches: state.teams.otherMatches
+  users: state.user.users
+  // otherMatches: state.teams.otherMatches
 });
 
 GroupDetailsContainer.propTypes = {
-  bestMatch: PropTypes.object,
-  otherMatches: PropTypes.array
+  bestMatch: PropTypes.object
+  // otherMatches: PropTypes.array
 };
 
 GroupDetailsContainer.defaultProps = {
-  bestMatch: {},
-  otherMatches: []
+  bestMatch: {}
+  // otherMatches: []
 };
 
 export default connect(mapStateToProps)(GroupDetailsContainer);
