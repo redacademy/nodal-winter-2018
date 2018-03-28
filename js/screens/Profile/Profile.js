@@ -90,7 +90,7 @@ const Profile = ({ user, openEditProfile, signOut }) => {
               );
             })}
         </View>
-        <Text style={styles.titleText}>{"My Competitions".toUpperCase()}</Text>
+        {/* <Text style={styles.titleText}>{"My Competitions".toUpperCase()}</Text> */}
       </View>
       <Button color={colors.cornflowerBlue} text={"Sign Out"} func={signOut} />
     </ScrollView>

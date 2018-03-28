@@ -68,7 +68,7 @@ const OtherUserProfile = ({ user }) => {
               );
             })}
         </View>
-        <Text style={styles.titleText}>{"My Competitions".toUpperCase()}</Text>
+        {/* <Text style={styles.titleText}>{"My Competitions".toUpperCase()}</Text> */}
       </View>
     </ScrollView>
   );

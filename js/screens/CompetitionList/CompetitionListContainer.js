@@ -45,7 +45,7 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps)(CompetitionListContainer);
 
 CompetitionListContainer.propTypes = {
-  competitions: PropTypes.array.isRequired,
+  competitions: PropTypes.object.isRequired,
   dispatch: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
   navigation: PropTypes.object.isRequired

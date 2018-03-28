@@ -70,11 +70,11 @@ const Matches = ({ bestMatch, otherMatches, goToTeam, users }) => {
                     goToTeam(team.users);
                   }}
                 >
-                  <Text style={styles.teamTitle}>{bestMatch.name}</Text>
+                  <Text style={styles.teamTitle}>{team.name}</Text>
                   <Text style={styles.text}>
-                    {Object.keys(bestMatch.users).length +
+                    {Object.keys(team.users).length +
                       "/" +
-                      bestMatch.teamSize +
+                      team.teamSize +
                       " Members"}
                   </Text>
                 </TeamUserCard>
