@@ -3,7 +3,9 @@ import { StackNavigator } from "react-navigation";
 import CompetitionCategory from "../../../screens/CompetitionCategory";
 import CompetitionList from "../../../screens/CompetitionList";
 import Competition from "../../../screens/Competition";
-import Matches from '../../../screens/Matches/';
+import Matches from "../../../screens/Matches";
+import Teams from "../../../screens/GroupDetails";
+import User from "../../../screens/OtherUserProfile";
 
 export default StackNavigator(
   {
@@ -18,6 +20,12 @@ export default StackNavigator(
     },
     Matches: {
       screen: Matches
+    },
+    GroupDetailsC: {
+      screen: Teams
+    },
+    UserC: {
+      screen: User
     }
   },
   {

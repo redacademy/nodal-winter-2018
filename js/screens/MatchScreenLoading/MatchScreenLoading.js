@@ -64,16 +64,15 @@ const MatchScreenLoading = ({
               text={"Create New Group"}
               disabled={loading}
               width={220}
-              func={
-                //TODO: Add navigate to teammates screen (only the new user)
-                createNewTeamWithUser
-              }
+              func={() => {
+                navigation.navigate("GroupDetails");
+                createNewTeamWithUser();
+              }}
             />
             <TouchableOpacity
               onPress={() => {
-                console.log("TODO: Navigate back to competition screen");
+                navigation.pop();
               }}
-              //TODO: Navigate back to competition screen
             >
               <Text style={styles.noThanks}>
                 {"No Thanks, I'll come back later"}
@@ -88,10 +87,10 @@ const MatchScreenLoading = ({
               disabled={loading}
               width={140}
               func={
-                //TODO
+                //next
                 () => {
                   navigation.pop();
-                  navigation.navigate("Matches");
+                  navigation.navigate("GroupDetailsC");
                   // console.log("TODO: Navigate to list of teammates screen");
                 }
               }

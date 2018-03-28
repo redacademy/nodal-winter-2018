@@ -33,7 +33,7 @@ export const typography = {
   fontThinitalic: "MissionGothic-ThinItalic"
 };
 
-export const headerBarStyle = (navigation, modal = false) => ({
+export const headerBarStyle = (navigation, modal = false, pop = false) => ({
   headerTitleStyle: {
     fontSize: 26,
     fontFamily: typography.fontBold,
@@ -48,5 +48,5 @@ export const headerBarStyle = (navigation, modal = false) => ({
     height: 60
   },
   headerBackImage: null,
-  headerLeft: <HeaderBarBack navigation={navigation} modal={modal} />
+  headerLeft: <HeaderBarBack navigation={navigation} modal={modal} pop={pop} />
 });

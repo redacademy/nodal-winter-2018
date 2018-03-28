@@ -70,8 +70,8 @@ const GroupDetails = ({ bestMatch, otherMatches }) => {
 };
 
 GroupDetails.propTypes = {
-  bestMatch: PropTypes.Object.isRequired,
-  otherMatches: PropTypes.Object.isRequired
+  bestMatch: PropTypes.object.isRequired,
+  otherMatches: PropTypes.object.isRequired
 };
 
 export default GroupDetails;

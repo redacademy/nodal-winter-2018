@@ -16,7 +16,7 @@ class JoinTeamModalContainer extends Component {
   };
   static navigationOptions = ({ navigation }) => ({
     title: navigation.state.params && navigation.state.params.title,
-    ...headerBarStyle(navigation, true)
+    ...headerBarStyle(navigation, true, true)
   });
   constructor() {
     super();

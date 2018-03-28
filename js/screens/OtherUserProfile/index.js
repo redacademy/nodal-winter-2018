@@ -1,3 +1,3 @@
-import OtherUserProfileContainer from "./OtherUserProfileContainer";
+import OtherUserProfile from "./OtherUserProfileContainer";
 
-export default OtherUserProfileContainer;
+export default OtherUserProfile;

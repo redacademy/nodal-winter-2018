@@ -12,9 +12,17 @@ class GroupDetailsContainer extends Component {
     ...headerBarStyle(navigation)
   });
 
+  constructor({ navigation }) {
+    super();
+    this.isCompStack = navigation.state.params
+      ? navigation.state.params.isCompStack
+      : false;
+  }
+
   render() {
     return (
       <GroupDetails
+        isCompStack={this.isCompStack}
         bestMatch={this.props.bestMatch}
         otherMatches={this.props.otherMatches}
       />

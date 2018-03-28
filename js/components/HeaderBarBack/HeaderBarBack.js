@@ -6,10 +6,10 @@ import styles from "./styles";
 import backIcon from "../../assets/icons/navigation/active.png";
 import closeIcon from "../../assets/icons/navigation/close.png";
 
-const HeaderBarBack = ({ navigation, modal }) => (
+const HeaderBarBack = ({ navigation, modal, pop }) => (
   <TouchableOpacity
     onPress={() => {
-      navigation.goBack();
+      pop ? navigation.pop() : navigation.goBack();
     }}
     style={styles.wrapper}
   >
@@ -18,6 +18,7 @@ const HeaderBarBack = ({ navigation, modal }) => (
 );
 HeaderBarBack.propTypes = {
   navigation: PropTypes.object.isRequired,
-  modal: PropTypes.bool.isRequired
+  modal: PropTypes.bool.isRequired,
+  pop: PropTypes.bool.isRequired
 };
 export default HeaderBarBack;

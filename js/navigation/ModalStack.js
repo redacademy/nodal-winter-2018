@@ -2,7 +2,7 @@ import { StackNavigator } from "react-navigation";
 
 import TabNav from "./TabNav";
 import Loading from "../screens/MatchScreenLoading";
-import JoinTeamModal from "../screens/JoinTeamModal";
+import JoinTeamStack from "./JoinTeamStack";
 
 export default StackNavigator(
   {
@@ -13,7 +13,7 @@ export default StackNavigator(
       }
     },
     JoinTeamModal: {
-      screen: JoinTeamModal
+      screen: JoinTeamStack
     },
     Loading: {
       screen: Loading

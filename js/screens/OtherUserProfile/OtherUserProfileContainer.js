@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { headerBarStyle } from "../../config/styles";
 import { fetchOtherUser } from "../../redux/modules/user";
-import Loading from "../../components/Loading/";
+import Loading from "../../components/Loading";
 
 import { styles } from "./styles";
 

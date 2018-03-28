@@ -15,7 +15,7 @@ class MatchesContainer extends Component {
   });
 
   goToTeam = () => {
-    this.props.navigation.navigate("GroupDetails");
+    this.props.navigation.navigate("GroupDetailsC");
   };
 
   render() {
