@@ -10,10 +10,10 @@ To view, make sure you are using Xcode (ios), Android SDK (android), and npm or 
 
  #### Setup firebase database.
  
- 1. 
+ 1.  ###### Firestore
  - [Get started with firestore](https://firebase.google.com/docs/firestore/quickstart)
  - import json to the database to get started with the db structure (we will email it to you)
- 2. 
+ 2. ###### Authentication
  - [Get started with firebase auth](https://firebase.google.com/docs/auth/web/start)
  3. Make a file named .env in the root of your project directory and add values for these environment variables
  
