@@ -2,6 +2,7 @@
 
 React Native App designed to allow university students easy and effective ways of joining teams for competitions that they may be interested in.
 
+![Alt Text](./nodal_demo.gif "app demo gif")  
 ## Setup
 
 To view, make sure you are using Xcode (ios), Android SDK (android), and npm or yarn.
