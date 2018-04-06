@@ -3,7 +3,6 @@ import { AsyncStorage } from "react-native";
 import { firebaseDB } from "../../config/firebaseConfig";
 import {
   teamType,
-  teamName,
   similarTeamType,
   findBestMatch,
   generateQuery,
@@ -17,7 +16,7 @@ const GET_TEAM_RESET = "GET_TEAM_RESET";
 const GET_TEAM_LOADING = "GET_TEAM_LOADING";
 const GET_TEAM_ERROR = "GET_TEAM_ERROR";
 const GET_TEAM_TEMP_DATA = "GET_TEAM_TEMP_DATA";
-const RESET_TEAM = "RESET_TEAM";
+
 // Action creators
 const getTeamBestMatch = match => ({
   type: GET_TEAM_BEST_MATCH,
@@ -37,10 +36,6 @@ const getTeamLoading = () => ({
 const getTeamTempData = data => ({
   type: GET_TEAM_TEMP_DATA,
   payload: data
-});
-
-export const resetTeam = () => ({
-  type: RESET_TEAM
 });
 
 export const getTeamReset = () => ({
@@ -169,7 +164,8 @@ export const fetchOtherMatches = (
   }
 };
 
-// Async action to create new team for user
+// Async action to create new team for user when there is no match
+// and add competitionId to user
 export const createTeamAndAddUser = (
   workstyle,
   type,
@@ -179,7 +175,6 @@ export const createTeamAndAddUser = (
 ) => async dispatch => {
   try {
     const uid = await AsyncStorage.getItem("user");
-    const name = teamName(type);
     let teamId = "";
     await firebaseDB
       .collection("teams")
@@ -188,25 +183,48 @@ export const createTeamAndAddUser = (
         type,
         competitionId,
         teamSize,
-        name,
         users: {
           [uid]: { fun: score[0], grow: score[1], win: score[2], id: uid }
         }
       })
       .then(async docRef => {
         // Refetch newly added team, which is a perfect match :)
+        teamId = docRef.id;
         const newTeam = await docRef.get();
         dispatch(getTeamBestMatch(newTeam.data()));
+        dispatch(getTeamTempData({}));
       });
+
+    // Add competitionIds and teamIds to user
+    firebaseDB
+      .collection("users")
+      .doc(uid)
+      .set(
+        {
+          competitions: {
+            [competitionId]: true
+          },
+          teams: {
+            [teamId]: true
+          }
+        },
+        { merge: true }
+      );
   } catch (error) {
     dispatch(getTeamError(error));
   }
 };
 
-//TODO: action to add user to team
-export const addUserToTeam = (score, teamId, userId) => async dispatch => {
+// Async action to add user to team when there is pre-existing team
+// Also add teamid and competitionid to user collection
+export const addUserToTeam = (
+  score,
+  teamId,
+  competitionId,
+  userId
+) => async dispatch => {
   try {
-    const teamRef = await firebaseDB.collection("teams").doc(teamId);
+    const teamRef = firebaseDB.collection("teams").doc(teamId);
     await teamRef.update({
       users: {
         [userId]: {
@@ -217,26 +235,73 @@ export const addUserToTeam = (score, teamId, userId) => async dispatch => {
         }
       }
     });
-    //TODO: add competition id to user
+
+    firebaseDB
+      .collection("users")
+      .doc(userId)
+      .set(
+        {
+          competitions: {
+            [competitionId]: true
+          },
+          teams: {
+            [teamId]: true
+          }
+        },
+        { merge: true }
+      );
   } catch (error) {
     dispatch(getTeamError(error));
   }
 };
 
-//TODO: action to remove user from the team
-export const removeUserFromTeam = (teamId, userId) => {
-  //
+// Async action to remove user from the team
+export const removeUserFromTeam = async (
+  teamId,
+  competitionId,
+  userId
+) => async dispatch => {
+  const teamRef = firebaseDB.collection("teams").doc(teamId);
+  const userRef = firebaseDB.collection("users").doc(userId);
+
+  try {
+    const users = await teamRef.get().then(snapshot => snapshot.data().users);
+    const { competitions, teams } = await userRef
+      .get()
+      .then(snapshot => snapshot.data());
+
+    delete users[userId];
+    delete competitions[competitionId];
+    delete teams[teamId];
+
+    if (users === {}) {
+      teamRef.delete();
+    } else {
+      teamRef.update({
+        users: users
+      });
+      userRef.updata({
+        competitions: competitions,
+        teams: teams
+      });
+    }
+  } catch (error) {
+    dispatch(getTeamError(error));
+  }
 };
-const intitialState = {
-  isLoading: false,
-  bestMatch: {},
-  otherMatches: [],
-  error: "",
-  tempData: {},
-  noMatch: false
-};
+
 // Reducer
-export default (state = intitialState, action) => {
+export default (
+  state = {
+    isLoading: false,
+    bestMatch: {},
+    otherMatches: [],
+    error: "",
+    tempData: {},
+    noMatch: false
+  },
+  action
+) => {
   switch (action.type) {
     case GET_TEAM_LOADING:
       return {
@@ -279,8 +344,6 @@ export default (state = intitialState, action) => {
         bestMatch: {},
         otherMatches: []
       };
-    case RESET_TEAM:
-      return intitialState;
     default:
       return state;
   }
